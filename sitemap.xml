@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://groovemarkhq.com/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://groovemarkhq.com/services/website-design.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/images/services/website-design-1200.jpg</image:loc>
+      <image:title>Custom website design process for local businesses</image:title>
+      <image:caption>Wireframe to launch: how Groovemark builds custom websites for local businesses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://groovemarkhq.com/services/social-media.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/images/services/social-media-1200.jpg</image:loc>
+      <image:title>Social media content strategy and management for local businesses</image:title>
+      <image:caption>Strategy to feed: how Groovemark turns followers into paying customers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://groovemarkhq.com/services/ai-systems.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/images/services/ai-systems-1200.jpg</image:loc>
+      <image:title>AI systems and automation dashboard for local businesses</image:title>
+      <image:caption>Hours saved and leads captured: an AI-powered operations layer for local businesses</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://groovemarkhq.com/legal/privacy.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://groovemarkhq.com/legal/terms.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#252830" />
+<title>Privacy Policy | Groovemark</title>
+<meta name="description" content="How Groovemark collects, uses, and protects your information. Plain English, no legalese tricks." />
+<meta name="author" content="Jonathan Kaufman, Groovemark LLC" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://groovemarkhq.com/legal/privacy.html" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+<!-- Favicon and PWA icons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-192.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="mask-icon" href="/mask-icon.svg" color="#252830" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-title" content="Groovemark" />
+
+<style>
+  :root {
+    --navy: #252830;
+    --navy-hover: #32363F;
+    --navy-active: #1B1E25;
+    --slate: #6B7280;
+    --slate-soft: #E1E4E9;
+    --gray: #5A6370;
+    --cream: #F6F2EC;
+    --accent: #B8573E;
+    --accent-dark: #8C3D28;
+    --eyebrow: #4A5261;
+    --white: #FFFFFF;
+    --border: rgba(37, 40, 48, 0.08);
+    --radius: 8px;
+    --transition: 0.15s ease;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  
+    --border-subtle: rgba(37, 40, 48, 0.06);
+    --pad-x: 24px;
+    --radius-card: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--navy);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+  a:hover { color: var(--accent-dark); }
+
+  .skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 9999;
+    padding: 12px 20px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: top 0.2s ease;
+  }
+  .skip-to-content:focus { top: 16px; outline: 2px solid var(--slate-soft); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Header */
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  
+  
+  
+  
+  
+  
+  
+
+  /* Main legal content */
+  .legal-main {
+    flex: 1;
+    padding: 64px 32px;
+  }
+  .legal-content {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    display: inline-block;
+    color: var(--eyebrow);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin: 0 0 16px;
+  }
+  .lead {
+    font-size: 18px;
+    color: var(--gray);
+    line-height: 1.65;
+    margin: 0 0 16px;
+  }
+  .meta {
+    font-size: 14px;
+    color: var(--gray);
+    margin: 0 0 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta strong { color: var(--navy); }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 48px 0 16px;
+    color: var(--navy);
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 28px 0 10px;
+    color: var(--navy);
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--navy);
+    margin: 0 0 16px;
+  }
+  ul {
+    margin: 0 0 16px;
+    padding-left: 24px;
+  }
+  li {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  strong { font-weight: 600; }
+
+  .callout {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .callout p { margin: 0; font-size: 15px; color: var(--gray); }
+  .callout strong { color: var(--navy); }
+
+  /* TOC */
+  .toc {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 0 0 48px;
+  }
+  .toc-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--eyebrow);
+    margin-bottom: 12px;
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+  }
+  .toc li {
+    counter-increment: toc;
+    margin-bottom: 6px;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+  }
+  .toc li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    color: var(--gray);
+    font-weight: 500;
+  }
+  .toc a { color: var(--navy); }
+  .toc a:hover { color: var(--accent); }
+
+  /* Contact section */
+  .contact-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-top: 48px;
+  }
+  .contact-block h2 { margin-top: 0; }
+
+  /* Footer */
+
+  @media (max-width: 559px) {
+    .legal-main { padding: 40px 0; }
+    .container { padding: 0 24px; }
+    .contact-block { padding: 24px; }
+    .toc { padding: 20px 24px; }
+    h2 { font-size: 20px; }
+  }
+
+  /* Site footer (full version, identical across all pages) */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 56px 0 32px;
+    background: var(--white);
+  }
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 360px;
+  }
+  .footer-tagline {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+    text-wrap: balance;
+    max-width: 28em;
+  }
+  .footer-locations {
+    margin-top: 14px;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    opacity: 0.85;
+    text-wrap: balance;
+    max-width: 28em;
+  }
+  .footer-services,
+  .footer-help {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-services .label,
+  .footer-help .label,
+  .footer-right .label {
+    color: var(--gray);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+  }
+  .footer-services a,
+  .footer-help a {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color var(--transition);
+  }
+  .footer-services a:hover,
+  .footer-help a:hover { color: var(--slate); }
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .footer-right .label {
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+  .footer-right .label:first-child { margin-top: 0; }
+  .footer-right a { color: inherit; transition: color var(--transition); }
+  .footer-right a:hover { color: var(--slate); }
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: var(--gray);
+    font-size: 13px;
+  }
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-legal a {
+    color: var(--gray);
+    transition: color var(--transition);
+  }
+  .footer-legal a:hover {
+    color: var(--accent);
+  }
+  .footer-legal span {
+    color: var(--border);
+  }
+  .logo--footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .logo--footer .groove { color: var(--navy); }
+  .logo--footer .mark { color: var(--accent); }
+
+  @media (max-width: 768px) {
+    .footer-right { align-items: flex-start; }
+    .footer-bottom { flex-direction: column; }
+  }
+
+
+  /* === Header / Nav (ported from homepage for cross-page consistency) === */
+  body.menu-open { overflow: hidden; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: var(--radius);
+    min-height: 48px;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+    white-space: nowrap;
+    text-align: center;
+    letter-spacing: -0.005em;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    border: 1.5px solid var(--navy);
+  }
+
+  .btn-primary:hover { background: var(--navy-hover); border-color: var(--navy-hover); }
+
+  .btn-primary:active { background: var(--navy-active); border-color: var(--navy-active); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+  }
+
+  .btn-secondary:hover { background: var(--cream); }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 42px;
+    line-height: 1;
+  }
+
+  .logo .groove { color: var(--navy); }
+
+  .logo .mark { color: var(--accent); }
+
+  .logo svg { flex-shrink: 0; }
+
+  @media (max-width: 879px) {
+    .logo { font-size: 32px; gap: 12px; }
+  }
+
+  @media (max-width: 559px) {
+    .logo { font-size: 24px; gap: 10px; }
+  }
+
+  @media (max-width: 380px) {
+    .logo { font-size: 22px; gap: 8px; }
+  }
+
+  .mobile-menu .logo > span { display: inline-flex; }
+
+  .mobile-menu .logo { gap: 12px; font-size: 28px; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.94);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    gap: 24px;
+  }
+
+  .nav-desktop {
+    display: none;
+    align-items: center;
+    gap: 22px;
+  }
+
+  @media (min-width: 880px) {
+    .nav-desktop { display: flex; }
+  }
+
+  .nav-desktop a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color var(--transition);
+    padding: 8px 0;
+  }
+
+  .nav-desktop a:hover { color: var(--slate); }
+
+  .nav-item-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color var(--transition);
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .nav-dropdown-toggle:hover { color: var(--slate); }
+
+  .nav-dropdown-toggle svg {
+    transition: transform var(--transition);
+  }
+
+  .nav-item-dropdown:hover .nav-dropdown-toggle svg,
+  .nav-item-dropdown.open .nav-dropdown-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 280px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: 0 10px 30px rgba(37, 40, 48, 0.08), 0 4px 10px rgba(37, 40, 48, 0.04);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    z-index: 90;
+  }
+
+  .nav-item-dropdown:hover .nav-dropdown-menu,
+  .nav-item-dropdown.open .nav-dropdown-menu,
+  .nav-item-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav-item-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+
+  .nav-dropdown-menu a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  .nav-dropdown-menu .dd-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .nav-dropdown-menu .dd-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+    line-height: 1.45;
+  }
+
+  .nav-dropdown-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 6px 4px;
+  }
+
+  .nav-dropdown-menu .dd-overview {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 10px 14px;
+  }
+
+  .nav-dropdown-menu .dd-overview:hover {
+    color: var(--navy);
+  }
+
+  .mobile-services-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .mobile-services-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+  }
+
+  .mobile-services-toggle svg {
+    transition: transform var(--transition);
+  }
+
+  .mobile-services-group.open .mobile-services-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .mobile-services-submenu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 4px;
+  }
+
+  .mobile-services-group.open .mobile-services-submenu {
+    display: flex;
+  }
+
+  .mobile-services-submenu a {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  .mobile-services-submenu a:hover {
+    color: var(--navy);
+  }
+
+  .header-cta .btn {
+    padding: 12px 22px;
+    min-height: 44px;
+  }
+
+  @media (max-width: 559px) {
+    .header-cta { display: none; }
+  }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 8px;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+  }
+
+  .hamburger:hover { background: rgba(0, 0, 0, 0.04); }
+
+  .hamburger svg { stroke: var(--navy); }
+
+  @media (min-width: 880px) { .hamburger { display: none; } }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    padding: env(safe-area-inset-top) var(--pad-x) env(safe-area-inset-bottom);
+  }
+
+  .mobile-menu[aria-hidden="false"] { display: flex; }
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .mobile-menu-close {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+  }
+
+  .mobile-menu-close:hover { background: rgba(0, 0, 0, 0.04); }
+
+  .mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+    padding: 40px 0;
+  }
+
+  .mobile-menu-nav a {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color var(--transition);
+  }
+
+  .mobile-menu-nav a:hover { color: var(--slate); }
+
+  .mobile-menu-nav .btn {
+    margin-top: 16px;
+    font-size: 16px;
+    padding: 16px 32px;
+    min-height: 52px;
+  }
+
+  .mobile-menu-nav a.btn-primary {
+    color: var(--white);
+  }
+
+  .mobile-menu-nav a.btn-primary:hover {
+    color: var(--white);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--slate);
+    outline-offset: 3px;
+  }
+</style>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-usC1Nn8pXHeAQj-6wZJ18.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+</head>
+<body>
+<a class="skip-to-content" href="#main">Skip to main content</a>
+
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Groovemark home">
+      <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="36" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="12" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="36" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="24" cy="12" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="12" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="36" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="24" cy="36" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="24" cy="24" r="4" fill="#B8573E" stroke="#252830" stroke-width="0.6"/>
+      </svg>
+      <span><span class="groove">Groove</span><span class="mark">mark</span></span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <div class="nav-item-dropdown" id="nav-services-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+          Services
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" id="nav-services-menu" role="menu">
+          <a href="/services/website-design.html" role="menuitem">
+            <span class="dd-title">Website Design</span>
+            <span class="dd-desc">Clean, fast sites that turn visitors into customers.</span>
+          </a>
+          <a href="/services/social-media.html" role="menuitem">
+            <span class="dd-title">Social Media</span>
+            <span class="dd-desc">A presence that looks active, professional, and trustworthy.</span>
+          </a>
+          <a href="/services/ai-systems.html" role="menuitem">
+            <span class="dd-title">AI Systems</span>
+            <span class="dd-desc">Practical automation that handles the routine work.</span>
+          </a>
+          <div class="nav-dropdown-divider"></div>
+          <a href="/#services" class="dd-overview" role="menuitem">All services overview &rarr;</a>
+        </div>
+      </div>
+      <a href="/#process">Process</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#about">About</a>
+    </nav>
+
+    <div style="display:flex; align-items:center;">
+      <div class="header-cta">
+        <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-primary" aria-label="Open email to start a conversation with Groovemark">Get in touch</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <a href="/" class="logo" data-close-menu aria-label="Groovemark home">
+      <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="36" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="12" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="36" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+        <circle cx="24" cy="12" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="12" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="36" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="24" cy="36" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+        <circle cx="24" cy="24" r="4" fill="#B8573E" stroke="#252830" stroke-width="0.6"/>
+      </svg>
+      <span><span class="groove">Groove</span><span class="mark">mark</span></span>
+    </a>
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6l12 12M6 18L18 6" stroke="#252830" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu-nav" aria-label="Mobile">
+    <div class="mobile-services-group" id="mobile-services-group">
+      <button class="mobile-services-toggle" aria-expanded="false" aria-controls="mobile-services-submenu">
+        Services
+        <svg width="14" height="9" viewBox="0 0 14 9" fill="none" aria-hidden="true">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="mobile-services-submenu" id="mobile-services-submenu">
+        <a href="/services/website-design.html" data-close-menu>Website Design</a>
+        <a href="/services/social-media.html" data-close-menu>Social Media</a>
+        <a href="/services/ai-systems.html" data-close-menu>AI Systems</a>
+        <a href="/#services" data-close-menu>All services</a>
+      </div>
+    </div>
+    <a href="/#process" data-close-menu>Process</a>
+    <a href="/#pricing" data-close-menu>Pricing</a>
+    <a href="/#about" data-close-menu>About</a>
+    <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-primary" data-close-menu>Get in touch</a>
+  </nav>
+</div>
+
+<main id="main" class="legal-main">
+  <div class="container legal-content">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="lead">Plain English, no tracking tricks. Here is exactly what we collect, why, and what you can do about it.</p>
+    <p class="meta"><strong>Effective date:</strong> April 28, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Last updated:</strong> April 28, 2026</p>
+
+    <div class="toc" aria-label="Table of contents">
+      <span class="toc-label">In this policy</span>
+      <ol>
+        <li><a href="#who-we-are">Who we are</a></li>
+        <li><a href="#what-we-collect">What we collect</a></li>
+        <li><a href="#how-we-use">How we use it</a></li>
+        <li><a href="#sharing">Who we share it with</a></li>
+        <li><a href="#cookies">Cookies and tracking</a></li>
+        <li><a href="#your-rights">Your rights</a></li>
+        <li><a href="#california">California residents (CCPA)</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#retention">How long we keep data</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </div>
+
+    <h2 id="who-we-are">1. Who we are</h2>
+    <p>Groovemark is the brand and trade name of Groovemark LLC, a Montana limited liability company. When this policy says "we," "us," or "Groovemark," we mean Groovemark LLC. When we say "you," we mean anyone visiting groovemarkhq.com or any of our subpages.</p>
+    <p>This policy applies to the website at <strong>groovemarkhq.com</strong> and any related pages or services we operate. It does not apply to third-party websites we link to, and it does not apply to the working relationship we have with paying clients (that is governed by your signed services agreement).</p>
+
+    <h2 id="what-we-collect">2. What we collect</h2>
+
+    <h3>Information you give us directly</h3>
+    <p>If you email us using a contact link, fill out a contact form, or sign up for our newsletter, we collect the information you choose to share. That typically includes:</p>
+    <ul>
+      <li>Your name</li>
+      <li>Your email address</li>
+      <li>Your phone number (if you provide it)</li>
+      <li>The contents of your message</li>
+      <li>Any business or project details you choose to include</li>
+    </ul>
+
+    <h3>Information collected automatically</h3>
+    <p>When you visit the site, we collect basic, non-identifying information through privacy-friendly analytics. This typically includes:</p>
+    <ul>
+      <li>The pages you visit and how long you stay</li>
+      <li>The website that referred you (if any)</li>
+      <li>Your approximate geographic region (country or state level, not your specific address)</li>
+      <li>The type of device, browser, and operating system you are using</li>
+    </ul>
+    <p>We do not use invasive trackers, fingerprinting, or third-party advertising cookies on our site.</p>
+
+    <div class="callout">
+      <p><strong>What we do not collect:</strong> we do not ask for or store sensitive personal information such as government identification numbers, financial account numbers, health information, or precise location data. If you ever feel a form is asking for more than it should, do not submit it and let us know.</p>
+    </div>
+
+    <h2 id="how-we-use">3. How we use it</h2>
+    <p>We use the information we collect for a small, specific list of purposes:</p>
+    <ul>
+      <li><strong>To respond to you.</strong> If you reach out, we use your contact information to reply, answer questions, and discuss potential work.</li>
+      <li><strong>To deliver services.</strong> If you become a client, we use your information to do the work you hired us to do.</li>
+      <li><strong>To send newsletters or updates,</strong> but only if you opted in. Every email includes an unsubscribe link, and unsubscribing is one click.</li>
+      <li><strong>To improve the site.</strong> Aggregate analytics help us understand which pages are useful and which are not.</li>
+      <li><strong>To meet legal obligations.</strong> If we are required by law to retain or disclose information, we will.</li>
+    </ul>
+    <p>We do not sell your information. We do not rent it. We do not trade it. We do not use it to train AI models. We do not build advertising profiles on you.</p>
+
+    <h2 id="sharing">4. Who we share it with</h2>
+    <p>We share your information only with service providers we use to actually run the business, and only the minimum amount needed for them to do their job. These typically include:</p>
+    <ul>
+      <li><strong>Email and hosting providers</strong> (so we can send and receive email and host the website)</li>
+      <li><strong>Analytics providers</strong> (so we can understand site usage in aggregate)</li>
+      <li><strong>Newsletter platforms</strong> (if you opt in to receive emails from us)</li>
+      <li><strong>Payment processors</strong> (if you become a paying client; payments are handled by reputable third-party processors and we do not store credit card details on our systems)</li>
+      <li><strong>Professional advisors</strong> (such as accountants or attorneys, when needed)</li>
+    </ul>
+    <p>We will also disclose information if required by a valid legal request, court order, or to protect our legal rights, the safety of others, or to investigate fraud.</p>
+    <p>If Groovemark LLC is ever sold, merged, or otherwise transferred, your information may transfer with it. We will notify you on this page if that happens, and the successor entity will be bound by this policy until it updates it.</p>
+
+    <h2 id="cookies">5. Cookies and tracking</h2>
+    <p>A cookie is a small piece of data a website stores in your browser. Our site uses the minimum amount of cookies needed to function, and we use a privacy-friendly analytics provider that does not require cookie banners or invasive tracking.</p>
+    <p>If we ever add cookies that require your consent under applicable law, we will show a banner asking before they are set.</p>
+    <p>You can disable cookies in your browser settings at any time. Doing so should not affect your ability to read or browse the site.</p>
+
+    <h2 id="your-rights">6. Your rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Know what we have.</strong> Email us and we will tell you what information we hold about you.</li>
+      <li><strong>Correct it.</strong> If anything we have is wrong, we will fix it.</li>
+      <li><strong>Delete it.</strong> Unless we are legally required to keep it (for example, for tax records on past invoices), we will delete it on request.</li>
+      <li><strong>Unsubscribe.</strong> Every newsletter email has a one-click unsubscribe link. You can also email us and we will remove you manually.</li>
+      <li><strong>Opt out of analytics.</strong> Most browsers offer "do not track" settings or extensions that block analytics. We honor these.</li>
+    </ul>
+    <p>To exercise any of these rights, email us at <a href="mailto:hello@groovemarkhq.com">hello@groovemarkhq.com</a>. We will respond within 30 days.</p>
+
+    <h2 id="california">7. California residents (CCPA)</h2>
+    <p>If you are a California resident, the California Consumer Privacy Act gives you specific rights regarding your personal information:</p>
+    <ul>
+      <li>The right to know what personal information we collect about you</li>
+      <li>The right to delete personal information we have collected from you</li>
+      <li>The right to opt out of the sale of personal information (we do not sell personal information, so there is nothing to opt out of)</li>
+      <li>The right to non-discrimination for exercising any of these rights</li>
+    </ul>
+    <p>To exercise these rights, email <a href="mailto:hello@groovemarkhq.com">hello@groovemarkhq.com</a> with the subject line "California Privacy Request." We will verify your identity (typically by confirming the email address on file) and respond within 45 days.</p>
+
+    <h2 id="children">8. Children</h2>
+    <p>This site is intended for business owners and adults. We do not knowingly collect information from children under 13. If we learn that we have collected information from a child under 13 without verified parental consent, we will delete it.</p>
+
+    <h2 id="security">9. Security</h2>
+    <p>We take reasonable steps to protect your information, including using HTTPS encryption on the site, limiting who has access to client data, and using reputable service providers with their own security practices. However, no system is 100 percent secure. If we ever discover a breach that affects your information, we will notify you and take prompt action to address it.</p>
+
+    <h2 id="retention">10. How long we keep data</h2>
+    <p>We keep information only as long as we need it for the purposes described in this policy. As a general rule:</p>
+    <ul>
+      <li><strong>Email inquiries</strong> are kept for up to 24 months, then deleted unless we have an active project relationship.</li>
+      <li><strong>Newsletter subscriptions</strong> are kept until you unsubscribe.</li>
+      <li><strong>Analytics data</strong> is kept in aggregate form and is not tied to identifiable individuals.</li>
+      <li><strong>Client records</strong> (invoices, contracts, project files) are kept for at least 7 years to meet US tax and accounting requirements.</li>
+    </ul>
+
+    <h2 id="changes">11. Changes to this policy</h2>
+    <p>We may update this policy from time to time as the business grows or as laws change. When we do, we will update the "Last updated" date at the top of this page. For material changes that affect how we use your information, we will provide additional notice (such as an email if we have your address on file). Continued use of the site after a change means you accept the updated policy.</p>
+
+    <div class="contact-block" id="contact">
+      <h2>12. Contact us</h2>
+      <p>Questions about this policy, requests to access or delete your information, or anything else privacy-related:</p>
+      <p><strong>Email:</strong> <a href="mailto:hello@groovemarkhq.com?subject=Privacy%20question">hello@groovemarkhq.com</a><br/>
+      <strong>Phone:</strong> +1 (203) 803-0719<br/>
+      <strong>Mail:</strong> Groovemark LLC, United States</p>
+      <p>We aim to respond to all privacy inquiries within five business days.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-left">
+        <a href="/" class="logo logo--footer" aria-label="Groovemark home">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+            <circle cx="36" cy="12" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+            <circle cx="12" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+            <circle cx="36" cy="36" r="3.4" fill="none" stroke="#252830" stroke-width="1.2"/>
+            <circle cx="24" cy="12" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+            <circle cx="12" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+            <circle cx="36" cy="24" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+            <circle cx="24" cy="36" r="4" fill="#252830" stroke="#252830" stroke-width="0.6"/>
+            <circle cx="24" cy="24" r="4" fill="#B8573E" stroke="#252830" stroke-width="0.6"/>
+          </svg>
+          <span><span class="groove">Groove</span><span class="mark">mark</span></span>
+        </a>
+        <p class="footer-tagline">Website Design. Social Media. AI Systems.</p>
+        <p class="footer-locations">Remote-first &middot; Serving Local US Businesses</p>
+      </div>
+      <div class="footer-services">
+        <span class="label">Services</span>
+        <a href="/services/website-design.html">Website Design</a>
+        <a href="/services/social-media.html">Social Media</a>
+        <a href="/services/ai-systems.html">AI Systems</a>
+      </div>
+      <div class="footer-help">
+        <span class="label">Help</span>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="footer-right">
+        <span class="label">Email</span>
+        <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A">hello@groovemarkhq.com</a>
+        <span class="label">Phone</span>
+        <a href="tel:+12038030719">203-803-0719</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Groovemark LLC. All rights reserved.</span>
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="/legal/privacy.html">Privacy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="/legal/terms.html">Terms</a>
+      </nav>
+      <span>Marketing that moves. Service that stays.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header / Nav scripts (mobile menu, dropdowns, year)
+  (function() {
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+
+  (function() {
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    if (!hamburger || !menu || !closeBtn) return;
+    const closeLinks = document.querySelectorAll('[data-close-menu]');
+
+    function openMenu() {
+      menu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+    function closeMenu() {
+      menu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      const servicesGroup = document.getElementById('mobile-services-group');
+      if (servicesGroup) {
+        servicesGroup.classList.remove('open');
+        const toggle = servicesGroup.querySelector('.mobile-services-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+    hamburger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    closeLinks.forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.getAttribute('aria-hidden') === 'false') closeMenu();
+    });
+  })();
+
+  (function() {
+    const group = document.getElementById('mobile-services-group');
+    if (!group) return;
+    const toggle = group.querySelector('.mobile-services-toggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = group.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  })();
+
+  (function() {
+    const dropdown = document.getElementById('nav-services-dropdown');
+    if (!dropdown) return;
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = dropdown.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
