@@ -29,17 +29,14 @@
 <meta name="twitter:description" content="AI chatbots, voice agents, and lead follow-up automation for local businesses. Plus the visibility layer for ChatGPT and Perplexity." />
 <meta name="twitter:image" content="https://groovemarkhq.com/og-image.jpg" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+<!-- Fonts (self-hosted) -->
+<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- Favicon and PWA icons -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="/icon-192.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="mask-icon" href="/mask-icon.svg" color="#252830" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/manifest.json" />
 <meta name="apple-mobile-web-app-title" content="Groovemark" />
 
@@ -91,6 +88,48 @@
 
 <style>
   /* ============================================
+     FONTS (self-hosted Inter + metric-matched fallback)
+  ============================================ */
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Metric-matched fallback (Arial adjusted to Inter dimensions) */
+  /* Eliminates the visible reflow when Inter swaps in */
+  @font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    ascent-override: 90%;
+    descent-override: 22.43%;
+    line-gap-override: 0%;
+    size-adjust: 107.4%;
+  }
+
+  /* ============================================
      CSS VARIABLES (Brand System)
   ============================================ */
   :root {
@@ -114,7 +153,7 @@
     --section-pad: 112px;
     --section-pad-mobile: 72px;
 
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
     --radius: 8px;
     --radius-card: 12px;
@@ -1313,7 +1352,6 @@
     font-size: 12px;
     line-height: 1.55;
     letter-spacing: 0.01em;
-    opacity: 0.85;
     text-wrap: balance;
     max-width: 28em;
   }

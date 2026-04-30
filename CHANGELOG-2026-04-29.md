@@ -85,3 +85,15 @@ All 7 pages pass:
 - Self-hosted fonts referenced correctly
 - New SVG favicon referenced correctly
 - mask-icon references fully removed
+
+## 5. Footer contrast fix (accessibility)
+
+Lighthouse flagged the footer as failing WCAG AA contrast minimum. Root cause was
+.footer-locations using `var(--gray)` (#5A6370) WITH opacity: 0.85, which dropped the
+effective color to ~#727A85 on white — about 4.0:1 contrast. AA minimum is 4.5:1.
+
+**Fix:** Removed `opacity: 0.85` from .footer-locations across all 7 pages. The base
+color (#5A6370) on white is now 5.3:1, which passes AA cleanly. Visual difference is
+imperceptible.
+
+**Files changed:** all 7 HTML files (.footer-locations CSS rule)
