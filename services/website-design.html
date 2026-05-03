@@ -29,6 +29,7 @@
 <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://plausible.io" />
 
 <!-- Favicon and PWA icons -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -84,20 +85,11 @@
 </script>
 
 <style>
-  /* ============================================
-     FONTS (self-hosted Inter + metric-matched fallback)
-  ============================================ */
+  /* FONTS (self-hosted Inter + metric-matched fallback) */
   @font-face {
     font-family: 'Inter';
     src: url('/fonts/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Medium.woff2') format('woff2');
-    font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
@@ -126,9 +118,7 @@
     size-adjust: 107.4%;
   }
 
-  /* ============================================
-     CSS VARIABLES (Brand System)
-  ============================================ */
+  /* CSS VARIABLES (Brand System) */
   :root {
     --navy: #252830;
     --navy-hover: #32363F;
@@ -510,9 +500,7 @@
   .mobile-services-submenu a.current { color: var(--navy); font-weight: 600; }
   .mobile-services-submenu a:hover { color: var(--navy); }
 
-  /* ============================================
-     BREADCRUMB
-  ============================================ */
+  /* BREADCRUMB */
   .breadcrumb {
     padding: 24px 0 0;
     font-size: 13px;
@@ -526,9 +514,7 @@
   .breadcrumb .sep { margin: 0 8px; color: var(--gray-soft); }
   .breadcrumb .current { color: var(--navy); font-weight: 600; }
 
-  /* ============================================
-     SERVICE HERO
-  ============================================ */
+  /* SERVICE HERO */
   .service-hero {
     padding: 56px 0 72px;
     background: var(--white);
@@ -576,9 +562,7 @@
     flex-wrap: wrap;
   }
 
-  /* ============================================
-     HERO SIDE-BY-SIDE GRID (desktop only)
-  ============================================ */
+  /* HERO SIDE-BY-SIDE GRID (desktop only) */
   .hero-grid {
     display: block;
   }
@@ -629,11 +613,7 @@
     opacity: 0.5;
   }
 
-  /* ============================================
-     SIGNATURE VISUAL: 50ms Decision Window
-     A single typographic moment. No container, no decoration.
-     Pure typography in space. The science is the visual.
-  ============================================ */
+  /* SIGNATURE VISUAL: 50ms Decision Window A single typographic moment. No container, no decoration. Pure typography in space. The science is the visual. */
   .ms-hero {
     margin: 12px 0 12px;
     max-width: 460px;
@@ -665,7 +645,7 @@
     font-size: 14px;
     line-height: 1.55;
     color: var(--gray);
-    font-weight: 500;
+    font-weight: 600;
   }
   .ms-hero-couplet {
     margin: 32px auto 0;
@@ -758,9 +738,7 @@
       transition: none;
     }
   }
-  /* ============================================
-     SECTION DEFAULTS
-  ============================================ */
+  /* SECTION DEFAULTS */
   section {
     padding: var(--section-pad-mobile) 0;
   }
@@ -785,12 +763,8 @@
     line-height: 1.65;
   }
 
-  /* ============================================
-     OVERVIEW SECTION
-  ============================================ */
-  /* ============================================
-     FEATURES GRID
-  ============================================ */
+  /* OVERVIEW SECTION */
+  /* FEATURES GRID */
   .features {
     background: var(--cream);
   }
@@ -835,9 +809,7 @@
     line-height: 1.6;
   }
 
-  /* ============================================
-     PROCESS SECTION (matches main page)
-  ============================================ */
+  /* PROCESS SECTION (matches main page) */
   .service-process {
     background: var(--white);
   }
@@ -891,9 +863,7 @@
     line-height: 1.65;
   }
 
-  /* ============================================
-     PRICING
-  ============================================ */
+  /* PRICING */
   .pricing {
     background: var(--cream);
   }
@@ -1371,9 +1341,7 @@
     line-height: 1.55;
   }
 
-  /* ============================================
-     FAQ (service-specific)
-  ============================================ */
+  /* FAQ (service-specific) */
   .service-faq {
     background: var(--white);
   }
@@ -1420,9 +1388,7 @@
     max-width: 760px;
   }
 
-  /* ============================================
-     CTA SECTION
-  ============================================ */
+  /* CTA SECTION */
   .cta-section {
     background: var(--navy);
     color: var(--white);
@@ -1464,9 +1430,7 @@
     color: var(--navy);
   }
 
-  /* ============================================
-     FOOTER
-  ============================================ */
+  /* FOOTER */
   .site-footer {
     border-top: 1px solid var(--border);
     padding: 56px 0 32px;
@@ -1602,9 +1566,7 @@
     h2 br { margin-top: 0.08em; }
   }
 
-  /* ============================================
-     ACCESSIBILITY
-  ============================================ */
+  /* ACCESSIBILITY */
   .skip-to-content {
     position: absolute;
     top: -100px;
@@ -1647,9 +1609,7 @@
     outline-offset: 2px;
   }
 
-  /* ============================================
-     STICKY MOBILE CTA
-  ============================================ */
+  /* STICKY MOBILE CTA */
   .sticky-mobile-cta {
     display: none;
   }
@@ -1716,14 +1676,12 @@
   }
 
 
-  /* ============================================
-     PROCESS V2 (with timing + roles)
-  ============================================ */
+  /* PROCESS V2 (with timing + roles) */
   .process-step .phase-duration {
     display: inline-block;
     margin-left: 12px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gray);
     letter-spacing: 0.02em;
   }
@@ -1769,9 +1727,7 @@
     margin-right: 6px;
   }
 
-  /* ============================================
-     CTA SECTION V2 (with outcomes list)
-  ============================================ */
+  /* CTA SECTION V2 (with outcomes list) */
   .cta-section .container {
     max-width: 920px;
   }
@@ -1819,9 +1775,7 @@
     margin-top: 7px;
   }
 
-  /* ============================================
-     TIER BEST-FOR LINE
-  ============================================ */
+  /* TIER BEST-FOR LINE */
   .pricing-best-for {
     display: block;
     font-size: 12.5px;
@@ -2686,7 +2640,7 @@
   <!-- ============================================
        STICKY MOBILE CTA (subpages only)
   ============================================ -->
-  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true">
+  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true" inert>
     <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="sticky-cta-primary" aria-label="Open email to start a conversation with Groovemark">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span>Start the conversation</span>
@@ -2732,9 +2686,11 @@
           if (entry.isIntersecting) {
             sticky.classList.remove('is-visible');
             sticky.setAttribute('aria-hidden', 'true');
+            sticky.setAttribute('inert', '');
           } else {
             sticky.classList.add('is-visible');
             sticky.setAttribute('aria-hidden', 'false');
+            sticky.removeAttribute('inert');
           }
         });
       }, { threshold: 0 });

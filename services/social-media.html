@@ -29,6 +29,7 @@
 <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://plausible.io" />
 
 <!-- Favicon and PWA icons -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -84,20 +85,11 @@
 </script>
 
 <style>
-  /* ============================================
-     FONTS (self-hosted Inter + metric-matched fallback)
-  ============================================ */
+  /* FONTS (self-hosted Inter + metric-matched fallback) */
   @font-face {
     font-family: 'Inter';
     src: url('/fonts/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Medium.woff2') format('woff2');
-    font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
@@ -126,9 +118,7 @@
     size-adjust: 107.4%;
   }
 
-  /* ============================================
-     CSS VARIABLES (Brand System)
-  ============================================ */
+  /* CSS VARIABLES (Brand System) */
   :root {
     --navy: #252830;
     --navy-hover: #32363F;
@@ -511,9 +501,7 @@
   .mobile-services-submenu a.current { color: var(--navy); font-weight: 600; }
   .mobile-services-submenu a:hover { color: var(--navy); }
 
-  /* ============================================
-     BREADCRUMB
-  ============================================ */
+  /* BREADCRUMB */
   .breadcrumb {
     padding: 24px 0 0;
     font-size: 13px;
@@ -527,9 +515,7 @@
   .breadcrumb .sep { margin: 0 8px; color: var(--gray-soft); }
   .breadcrumb .current { color: var(--navy); font-weight: 600; }
 
-  /* ============================================
-     SERVICE HERO
-  ============================================ */
+  /* SERVICE HERO */
   .service-hero {
     padding: 56px 0 72px;
     background: var(--white);
@@ -623,9 +609,7 @@
     text-decoration-color: var(--slate);
   }
 
-  /* ============================================
-     SIGNATURE MOTION: Busy feed building up, leads notification arrives
-  ============================================ */
+  /* SIGNATURE MOTION: Busy feed building up, leads notification arrives */
   .feed-result {
     position: relative;
     margin: 32px 0 36px;
@@ -675,7 +659,7 @@
     padding: 14px 16px;
     border-bottom: 1px solid var(--border-subtle);
     font-size: 11.5px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gray);
     letter-spacing: 0.02em;
   }
@@ -701,7 +685,7 @@
   .feed-card-week {
     font-feature-settings: "tnum" 1;
     color: var(--navy);
-    font-weight: 500;
+    font-weight: 600;
   }
   .feed-card-list {
     padding: 6px 0;
@@ -812,7 +796,7 @@
     margin-bottom: 3px;
     font-size: 10.5px;
     color: var(--gray-soft);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.01em;
   }
   .ig-notification-app {
@@ -853,9 +837,7 @@
     .feed-row-tag { display: none; }
   }
 
-  /* ============================================
-     SECTION DEFAULTS
-  ============================================ */
+  /* SECTION DEFAULTS */
   section {
     padding: var(--section-pad-mobile) 0;
   }
@@ -880,9 +862,7 @@
     line-height: 1.65;
   }
 
-  /* ============================================
-     OVERVIEW SECTION
-  ============================================ */
+  /* OVERVIEW SECTION */
   .overview {
     background: var(--cream);
   }
@@ -913,9 +893,7 @@
     margin-bottom: 20px;
   }
 
-  /* ============================================
-     FEATURES GRID
-  ============================================ */
+  /* FEATURES GRID */
   .features {
     background: var(--white);
   }
@@ -959,9 +937,7 @@
     line-height: 1.6;
   }
 
-  /* ============================================
-     PROCESS SECTION (matches main page)
-  ============================================ */
+  /* PROCESS SECTION (matches main page) */
   .service-process {
     background: var(--cream);
   }
@@ -1015,9 +991,7 @@
     line-height: 1.65;
   }
 
-  /* ============================================
-     PRICING
-  ============================================ */
+  /* PRICING */
   .pricing {
     background: var(--white);
   }
@@ -1253,9 +1227,7 @@
     line-height: 1.55;
   }
 
-  /* ============================================
-     SUCCESS TIMELINE: 30/60/90
-  ============================================ */
+  /* SUCCESS TIMELINE: 30/60/90 */
   .success-timeline {
     background: var(--cream);
   }
@@ -1314,9 +1286,7 @@
     margin-right: auto;
   }
 
-  /* ============================================
-     FAQ (service-specific)
-  ============================================ */
+  /* FAQ (service-specific) */
   .service-faq {
     background: var(--cream);
   }
@@ -1363,9 +1333,7 @@
     max-width: 760px;
   }
 
-  /* ============================================
-     CTA SECTION
-  ============================================ */
+  /* CTA SECTION */
   .cta-section {
     background: var(--navy);
     color: var(--white);
@@ -1407,9 +1375,7 @@
     color: var(--navy);
   }
 
-  /* ============================================
-     RELATED SERVICES
-  ============================================ */
+  /* RELATED SERVICES */
   .related-services {
     background: var(--white);
     padding: 72px 0;
@@ -1481,9 +1447,7 @@
   }
   .related-card:hover .arrow { gap: 10px; }
 
-  /* ============================================
-     FOOTER
-  ============================================ */
+  /* FOOTER */
   .site-footer {
     border-top: 1px solid var(--border);
     padding: 56px 0 32px;
@@ -1623,9 +1587,7 @@
     h2 br.br-desktop { display: none; }
   }
 
-  /* ============================================
-     ACCESSIBILITY
-  ============================================ */
+  /* ACCESSIBILITY */
   .skip-to-content {
     position: absolute;
     top: -100px;
@@ -1668,9 +1630,7 @@
     outline-offset: 2px;
   }
 
-  /* ============================================
-     STICKY MOBILE CTA
-  ============================================ */
+  /* STICKY MOBILE CTA */
   .sticky-mobile-cta {
     display: none;
   }
@@ -1736,9 +1696,7 @@
     }
   }
 
-  /* ============================================
-     SCROLL FADE-IN (IntersectionObserver-powered)
-  ============================================ */
+  /* SCROLL FADE-IN (IntersectionObserver-powered) */
   .fade-in {
     opacity: 0;
     transform: translateY(24px);
@@ -1758,9 +1716,7 @@
   }
 
 
-  /* ============================================
-     OVERVIEW IMAGE
-  ============================================ */
+  /* OVERVIEW IMAGE */
   .overview-image {
     margin: 0;
     border-radius: 10px;
@@ -1780,9 +1736,7 @@
     aspect-ratio: 4 / 3;
     object-fit: cover;
   }
-  /* ============================================
-     QUALIFY BAND (small section between Overview and Features)
-  ============================================ */
+  /* QUALIFY BAND (small section between Overview and Features) */
   .qualify-band {
     padding: 56px 32px 64px;
     background: var(--cream);
@@ -1842,9 +1796,7 @@
     }
   }
 
-  /* ============================================
-     DELIVERABLES BLOCK
-  ============================================ */
+  /* DELIVERABLES BLOCK */
   .deliverables {
     background: var(--white);
     border-top: 1px solid var(--border);
@@ -1898,14 +1850,12 @@
     padding-left: 26px;
   }
 
-  /* ============================================
-     PROCESS V2 (with timing + roles)
-  ============================================ */
+  /* PROCESS V2 (with timing + roles) */
   .process-step .phase-duration {
     display: inline-block;
     margin-left: 12px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gray);
     letter-spacing: 0.02em;
   }
@@ -1951,9 +1901,7 @@
     margin-right: 6px;
   }
 
-  /* ============================================
-     CTA SECTION V2 (with outcomes list)
-  ============================================ */
+  /* CTA SECTION V2 (with outcomes list) */
   .cta-section .container {
     max-width: 920px;
   }
@@ -2001,9 +1949,7 @@
     margin-top: 7px;
   }
 
-  /* ============================================
-     QUALIFY BAND CTA
-  ============================================ */
+  /* QUALIFY BAND CTA */
   .qualify-categories {
     margin: 28px 0 0;
     text-align: center;
@@ -2044,9 +1990,7 @@
     transform: translateX(3px);
   }
 
-  /* ============================================
-     TIER BEST-FOR LINE
-  ============================================ */
+  /* TIER BEST-FOR LINE */
   .pricing-best-for {
     display: block;
     font-size: 12.5px;
@@ -2062,9 +2006,7 @@
     border-bottom-color: rgba(255, 255, 255, 0.18);
   }
 
-  /* ============================================
-     TRUST CLOSE (replaces "Works well with")
-  ============================================ */
+  /* TRUST CLOSE (replaces "Works well with") */
   .trust-close {
     background: var(--white);
     border-top: 1px solid var(--border);
@@ -3038,7 +2980,7 @@
   <!-- ============================================
        STICKY MOBILE CTA (subpages only)
   ============================================ -->
-  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true">
+  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true" inert>
     <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="sticky-cta-primary" aria-label="Open email to start a conversation with Groovemark">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span>Start the conversation</span>
@@ -3084,9 +3026,11 @@
           if (entry.isIntersecting) {
             sticky.classList.remove('is-visible');
             sticky.setAttribute('aria-hidden', 'true');
+            sticky.setAttribute('inert', '');
           } else {
             sticky.classList.add('is-visible');
             sticky.setAttribute('aria-hidden', 'false');
+            sticky.removeAttribute('inert');
           }
         });
       }, { threshold: 0 });

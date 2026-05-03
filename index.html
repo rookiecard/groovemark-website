@@ -29,6 +29,7 @@
 <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://plausible.io" />
 
 <!-- Favicon and PWA icons -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -121,20 +122,11 @@
 </script>
 
 <style>
-  /* ============================================
-     FONTS (self-hosted Inter + metric-matched fallback)
-  ============================================ */
+  /* FONTS (self-hosted Inter + metric-matched fallback) */
   @font-face {
     font-family: 'Inter';
     src: url('/fonts/Inter-Regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Medium.woff2') format('woff2');
-    font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
@@ -163,9 +155,7 @@
     size-adjust: 107.4%;
   }
 
-  /* ============================================
-     CSS VARIABLES (Brand System)
-  ============================================ */
+  /* CSS VARIABLES (Brand System) */
   :root {
     --navy: #252830;
     --navy-hover: #32363F;
@@ -200,9 +190,7 @@
     --transition-slow: 0.25s ease;
   }
 
-  /* ============================================
-     RESET & BASE
-  ============================================ */
+  /* RESET & BASE */
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 
@@ -253,9 +241,7 @@
 
   p { margin: 0; }
 
-  /* ============================================
-     LAYOUT PRIMITIVES
-  ============================================ */
+  /* LAYOUT PRIMITIVES */
   .container {
     max-width: var(--container);
     margin: 0 auto;
@@ -285,9 +271,7 @@
     margin-top: 24px;
   }
 
-  /* ============================================
-     BUTTONS
-  ============================================ */
+  /* BUTTONS */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -321,9 +305,7 @@
   }
   .btn-secondary:hover { background: var(--cream); }
 
-  /* ============================================
-     LOGO
-  ============================================ */
+  /* LOGO */
   .logo {
     display: inline-flex;
     align-items: center;
@@ -352,9 +334,7 @@
   .mobile-menu .logo > span { display: inline-flex; }
   .mobile-menu .logo { gap: 12px; font-size: 28px; }
 
-  /* ============================================
-     HEADER
-  ============================================ */
+  /* HEADER */
   .site-header {
     position: sticky;
     top: 0;
@@ -393,9 +373,7 @@
   }
   .nav-desktop a:hover { color: var(--slate); }
 
-  /* ============================================
-     NAV DROPDOWN
-  ============================================ */
+  /* NAV DROPDOWN */
   .nav-item-dropdown {
     position: relative;
   }
@@ -631,9 +609,7 @@
     color: var(--white);
   }
 
-  /* ============================================
-     HERO
-  ============================================ */
+  /* HERO */
   .hero {
     padding: var(--hero-pad-top-mobile) 0 var(--hero-pad-bottom-mobile);
   }
@@ -723,9 +699,7 @@
     color: var(--gray);
   }
 
-  /* ============================================
-     SERVICES
-  ============================================ */
+  /* SERVICES */
   .services {
     background: var(--cream);
     padding-bottom: 64px;
@@ -835,9 +809,7 @@
     background: var(--gray);
   }
 
-  /* ============================================
-     PROCESS
-  ============================================ */
+  /* PROCESS */
   .process {
     background: var(--white);
   }
@@ -891,9 +863,7 @@
     line-height: 1.65;
   }
 
-  /* ============================================
-     ABOUT
-  ============================================ */
+  /* ABOUT */
   .about {
     background: var(--navy);
     color: var(--white);
@@ -922,9 +892,7 @@
     line-height: 1.7;
   }
 
-  /* ============================================
-     INDUSTRIES SERVED
-  ============================================ */
+  /* INDUSTRIES SERVED */
   .industries {
     background: var(--cream);
     padding-top: 32px;
@@ -1016,9 +984,7 @@
     font-weight: 600;
   }
 
-  /* ============================================
-     PRICING AT A GLANCE
-  ============================================ */
+  /* PRICING AT A GLANCE */
   .pricing-glance {
     background: var(--cream);
   }
@@ -1083,14 +1049,14 @@
   }
   .glance-price span:first-child {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gray);
     letter-spacing: 0;
     text-transform: uppercase;
   }
   .glance-per {
     font-size: 14px !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     color: var(--gray) !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
@@ -1114,9 +1080,7 @@
   }
   .glance-card:hover .glance-arrow { gap: 12px; }
 
-  /* ============================================
-     US VS THEM
-  ============================================ */
+  /* US VS THEM */
   .versus {
     background: var(--white);
   }
@@ -1294,9 +1258,7 @@
     transform: translate(1px, -1px);
   }
 
-  /* ============================================
-     FAQ
-  ============================================ */
+  /* FAQ */
   .faq {
     background: var(--white);
   }
@@ -1362,9 +1324,7 @@
     max-width: 760px;
   }
 
-  /* ============================================
-     CONTACT
-  ============================================ */
+  /* CONTACT */
   .contact {
     background: var(--cream);
   }
@@ -1392,9 +1352,7 @@
 
   a.v:hover { color: var(--slate); }
 
-  /* ============================================
-     FOOTER
-  ============================================ */
+  /* FOOTER */
   .site-footer {
     border-top: 1px solid var(--border);
     padding: 56px 0 32px;
@@ -1539,9 +1497,7 @@
     h2 br.br-desktop { display: none; }
   }
 
-  /* ============================================
-     ACCESSIBILITY
-  ============================================ */
+  /* ACCESSIBILITY */
   .skip-to-content {
     position: absolute;
     top: -100px;
@@ -1584,9 +1540,7 @@
     outline-offset: 2px;
   }
 
-  /* ============================================
-     SCROLL FADE-IN (IntersectionObserver-powered)
-  ============================================ */
+  /* SCROLL FADE-IN (IntersectionObserver-powered) */
   .fade-in {
     opacity: 0;
     transform: translateY(24px);
@@ -1619,9 +1573,7 @@
   .logo--footer .groove { color: var(--navy); }
   .logo--footer .mark { color: var(--accent); }
 
-  /* ============================================
-     STICKY MOBILE CTA
-  ============================================ */
+  /* STICKY MOBILE CTA */
   .sticky-mobile-cta {
     display: none;
   }
@@ -2461,7 +2413,7 @@
   })();
 </script>
 
-  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true">
+  <div class="sticky-mobile-cta" id="sticky-mobile-cta" aria-hidden="true" inert>
     <a href="mailto:hello@groovemarkhq.com?subject=Show%20me%20where%20the%20leaks%20are&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="sticky-cta-primary" aria-label="Open email to start a conversation with Groovemark">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span>Show me the leaks</span>
@@ -2484,9 +2436,11 @@
           if (entry.isIntersecting) {
             sticky.classList.remove('is-visible');
             sticky.setAttribute('aria-hidden', 'true');
+            sticky.setAttribute('inert', '');
           } else {
             sticky.classList.add('is-visible');
             sticky.setAttribute('aria-hidden', 'false');
+            sticky.removeAttribute('inert');
           }
         });
       }, { threshold: 0 });
