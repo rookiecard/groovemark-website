@@ -4,34 +4,31 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#252830" />
+<meta name="color-scheme" content="light" />
 <title>Social Media Management for Local Businesses | Groovemark</title>
-<meta name="description" content="Social media management for local businesses. Content, graphics, and video that turn followers into paying customers." />
+<meta name="description" content="Social media management for local businesses. Custom posts, graphics, and video that turn followers into paying customers. Month-to-month, you own it." />
 <meta name="author" content="Jonathan Kaufman, Groovemark LLC" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="keywords" content="social media management, content creation, Instagram, Facebook, TikTok, X, LinkedIn, short-form video, local business social media, community engagement, social media strategy, AI search visibility, social signals SEO, AEO" />
 <link rel="canonical" href="https://groovemarkhq.com/services/social-media.html" />
-<link rel="preload" as="image"
-      imagesrcset="../images/services/social-media-480.webp 480w, ../images/services/social-media-800.webp 800w, ../images/services/social-media-1200.webp 1200w"
-      imagesizes="(max-width: 839px) calc(100vw - 48px), (max-width: 1199px) calc(50vw - 64px), 568px"
-      type="image/webp"
-      fetchpriority="high" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://groovemarkhq.com/services/social-media.html" />
 <meta property="og:title" content="Social Media Management for Local Businesses | Groovemark" />
-<meta property="og:description" content="Social media management for local businesses. Content, graphics, and video that turn followers into paying customers." />
-<meta property="og:image" content="https://groovemarkhq.com/og-image.jpg" />
+<meta property="og:description" content="Social media management for local businesses. Custom posts, graphics, and video that turn followers into paying customers. Month-to-month, you own it." />
+<meta property="og:image" content="https://groovemarkhq.com/images/services/social-media-1200.jpg" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Social Media Management for Local Businesses | Groovemark" />
-<meta name="twitter:description" content="Social media management for local businesses. Content, graphics, and video that turn followers into paying customers." />
-<meta name="twitter:image" content="https://groovemarkhq.com/og-image.jpg" />
+<meta name="twitter:description" content="Social media management for local businesses. Custom posts, graphics, and video that turn followers into paying customers. Month-to-month, you own it." />
+<meta name="twitter:image" content="https://groovemarkhq.com/images/services/social-media-1200.jpg" />
 
 <!-- Fonts (self-hosted) -->
 <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- Favicon and PWA icons -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -143,6 +140,7 @@
     --cream: #F6F2EC;
     --white: #FFFFFF;
     --accent: #B8573E;
+    --accent-dark: #8E3F28;
     --eyebrow: #4A5261;
     --border: rgba(37, 40, 48, 0.08);
     --border-strong: rgba(37, 40, 48, 0.12);
@@ -178,6 +176,7 @@
     line-height: 1.55;
     color: var(--navy);
     background: var(--white);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -399,7 +398,7 @@
   }
   .nav-dropdown-menu .dd-overview:hover { color: var(--navy); }
 
-  .header-cta .btn { padding: 12px 22px; min-height: 44px; }
+  .header-cta .btn { padding: 12px 22px; min-height: 48px; }
 
   /* On narrow mobile, hide the header CTA button. The CTA lives inside
      the hamburger menu, so users still have one-tap access to "Get in touch". */
@@ -545,60 +544,147 @@
     max-width: 820px;
     margin-bottom: 24px;
   }
-  .service-hero .service-lead {
-    font-size: clamp(1rem, 1.6vw, 1.125rem);
-    color: var(--gray);
-    line-height: 1.65;
-    max-width: 680px;
-    margin-bottom: 32px;
+  .hero-accent {
+    color: var(--accent);
   }
   .service-hero-ctas {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
   }
-  .hero-proof {
-    margin-top: 32px;
+
+  .hero-grid {
+    display: block;
+  }
+  @media (min-width: 900px) {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .hero-text-block { min-width: 0; }
+    .hero-visual-block {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 4px;
+    }
+    .hero-visual-block .feed-result {
+      margin: 0 0 56px;
+      max-width: 380px;
+      width: 100%;
+    }
+  }
+  .hero-subhead {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.55;
+    color: var(--gray);
+    max-width: 480px;
+    margin: 0 0 32px;
+  }
+  .hero-proof-inline {
+    margin-top: 24px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px 14px;
     flex-wrap: wrap;
     font-size: 13px;
     color: var(--gray);
     line-height: 1.6;
+    max-width: 520px;
   }
-  .hero-proof-stars {
-    color: #B8573E;
-    font-size: 16px;
-    letter-spacing: 0.14em;
-    line-height: 1;
+  .hero-proof-inline .proof-item {
+    white-space: nowrap;
+  }
+  .hero-proof-inline .proof-sep {
+    color: var(--slate);
+    user-select: none;
+    opacity: 0.5;
+  }
+
+  .hero-text-link {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  .text-us-link {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--slate);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+    white-space: nowrap;
+  }
+  .text-us-link:hover {
+    color: var(--slate);
+    text-decoration-color: var(--slate);
   }
 
   /* ============================================
-     SIGNATURE MOTION: Feed goes from empty to alive
+     SIGNATURE MOTION: Busy feed building up, leads notification arrives
   ============================================ */
-  /* ============================================
-     CONSISTENT FEED MOTION
-  ============================================ */
-  .feed-motion {
+  .feed-result {
+    position: relative;
     margin: 32px 0 36px;
-    max-width: 460px;
+    max-width: 380px;
+    width: 100%;
   }
-  .feed-motion-header {
+
+  /* Feed card: the "work happening" */
+  .feed-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(37, 40, 48, 0.05);
+  }
+  .feed-card-account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .feed-account-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .feed-account-handle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.005em;
+  }
+  .feed-card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
-    font-size: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 11.5px;
     font-weight: 500;
     color: var(--gray);
     letter-spacing: 0.02em;
   }
-  .feed-motion-status {
+  .feed-card-status {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     color: var(--navy);
+    font-weight: 600;
   }
   .feed-status-dot {
     width: 7px;
@@ -610,41 +696,45 @@
   }
   @keyframes feed-status-pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.55; transform: scale(0.85); }
+    50% { opacity: 0.6; transform: scale(0.85); }
   }
-  .feed-motion-week {
+  .feed-card-week {
     font-feature-settings: "tnum" 1;
-    color: var(--eyebrow);
+    color: var(--navy);
+    font-weight: 500;
   }
-  .feed-motion-list {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: 0 8px 24px rgba(37, 40, 48, 0.06);
-    overflow: hidden;
+  .feed-card-list {
+    padding: 6px 0;
   }
-  .feed-post {
+  .feed-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    border-bottom: 1px solid var(--border);
+    gap: 10px;
+    padding: 12px 16px;
     opacity: 0;
-    transform: translateY(-8px);
-    animation: feed-post-appear 7.2s ease-out infinite;
+    transform: translateY(-6px);
+    transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1), transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .feed-post:last-child { border-bottom: none; }
-  .feed-post-thumb {
+  .feed-result.is-visible .feed-row { opacity: 1; transform: translateY(0); }
+  .feed-result.is-visible .feed-row:nth-child(1) { transition-delay: 0ms; }
+  .feed-result.is-visible .feed-row:nth-child(2) { transition-delay: 1000ms; }
+  .feed-result.is-visible .feed-row:nth-child(3) { transition-delay: 2000ms; }
+  .feed-result.is-visible .feed-row:nth-child(4) { transition-delay: 3000ms; }
+  .feed-row-thumb {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 6px;
   }
-  .feed-post-meta {
+  .feed-row:nth-child(1) .feed-row-thumb { background: linear-gradient(135deg, #4A5261, #252830); }
+  .feed-row:nth-child(2) .feed-row-thumb { background: linear-gradient(135deg, #B8573E, #8C3D28); }
+  .feed-row:nth-child(3) .feed-row-thumb { background: linear-gradient(135deg, #6B7280, #4A5261); }
+  .feed-row:nth-child(4) .feed-row-thumb { background: linear-gradient(135deg, #B8573E, #D06B50); }
+  .feed-row-meta {
     flex: 1;
     min-width: 0;
   }
-  .feed-post-title {
+  .feed-row-title {
     display: block;
     font-size: 12.5px;
     font-weight: 600;
@@ -654,54 +744,113 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .feed-post-time {
+  .feed-row-time {
     display: block;
-    font-size: 11px;
-    color: var(--gray);
+    font-size: 10.5px;
+    color: var(--gray-soft);
     margin-top: 2px;
     font-feature-settings: "tnum" 1;
   }
-  .feed-post-tag {
+  .feed-row-tag {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
     color: var(--navy);
     background: var(--cream);
-    padding: 4px 8px;
+    padding: 3px 7px;
     border-radius: 100px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-  /* Stagger each post entry */
-  .feed-post:nth-child(1) { animation-delay: 0.0s; }
-  .feed-post:nth-child(2) { animation-delay: 0.7s; }
-  .feed-post:nth-child(3) { animation-delay: 1.4s; }
-  .feed-post:nth-child(4) { animation-delay: 2.1s; }
-  .feed-post:nth-child(5) { animation-delay: 2.8s; }
 
-  /* Color-vary the thumbs for visual texture */
-  .feed-post:nth-child(1) .feed-post-thumb { background: linear-gradient(135deg, #4A5261, #252830); }
-  .feed-post:nth-child(2) .feed-post-thumb { background: linear-gradient(135deg, #B8573E, #8C3D28); }
-  .feed-post:nth-child(3) .feed-post-thumb { background: linear-gradient(135deg, #6B7280, #4A5261); }
-  .feed-post:nth-child(4) .feed-post-thumb { background: linear-gradient(135deg, #252830, #4A5261); }
-  .feed-post:nth-child(5) .feed-post-thumb { background: linear-gradient(135deg, #B8573E, #D06B50); }
-
-  @keyframes feed-post-appear {
-    0% { opacity: 0; transform: translateY(-10px); }
-    8% { opacity: 0; transform: translateY(-10px); }
-    14% { opacity: 1; transform: translateY(0); }
-    85% { opacity: 1; transform: translateY(0); }
-    92% { opacity: 0; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
+  /* Notification card: the "result landing", overlays the feed bottom */
+  .ig-notification {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: -16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 12px 14px 14px;
+    box-shadow: 0 16px 40px rgba(37, 40, 48, 0.14), 0 2px 6px rgba(37, 40, 48, 0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1), transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 4000ms;
+  }
+  .feed-result.is-visible .ig-notification {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .ig-notification-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--navy), #3a3f4d);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    font-family: var(--font-body);
+  }
+  .ig-notification-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .ig-notification-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+    font-size: 10.5px;
+    color: var(--gray-soft);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .ig-notification-app {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .ig-notification-sep { opacity: 0.5; }
+  .ig-notification-title {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 2px;
+    letter-spacing: -0.005em;
+  }
+  .ig-notification-detail {
+    display: block;
+    font-size: 12.5px;
+    color: var(--gray);
+    line-height: 1.4;
   }
 
+  /* Make space below feed-result so the overlapping notification doesn’t get clipped on the next section */
+
   @media (prefers-reduced-motion: reduce) {
-    .feed-post { opacity: 1; transform: none; animation: none; }
+    .feed-row,
+    .ig-notification {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      transition-delay: 0ms;
+    }
     .feed-status-dot { animation: none; }
   }
   @media (max-width: 540px) {
-    .feed-motion { max-width: 100%; }
-    .feed-post-tag { display: none; }
+    .feed-result { max-width: 100%; }
+    .feed-row-tag { display: none; }
   }
 
   /* ============================================
@@ -828,12 +977,24 @@
   @media (min-width: 840px) {
     .process-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      grid-template-rows: auto auto auto auto;
+      column-gap: 32px;
+      row-gap: 0;
     }
   }
   .process-step {
     border-top: 2px solid var(--slate);
     padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 840px) {
+    .process-step {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 4;
+      gap: 0;
+    }
   }
   .phase-number {
     color: var(--eyebrow);
@@ -864,9 +1025,16 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    margin-bottom: 16px;
   }
   @media (min-width: 840px) {
-    .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto auto auto auto auto auto auto;
+      column-gap: 24px;
+      row-gap: 0;
+      margin-bottom: 24px;
+    }
   }
   .pricing-card {
     background: var(--white);
@@ -878,6 +1046,15 @@
     transition: border-color var(--transition);
     position: relative;
   }
+  @media (min-width: 840px) {
+    .pricing-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 8;
+      gap: 0;
+    }
+    .pricing-card .pricing-features { align-self: start; }
+  }
   .pricing-card:hover { border-color: var(--slate); }
   .pricing-card.featured {
     border-color: var(--navy);
@@ -885,6 +1062,7 @@
     background: var(--navy);
     color: var(--white);
   }
+  .pricing-card.featured:hover { border-color: rgba(255, 255, 255, 0.3); }
   .pricing-card.featured h3,
   .pricing-card.featured .pricing-price,
   .pricing-card.featured .pricing-price-prefix { color: var(--white); }
@@ -939,6 +1117,7 @@
     margin-bottom: 6px;
     display: flex;
     align-items: baseline;
+    justify-content: center;
     gap: 6px;
   }
   .pricing-price-prefix {
@@ -951,6 +1130,7 @@
     font-size: 12px;
     color: var(--gray);
     margin-bottom: 24px;
+    text-align: center;
   }
   .pricing-card.featured .pricing-note { color: rgba(255,255,255,0.7); }
   .pricing-features {
@@ -987,47 +1167,54 @@
   .pricing-card .btn {
     margin-top: auto;
   }
+  .pricing-includes {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+    margin: 0 0 24px;
+  }
+  .pricing-includes-heading {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: 0 0 14px;
+  }
+  .pricing-includes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px 28px;
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+  @media (min-width: 720px) {
+    .pricing-includes-list { grid-template-columns: 1fr 1fr; }
+  }
+  .pricing-includes-list li {
+    position: relative;
+    padding-left: 20px;
+  }
+  .pricing-includes-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 11px;
+    height: 2px;
+    background: var(--accent);
+  }
   .pricing-disclaimer {
     margin-top: 32px;
     text-align: center;
     color: var(--gray);
     font-size: 13px;
     line-height: 1.6;
-  }
-
-  .pricing-scarcity {
-    margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 12px;
-    line-height: 1.4;
-    color: var(--navy);
-    font-weight: 500;
-    max-width: 100%;
-  }
-  @media (min-width: 520px) {
-    .pricing-scarcity { white-space: nowrap; }
-  }
-  .pricing-scarcity-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #22C55E;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-    flex-shrink: 0;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.55; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .pricing-scarcity-dot { animation: none; }
   }
 
   .pricing-guarantees {
@@ -1067,6 +1254,67 @@
   }
 
   /* ============================================
+     SUCCESS TIMELINE: 30/60/90
+  ============================================ */
+  .success-timeline {
+    background: var(--cream);
+  }
+  .success-timeline .container { max-width: 1080px; }
+  .success-timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (min-width: 720px) {
+    .success-timeline-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+  .success-timeline-item {
+    padding: 28px 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    position: relative;
+  }
+  .success-timeline-marker {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .success-timeline-item h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--navy);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .success-timeline-item p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--gray);
+    margin: 0;
+  }
+  .success-timeline-footer {
+    margin-top: 36px;
+    text-align: center;
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================
      FAQ (service-specific)
   ============================================ */
   .service-faq {
@@ -1074,7 +1322,6 @@
   }
   .faq-list {
     max-width: 860px;
-    margin: 0 auto;
   }
   .faq-item {
     border-bottom: 1px solid var(--border);
@@ -1400,7 +1647,7 @@
     outline-offset: 2px;
   }
 
-  /* Focus-visible: keyboard users see clear focus rings; mouse users don't */
+  /* Focus-visible: keyboard users see clear focus rings; mouse users don’t */
   :focus { outline: none; }
   :focus-visible {
     outline: 2px solid var(--slate);
@@ -1512,60 +1759,6 @@
 
 
   /* ============================================
-     FAQ
-  ============================================ */
-  .faq-section {
-    padding: 96px 0;
-    background: var(--cream);
-    border-top: 1px solid var(--border);
-  }
-  .faq-section .container { max-width: 820px; }
-  .faq-section .eyebrow {
-    color: var(--eyebrow);
-  }
-  .faq-section h2 {
-    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    margin: 0 0 56px;
-    letter-spacing: -0.02em;
-  }
-  .faq-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .faq-item {
-    border-top: 1px solid var(--border);
-    padding: 24px 0;
-  }
-  .faq-item:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-  .faq-item h3 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.4;
-    margin: 0 0 12px;
-    color: var(--navy);
-  }
-  .faq-item p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--gray);
-    margin: 0;
-    max-width: 720px;
-  }
-
-  @media (max-width: 559px) {
-    .faq-section { padding: 64px 0; }
-    .faq-section h2 { margin-bottom: 40px; }
-  }
-
-
-
-
-  /* ============================================
      OVERVIEW IMAGE
   ============================================ */
   .overview-image {
@@ -1593,7 +1786,6 @@
   .qualify-band {
     padding: 56px 32px 64px;
     background: var(--cream);
-    border-top: 1px solid var(--border);
   }
   .qualify-band .container {
     max-width: 880px;
@@ -1625,6 +1817,7 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     position: relative;
+    text-wrap: balance;
   }
   .qualify-list li::before {
     content: "";
@@ -1811,8 +2004,20 @@
   /* ============================================
      QUALIFY BAND CTA
   ============================================ */
+  .qualify-categories {
+    margin: 28px 0 0;
+    text-align: center;
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: balance;
+  }
   .qualify-cta {
-    margin-top: 32px;
+    margin-top: 20px;
     text-align: center;
   }
   .qualify-cta a {
@@ -1837,39 +2042,6 @@
   }
   .qualify-cta a:hover::after {
     transform: translateX(3px);
-  }
-
-  /* ============================================
-     HERO AUTHORITY LINE
-  ============================================ */
-  .hero-authority {
-    margin-top: 18px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 14px;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.01em;
-  }
-  .hero-authority-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #22C55E;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
-    animation: hero-authority-pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes hero-authority-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.55; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-authority-dot { animation: none; }
   }
 
   /* ============================================
@@ -1987,7 +2159,7 @@
       "name": "What makes Groovemark different from the 50 other agencies offering social?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most agencies run social like an assembly line, same templates, same captions, same monthly package across every client. We do the opposite. Your plan gets scoped to the platforms that actually drive your business, content sounds like you (not us), and you keep the same point of contact month over month. You also own every post, graphic, and video we create. If you ever leave, it all leaves with you."
+        "text": "Most agencies run social like an assembly line, same templates, same captions, same monthly package across every client. We do the opposite. Your plan gets scoped to the platforms that drive your business, content sounds like you (not us), and you keep the same point of contact month over month. You also own every post, graphic, and video we create. If you ever leave, it all leaves with you."
       }
     },
     {
@@ -1995,7 +2167,7 @@
       "name": "Which platforms should my business actually be on?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only the ones your customers use. For most local businesses that's some combination of Instagram, Facebook, TikTok, and X, with LinkedIn added for B2B and professional services. On the first call we look at your audience, your competitors, and your goals, then recommend the smallest set of platforms that will move the needle. Being great on two beats being mediocre on five, every time."
+        "text": "Only the ones your customers use. For most local businesses that’s some combination of Instagram, Facebook, TikTok, and X, with LinkedIn added for B2B and professional services. On the first call we look at your audience, your competitors, and your goals, then recommend the smallest set of platforms that will move the needle. Being great on two beats being mediocre on five, every time."
       }
     },
     {
@@ -2003,7 +2175,7 @@
       "name": "Do I need to supply photos, videos, or content ideas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only what you actually want to. We work with whatever raw material you have, create graphics and video from scratch, and bring our own ideas based on what works in your industry. The more behind-the-scenes footage you can send, the more personal the feed feels. But nothing ever stalls waiting on you."
+        "text": "Only what you want to. We work with whatever raw material you have, build graphics from scratch, add custom video on Growth and Scale, and bring our own ideas based on what works in your industry. The more behind-the-scenes footage you can send, the more personal the feed feels. But nothing ever stalls waiting on you."
       }
     },
     {
@@ -2019,7 +2191,7 @@
       "name": "How long until I see real business results, not just likes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Visible improvement in the feed and engagement happens inside the first month. Real business results, like new customers, bookings, and DMs that turn into revenue, usually land in month two or three of consistent posting. We are honest about timelines based on exactly where your presence is starting from. Not best-case-scenario promises."
+        "text": "Visible improvement in the feed and engagement happens inside the first month. Real business results, like new customers, bookings, and inbound DMs from people ready to buy, usually land in month two or three of consistent posting. Timelines depend on where your presence is starting from. The faster a baseline exists to build on, the faster results compound."
       }
     },
     {
@@ -2027,7 +2199,31 @@
       "name": "Do I have to approve every post?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only if you want to. Every month's content calendar goes over for your review before posting starts. Once we're in rhythm, most clients let us run day-to-day without approving each post. You stay in control of tone, brand voice, and anything sensitive. Your involvement stays light the moment the trust is built."
+        "text": "Only if you want to. Every month’s content calendar goes over for your review before posting starts. Once we’re in rhythm, most clients shift to a quick weekly skim instead of approving each post. You stay in control of tone, brand voice, and anything sensitive. Your involvement stays light the moment the trust is built."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I don’t like the first batch of content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You see and approve everything before it posts. If something doesn’t feel right, you tell us, we revise it. Nothing goes live without your sign-off, ever. If after the first month it’s still not landing, you get a full refund of that month and we part ways with no hard feelings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I hire Groovemark instead of a cheaper service or doing it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cheaper services post templated content that doesn’t move your business. Doing it yourself costs you eight to twelve hours a week, every week, forever. Groovemark costs you 25 minutes a month and ships work that is custom-designed for your business by people who understand local marketing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this work for my industry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you serve local customers, almost certainly yes. The strategy adapts to your category. We have approaches that work for service businesses, restaurants, clinics, retail, and more. If you’re in a regulated industry like medical or legal, we’ll tell you on the discovery call exactly how we adapt the playbook."
       }
     }
   ]
@@ -2042,7 +2238,7 @@
   "contentUrl": "https://groovemarkhq.com/images/services/social-media-1200.jpg",
   "url": "https://groovemarkhq.com/images/services/social-media-1200.jpg",
   "name": "Social media content strategy and management for local businesses",
-  "description": "A workspace illustration showing the Groovemark social media process: a content strategy plan becomes a consistent, on-brand Instagram feed that turns followers into customers.",
+  "description": "A workspace illustration showing the Groovemark social media process: a content strategy plan becomes a consistent, on-brand social feed that turns followers into customers.",
   "width": "1200",
   "height": "900",
   "encodingFormat": "image/jpeg",
@@ -2099,17 +2295,17 @@
           </svg>
         </button>
         <div class="nav-dropdown-menu" id="nav-services-menu" role="menu">
-          <a href="website-design.html" role="menuitem">
-            <span class="dd-title">Website Design</span>
-            <span class="dd-desc">Clean, fast sites that turn visitors into customers.</span>
-          </a>
-          <a href="social-media.html" role="menuitem" class="current">
-            <span class="dd-title">Social Media</span>
-            <span class="dd-desc">A presence that looks active, professional, and trustworthy.</span>
-          </a>
           <a href="ai-systems.html" role="menuitem">
             <span class="dd-title">AI Systems</span>
-            <span class="dd-desc">Practical automation that handles the routine work.</span>
+            <span class="dd-desc">Picks up, books, and follows up while you work.</span>
+          </a>
+          <a href="website-design.html" role="menuitem">
+            <span class="dd-title">Website Design</span>
+            <span class="dd-desc">The site that makes customers call you first.</span>
+          </a>
+          <a href="social-media.html" role="menuitem" aria-current="page">
+            <span class="dd-title">Social Media</span>
+            <span class="dd-desc">Stays in front of customers until they’re ready.</span>
           </a>
           <div class="nav-dropdown-divider"></div>
           <a href="/#services" class="dd-overview" role="menuitem">All services overview &rarr;</a>
@@ -2165,9 +2361,9 @@
         </svg>
       </button>
       <div class="mobile-services-submenu" id="mobile-services-submenu">
-        <a href="website-design.html" data-close-menu>Website Design</a>
-        <a href="social-media.html" class="current" data-close-menu>Social Media</a>
         <a href="ai-systems.html" data-close-menu>AI Systems</a>
+        <a href="website-design.html" data-close-menu>Website Design</a>
+        <a href="social-media.html" class="current" aria-current="page" data-close-menu>Social Media</a>
         <a href="/#services" data-close-menu>All services</a>
       </div>
     </div>
@@ -2194,129 +2390,106 @@
   ============================================ -->
   <section class="service-hero">
     <div class="container">
-      <span class="eyebrow">Service 02 &middot; Social Media</span>
-      <h1>Your feed sells for you. Or it silently costs you business.</h1>
-
-      <!-- Signature motion: a feed that posts on schedule, week after week -->
-      <div class="feed-motion" aria-hidden="true">
-        <div class="feed-motion-header">
-          <span class="feed-motion-status">
-            <span class="feed-status-dot"></span>
-            Posting on schedule
-          </span>
-          <span class="feed-motion-week">5 posts this week</span>
+      <span class="eyebrow">Service 03 &middot; Social Media</span>
+      <div class="hero-grid">
+        <div class="hero-text-block">
+          <h1>Your feed <span class="hero-accent">sells for you</span>. <br />Or it silently costs you.</h1>
+          <p class="hero-subhead">Posts that compound, leads that land, and a feed that earns the click. Handled monthly so you can stop thinking about it.</p>
+          <div class="service-hero-ctas">
+            <a href="mailto:hello@groovemarkhq.com?subject=Make%20the%20feed%20work&body=A%20quick%20note%20about%20my%20business%20and%20social%20goals...%0A%0A" class="btn btn-primary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
+            <a href="#pricing" class="btn btn-secondary">See what it costs</a>
+          </div>
+          <div class="hero-proof-inline" aria-label="Quick proof points">
+            <span class="proof-item">Month-to-month</span>
+            <span class="proof-sep">&middot;</span>
+            <span class="proof-item">You own every post</span>
+            <span class="proof-sep">&middot;</span>
+            <span class="proof-item">No long contracts</span>
+          </div>
+          <p class="hero-text-link">
+            <a href="sms:+12038030719" class="text-us-link">Prefer to text? Send a message.</a>
+          </p>
         </div>
-        <div class="feed-motion-list">
-          <div class="feed-post">
-            <span class="feed-post-thumb"></span>
-            <div class="feed-post-meta">
-              <span class="feed-post-title">Behind the build, in your own words</span>
-              <span class="feed-post-time">Mon &middot; 9:14 AM</span>
+        <div class="hero-visual-block">
+          <div class="feed-result" role="figure" aria-label="A sample week of posts on the @YourBusiness account, with a notification arriving: 8 new leads this week, ready for your follow-up">
+            <div class="feed-card">
+              <div class="feed-card-account">
+                <span class="feed-account-avatar" aria-hidden="true">YB</span>
+                <span class="feed-account-handle">@YourBusiness</span>
+              </div>
+              <div class="feed-card-header">
+                <span class="feed-card-status">
+                  <span class="feed-status-dot" aria-hidden="true"></span>
+                  Posting on schedule
+                </span>
+                <span class="feed-card-week">4 posts this week</span>
+              </div>
+              <div class="feed-card-list">
+                <div class="feed-row">
+                  <span class="feed-row-thumb" aria-hidden="true"></span>
+                  <div class="feed-row-meta">
+                    <span class="feed-row-title">A look at how you do the work</span>
+                    <span class="feed-row-time">Mon &middot; 9:14 AM</span>
+                  </div>
+                  <span class="feed-row-tag">Video</span>
+                </div>
+                <div class="feed-row">
+                  <span class="feed-row-thumb" aria-hidden="true"></span>
+                  <div class="feed-row-meta">
+                    <span class="feed-row-title">A real customer result, told simply</span>
+                    <span class="feed-row-time">Tue &middot; 12:30 PM</span>
+                  </div>
+                  <span class="feed-row-tag">Carousel</span>
+                </div>
+                <div class="feed-row">
+                  <span class="feed-row-thumb" aria-hidden="true"></span>
+                  <div class="feed-row-meta">
+                    <span class="feed-row-title">A quick tip your customers can use</span>
+                    <span class="feed-row-time">Wed &middot; 4:00 PM</span>
+                  </div>
+                  <span class="feed-row-tag">Post</span>
+                </div>
+                <div class="feed-row">
+                  <span class="feed-row-thumb" aria-hidden="true"></span>
+                  <div class="feed-row-meta">
+                    <span class="feed-row-title">A five-star review, designed for the feed</span>
+                    <span class="feed-row-time">Thu &middot; 7:45 PM</span>
+                  </div>
+                  <span class="feed-row-tag">Post</span>
+                </div>
+              </div>
             </div>
-            <span class="feed-post-tag">Story</span>
-          </div>
-          <div class="feed-post">
-            <span class="feed-post-thumb"></span>
-            <div class="feed-post-meta">
-              <span class="feed-post-title">Customer transformation reveal</span>
-              <span class="feed-post-time">Tue &middot; 12:30 PM</span>
+            <div class="ig-notification" aria-hidden="true">
+              <div class="ig-notification-icon">YB</div>
+              <div class="ig-notification-body">
+                <div class="ig-notification-meta">
+                  <span class="ig-notification-app">@YourBusiness</span>
+                  <span class="ig-notification-sep">&middot;</span>
+                  <span>1m ago</span>
+                </div>
+                <span class="ig-notification-title">+8 new leads this week.</span>
+                <span class="ig-notification-detail">Ready for your follow-up.</span>
+              </div>
             </div>
-            <span class="feed-post-tag">Reel</span>
-          </div>
-          <div class="feed-post">
-            <span class="feed-post-thumb"></span>
-            <div class="feed-post-meta">
-              <span class="feed-post-title">Quick tip your customers can use today</span>
-              <span class="feed-post-time">Wed &middot; 4:00 PM</span>
-            </div>
-            <span class="feed-post-tag">Tip</span>
-          </div>
-          <div class="feed-post">
-            <span class="feed-post-thumb"></span>
-            <div class="feed-post-meta">
-              <span class="feed-post-title">A real five-star review, designed</span>
-              <span class="feed-post-time">Thu &middot; 7:45 PM</span>
-            </div>
-            <span class="feed-post-tag">Proof</span>
-          </div>
-          <div class="feed-post">
-            <span class="feed-post-thumb"></span>
-            <div class="feed-post-meta">
-              <span class="feed-post-title">This week, in twenty seconds</span>
-              <span class="feed-post-time">Fri &middot; 11:00 AM</span>
-            </div>
-            <span class="feed-post-tag">Recap</span>
           </div>
         </div>
-      </div>
-
-      <p class="service-lead">Every customer checks before they book. Make sure what they find earns the call.</p>
-      <div class="service-hero-ctas">
-        <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-primary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
-        <a href="#pricing" class="btn btn-secondary">See what it costs</a>
-      </div>
-      <div class="hero-proof">
-        <span class="hero-proof-stars" aria-hidden="true">★★★★★</span>
-        <span>Month-to-month, cancel anytime &middot; You own every post, graphic, and video we create</span>
-      </div>
-      <div class="hero-authority">
-        <span class="hero-authority-dot" aria-hidden="true"></span>
-        <span>Founder-led. Currently managing 6 active social accounts, max.</span>
       </div>
     </div>
   </section>
-
-  <!-- ============================================
-       OVERVIEW
-  ============================================ -->
-  <section class="overview">
-    <div class="container">
-      <div class="overview-grid">
-        <div class="overview-body">
-          <span class="eyebrow">Overview</span>
-          <h2>Built to earn attention.<br />Designed to earn trust.</h2>
-          <p>A consistent feed turns followers into customers. An empty one does the opposite, every day.</p>
-          <p>We plan the strategy, design the system, and ship the posts. Your feed shows up looking like you on purpose, not like you remembered to post that morning.</p>
-          <p>If you have tried managing it yourself, or paid an agency that just posted templates, the rest of this page is the part to read.</p>
-        </div>
-        <figure class="overview-image">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="../images/services/social-media-480.webp 480w,
-                      ../images/services/social-media-800.webp 800w,
-                      ../images/services/social-media-1200.webp 1200w"
-              sizes="(max-width: 839px) calc(100vw - 48px), (max-width: 1199px) calc(50vw - 64px), 568px" />
-            <img
-              src="../images/services/social-media-800.jpg"
-              srcset="../images/services/social-media-480.jpg 480w,
-                      ../images/services/social-media-800.jpg 800w,
-                      ../images/services/social-media-1200.jpg 1200w"
-              sizes="(max-width: 839px) calc(100vw - 48px), (max-width: 1199px) calc(50vw - 64px), 568px"
-              width="800"
-              height="600"
-              alt="Social media content strategy on a phone showing a 9-post Instagram grid with on-brand graphics, alongside a printed content plan"
-              loading="lazy"
-              decoding="async" />
-          </picture>
-        </figure>
-      </div>
-    </div>
-  </section>
-
 
   <!-- ============================================
        QUALIFY BAND
   ============================================ -->
   <section class="qualify-band" aria-label="If this sounds like you">
     <div class="container">
-      <h3>If any of this sounds familiar, you are in the right place.</h3>
+      <h3>If any of this sounds familiar, you’re in the right place.</h3>
       <ul class="qualify-list">
-        <li>Your last post is from months ago and you know it's costing you</li>
-        <li>You've tried posting yourself and it always gets dropped when things get busy</li>
-        <li>Your competitor's feed looks alive and yours looks abandoned</li>
+        <li>You’ve tried posting yourself and it always gets dropped when things get busy</li>
         <li>You know social matters but staring at a blank post is the last thing you want to do</li>
+        <li>Your last post is from months ago and you know it’s costing you</li>
+        <li>Your competitor’s feed looks alive and yours looks abandoned</li>
       </ul>
+      <p class="qualify-categories">Built for home services, contractors, clinics, professionals, retail, salons, gyms, and restaurants where every customer matters.</p>
       <div class="qualify-cta">
         <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" aria-label="Open email to start a conversation with Groovemark">Sound familiar? Let us take a look.</a>
       </div>
@@ -2331,14 +2504,14 @@
       <div class="section-head">
         <span class="eyebrow">What changes for you</span>
         <h2>Six outcomes your feed is built to earn.</h2>
-        <p class="section-intro">Not a list of post types. Not a menu of platforms. The things that actually happen in your business when your social presence starts working the way it should.</p>
+        <p class="section-intro">Not a list of post types. Not a menu of platforms. Six months from now, here’s what’s different in your business when your social presence starts working the way it should.</p>
       </div>
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7l-8-4-8 4v10l8 4 8-4V7z"/><path d="m20 7-8 4-8-4"/><path d="M12 11v10"/></svg>
           </div>
-          <h3>Your profile stops hurting your business</h3>
+          <h3>Your profile starts working for you, not against you</h3>
           <p>Fresh, on-brand posts going up on a schedule you can set your watch by. When a potential customer checks you out before calling, what they see makes the decision easy.</p>
         </div>
         <div class="feature-item">
@@ -2346,92 +2519,41 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
           <h3>New customers find you without searching</h3>
-          <p>Short videos and posts built for the way people actually scroll today. Your business shows up in front of people who never thought to Google you, and strong social signals increasingly feed into what Google and AI search tools surface. Strangers become followers. Followers become booked appointments.</p>
+          <p>Short videos and posts built for the way people scroll today. Your business shows up in front of customers who never thought to Google you yet.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>You get your Sunday nights back</h3>
-          <p>No more staring at your phone trying to think of what to post. We plan the month, write the captions, shoot the graphics, and film the videos. You approve it once and get your evenings back.</p>
+          <p>No more staring at your phone trying to think of what to post. We plan the month, write the captions, design the graphics, and film the video where it fits. You approve it once and get your evenings back.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-          <h3>Every message and comment turns into revenue</h3>
-          <p>DMs get answered. Comments get responses. Interested strangers get moved toward a booking instead of left hanging. The people already raising their hand stop falling through the cracks.</p>
+          <h3>Your inbox fills with the right kind of asks</h3>
+          <p>Posts that prompt action drive real questions to your DMs and comments. Instead of crickets, you get qualified people raising their hand. You answer when you’re ready.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9 12 2"/></svg>
           </div>
-          <h3>Your reputation stops being a game of luck</h3>
-          <p>Happy customers get gently prompted to leave reviews at the right moment. Comments and messages get fast, friendly replies. Your 5-star reputation grows on purpose, not by accident.</p>
+          <h3>5-star reviews start showing up on purpose</h3>
+          <p>Happy customers get gently prompted to leave reviews at the right moment. Your 5-star reputation grows by design, not by accident.</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
           </div>
-          <h3>You actually see what works, in plain English</h3>
-          <p>Every month you get a short, easy-to-read report showing what's bringing in new customers, what isn't, and what we're changing next. No confusing dashboards. No guessing.</p>
+          <h3>You see what works, in plain English</h3>
+          <p>Every month you get a short, easy-to-read report showing what’s bringing in new customers, what isn’t, and what we’re changing next. No confusing dashboards. No guessing.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-
-  <!-- ============================================
-       DELIVERABLES
-  ============================================ -->
-  <section class="deliverables" id="deliverables" aria-label="What you get">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">What you get</span>
-        <h2>A social presence that runs on a system, not on willpower.</h2>
-        <p class="section-intro">Every Groovemark social engagement includes everything below. No surprise add-ons, no nickel-and-diming. Your tier sets the volume; the foundation is always the same.</p>
-      </div>
-      <div class="deliverables-grid">
-        <div class="deliverable-item">
-          <h3>Strategy and content pillars</h3>
-          <p>A documented strategy with three to five content pillars built around your business. Reviewed quarterly. Drives every post we plan.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Monthly content calendar</h3>
-          <p>A scheduled calendar of posts, stories, and reels mapped to your calendar and your customers. Approved by you before anything ships.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Custom-designed graphics</h3>
-          <p>On-brand visuals built by a real designer in Figma, not stock templates from Canva. Yours to keep, edit, and reuse forever.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Short-form video</h3>
-          <p>Reels and shorts edited from clips you send us, or scripted from scratch. The format that drives the most reach in 2026.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Captions that earn the click</h3>
-          <p>Hooks, body, and call-to-action written for each post. Optimized for the platform and the algorithm at the time of posting.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Community management</h3>
-          <p>Comments answered, DMs triaged, and time-sensitive opportunities flagged. We watch the inbox so you do not have to.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Hashtag and SEO strategy</h3>
-          <p>Researched per post. Tracks platform changes weekly so your reach is not at the mercy of last year's playbook.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Analytics that mean something</h3>
-          <p>Monthly report you can actually read. What worked, what did not, what we are changing. No vanity metrics.</p>
-        </div>
-        <div class="deliverable-item">
-          <h3>Full content ownership</h3>
-          <p>Every graphic, every video, every caption. Yours forever. Even if you stop working with us tomorrow, you keep the entire library.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================
        PROCESS
@@ -2441,11 +2563,11 @@
       <div class="section-head">
         <span class="eyebrow">Process</span>
         <h2>Three steps.<br />No friction. No surprises.</h2>
-        <p class="section-intro">The same simple, proven way of working as every Groovemark engagement. You stay informed at every stage and the whole thing feels handled.</p>
+        <p class="section-intro">The same way we work on every Groovemark engagement. You stay informed at every stage and the whole thing feels handled.</p>
       </div>
       <div class="process-grid">
         <div class="process-step">
-          <span class="phase-number">Phase 01<span class="phase-duration">Week 1</span></span>
+          <span class="phase-number">Phase 01</span>
           <h3>Discover</h3>
           <div class="process-roles">
             <div class="process-role">
@@ -2462,25 +2584,25 @@
           </div>
         </div>
         <div class="process-step">
-          <span class="phase-number">Phase 02<span class="phase-duration">Month 1 onward</span></span>
+          <span class="phase-number">Phase 02</span>
           <h3>Run</h3>
           <div class="process-roles">
             <div class="process-role">
               <span class="process-role-label">We do</span>
-              <span class="process-role-text">Design, write, schedule, post, and engage. Every Friday you get next week's content for review.</span>
+              <span class="process-role-text">Design, write, schedule, and post. Every Friday you get next week’s content for review.</span>
             </div>
             <div class="process-role">
               <span class="process-role-label">You do</span>
-              <span class="process-role-text">Approve next week's content in a 5-minute Friday review. Send us anything new from your business worth posting.</span>
+              <span class="process-role-text">Approve next week’s content in a 5-minute Friday review. Send us anything new from your business worth posting.</span>
             </div>
           </div>
           <div class="process-outcome">
-            <strong>Outcome:</strong>A consistent feed and consistent engagement, week after week. No more Sunday-night panic about what to post.
+            <strong>Outcome:</strong>A consistent feed, posted on schedule, week after week. No more Sunday-night panic about what to post.
           </div>
         </div>
         <div class="process-step">
-          <span class="phase-number">Phase 03<span class="phase-duration">Every 30 days</span></span>
-          <h3>Refine</h3>
+          <span class="phase-number">Phase 03</span>
+          <h3>Refine Monthly</h3>
           <div class="process-roles">
             <div class="process-role">
               <span class="process-role-label">We do</span>
@@ -2488,7 +2610,7 @@
             </div>
             <div class="process-role">
               <span class="process-role-label">You do</span>
-              <span class="process-role-text">A 20-minute monthly call to review numbers and approve any strategic changes. That is it.</span>
+              <span class="process-role-text">Review the monthly report. On Growth and Scale, that includes a strategy call to talk through numbers and approve any changes. That is it.</span>
             </div>
           </div>
           <div class="process-outcome">
@@ -2507,26 +2629,20 @@
       <div class="section-head">
         <span class="eyebrow">Pricing</span>
         <h2>Three starting points.<br />Custom plans available.</h2>
-        <p class="section-intro">Honest starting monthlies, not rigid packages. Every engagement gets scoped on a short call, and the final number is fixed in writing before any work begins.</p>
-        <div class="pricing-scarcity">
-          <span class="pricing-scarcity-dot" aria-hidden="true"></span>
-          <span>Limited roster to keep quality high. Availability confirmed on the call.</span>
-        </div>
+        <p class="section-intro">Real starting monthlies, not rigid packages. Every engagement gets scoped on a short call, and the final number is fixed in writing before any work begins.</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
-          <span class="pricing-tier">Bronze</span>
+          <span class="pricing-tier">Starter</span>
           <h3>Stay present</h3>
-          <span class="pricing-best-for">Best for: businesses that need to look alive without taking over your week</span>
-          <p class="pricing-desc">A lean, consistent presence on one platform so your business stops looking abandoned. The right starting point for businesses testing the waters or rebuilding after a quiet stretch.</p>
-          <div class="pricing-price">$440<span class="pricing-price-prefix">/mo</span></div>
-          <p class="pricing-note">About $17 a day. Month-to-month, cancel anytime.</p>
+          <span class="pricing-best-for">When you need a presence without the daily upkeep</span>
+          <p class="pricing-desc">A lean, consistent presence on one platform so your business stops looking abandoned. The right start for new businesses or anyone rebuilding after a quiet stretch.</p>
+          <div class="pricing-price">$800<span class="pricing-price-prefix">/mo</span></div>
+          <p class="pricing-note">Setup $530, one-time. Then $800/month, ongoing. Month-to-month, cancel anytime.</p>
           <ul class="pricing-features">
             <li>1 platform managed</li>
-            <li>Up to 8 posts per month</li>
-            <li>Branded graphics</li>
-            <li>Monthly content calendar</li>
-            <li>Basic community engagement</li>
+            <li>3 posts per week</li>
+            <li>Branded image selection from licensed library</li>
             <li>Monthly performance snapshot</li>
           </ul>
           <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-secondary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
@@ -2534,42 +2650,53 @@
 
         <div class="pricing-card featured">
           <span class="featured-badge">Most popular</span>
-          <span class="pricing-tier">Silver</span>
+          <span class="pricing-tier">Growth</span>
           <h3>Show up, every day</h3>
-          <span class="pricing-best-for">Best for: established businesses ready to be a real presence in their category</span>
-          <p class="pricing-desc">A full, active presence across three of the platforms that actually drive your business. The right fit for most local businesses serious about real reach and recognition.</p>
-          <div class="pricing-price">$1,250<span class="pricing-price-prefix">/mo</span></div>
-          <p class="pricing-note">Roughly $44 a day. Less than hiring one part-time helper.</p>
+          <span class="pricing-best-for">When you’re ready to be a real presence in your category</span>
+          <p class="pricing-desc">A full, active presence across three platforms that drive your business. The right fit for established local businesses serious about real reach and recognition.</p>
+          <div class="pricing-price">$1,700<span class="pricing-price-prefix">/mo</span></div>
+          <p class="pricing-note">Setup $980, one-time. Then $1,700/month, ongoing. Less than hiring one part-time helper.</p>
           <ul class="pricing-features">
             <li>3 platforms managed</li>
-            <li>Up to 17 posts per month</li>
-            <li>Custom graphics and short-form video</li>
-            <li>Full content calendar</li>
-            <li>Active community engagement</li>
-            <li>DM and comment response</li>
-            <li>Monthly reporting and strategy call</li>
+            <li>4 posts per week</li>
+            <li>Custom brand graphics</li>
+            <li>4 short-form videos per month</li>
+            <li>45-minute monthly strategy call (review what worked, lock next month’s themes)</li>
           </ul>
           <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-secondary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
         </div>
 
         <div class="pricing-card">
-          <span class="pricing-tier">Gold</span>
-          <h3>Dominate the feed</h3>
-          <span class="pricing-best-for">Best for: businesses ready to dominate their local feed and turn it into a lead engine</span>
-          <p class="pricing-desc">A multi-platform, high-volume presence that turns social into a real growth channel for your business. For owners ready to make social their most predictable source of new customers.</p>
-          <div class="pricing-price">$1,700<span class="pricing-price-prefix">/mo</span></div>
-          <p class="pricing-note">Around $53 a day. Replaces a part-time hire at a fraction of the cost.</p>
+          <span class="pricing-tier">Scale</span>
+          <h3>Social that pays for itself</h3>
+          <span class="pricing-best-for">When you need social driving customers, not followers</span>
+          <p class="pricing-desc">A multi-platform, high-volume presence that turns social into a real growth channel. For owners ready to make social their most predictable source of new customers.</p>
+          <div class="pricing-price">$3,500<span class="pricing-price-prefix">/mo</span></div>
+          <p class="pricing-note">Setup $1,700, one-time. Then $3,500/month, ongoing. Replaces a part-time hire at a fraction of the cost.</p>
           <ul class="pricing-features">
             <li>4+ platforms managed</li>
-            <li>Up to 26 posts per month</li>
-            <li>Premium video production</li>
+            <li>5 posts per week</li>
+            <li>Custom brand graphics</li>
+            <li>8 short-form videos per month</li>
+            <li>Paid social ad creative included</li>
             <li>Review and reputation management</li>
-            <li>Priority engagement and DMs</li>
-            <li>Bi-weekly strategy calls</li>
+            <li>30-minute bi-weekly strategy calls (every two weeks, real-time tuning)</li>
             <li>Quarterly brand refresh</li>
           </ul>
           <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-secondary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
         </div>
+      </div>
+
+      <div class="pricing-includes">
+        <h3 class="pricing-includes-heading">Every tier includes:</h3>
+        <ul class="pricing-includes-list">
+          <li>Posts that sound like you, not like every other local business</li>
+          <li>Consistent posting, every week, without you lifting a finger</li>
+          <li>Reach built into every post, made specifically for each platform</li>
+          <li>A monthly readout you can scan in two minutes</li>
+          <li>Everything we make is yours. Leave anytime, take it all with you</li>
+          <li>DMs are yours. Hand them off as an add-on.</li>
+        </ul>
       </div>
 
       <div class="pricing-guarantees">
@@ -2584,19 +2711,50 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <div>
             <strong>Month-to-month, cancel anytime</strong>
-            <span>No annual contracts. If we're not earning the monthly, you're free to walk.</span>
+            <span>No annual contracts. If we’re not earning the monthly, you’re free to walk.</span>
           </div>
         </div>
         <div class="guarantee-item">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 4 9 14 14 0 0 1-4 9 14 14 0 0 1-4-9 14 14 0 0 1 4-9z"/></svg>
           <div>
             <strong>Every asset is yours</strong>
-            <span>Every post, graphic, and video we create belongs to you. Leaving? It all goes with you.</span>
+            <span>Everything we create belongs to you. Leaving? It all goes with you.</span>
           </div>
         </div>
       </div>
 
-      <p class="pricing-disclaimer">Custom plans available. Have a niche platform, a larger team, or something specific in mind? We scope it on the call and quote it honestly. We'll tell you exactly what the plan looks like, what it costs, and what to expect in the first 30, 60, and 90 days.</p>
+      <p class="pricing-disclaimer"><strong>Add-ons available:</strong> Paid social management from $530/month plus ad spend. DM and comment response from $260/month. Available with any tier, scoped on the call.<br /><br /><strong>Platform mix is flexible.</strong> We’ll recommend the right channels for your customers on the discovery call.<br />Most common: Starter on Instagram. Growth adds Facebook and TikTok or LinkedIn. Scale runs all four.<br /><br /><strong>Custom plans available.</strong> Have a niche platform, a larger team, or something specific in mind? We scope it on the call and quote it in writing.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SUCCESS TIMELINE: What to expect at 30/60/90
+  ============================================ -->
+  <section class="success-timeline" aria-label="What success looks like over time">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What success looks like</span>
+        <h2>The first 90 days, mapped honestly.</h2>
+        <p class="section-intro">Social isn’t a switch you flip. It’s a system that compounds. Here’s what to expect at each milestone, so you know what’s normal and what isn’t.</p>
+      </div>
+      <div class="success-timeline-grid">
+        <div class="success-timeline-item">
+          <span class="success-timeline-marker">First 30 Days</span>
+          <h3>Setup, brand voice, content engine running</h3>
+          <p>Platforms set up. Brand voice locked. The first month of content posted on schedule. You see the system in motion. Early engagement starts climbing as the algorithm learns who your audience is.</p>
+        </div>
+        <div class="success-timeline-item">
+          <span class="success-timeline-marker">By Day 60</span>
+          <h3>Engagement compounds, first real DMs</h3>
+          <p>Reach and engagement keep building. The first DMs from people who found you on social start showing up. We have enough data to start tuning what’s working. The feed stops feeling new and starts feeling like a real channel.</p>
+        </div>
+        <div class="success-timeline-item">
+          <span class="success-timeline-marker">By Day 90</span>
+          <h3>Patterns visible, results attributable</h3>
+          <p>Now we know what posts drive action and which don’t. First strategy adjustments based on real numbers. Inbound leads you can trace back to specific content. The system is paying for itself or we’re talking about why.</p>
+        </div>
+      </div>
+      <p class="success-timeline-footer">Less competitive markets land in the lead-generating zone faster. Highly competitive categories take 90 days of consistency to see real movement. We tell you what’s realistic for your specific market on the discovery call.</p>
     </div>
   </section>
 
@@ -2605,9 +2763,9 @@
   ============================================ -->
   <section class="service-faq" id="faq">
     <div class="container">
-      <div class="section-head" style="margin: 0 auto 48px; text-align: left;">
+      <div class="section-head">
         <span class="eyebrow">FAQs</span>
-        <h2>Everything you're wondering about your social presence.</h2>
+        <h2>Everything you’re wondering about your social presence.</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item">
@@ -2616,7 +2774,7 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Most agencies run social like an assembly line, same templates, same captions, same monthly package across every client. We do the opposite. Your plan gets scoped to the platforms that actually drive your business, content sounds like you (not us), and you keep the same point of contact month over month. You also own every post, graphic, and video we create. If you ever leave, it all leaves with you.</p>
+            <p>Most agencies run social like an assembly line, same templates, same captions, same monthly package across every client. We do the opposite. Your plan gets scoped to the platforms that drive your business, content sounds like you (not us), and you keep the same point of contact month over month. You also own every post, graphic, and video we create. If you ever leave, it all leaves with you.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -2625,7 +2783,7 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Only the ones your customers use. For most local businesses that's some combination of Instagram, Facebook, TikTok, and X, with LinkedIn added for B2B and professional services. On the first call we look at your audience, your competitors, and your goals, then recommend the smallest set of platforms that will move the needle. Being great on two beats being mediocre on five, every time.</p>
+            <p>Only the ones your customers use. For most local businesses that’s some combination of Instagram, Facebook, TikTok, and X, with LinkedIn added for B2B and professional services. On the first call we look at your audience, your competitors, and your goals, then recommend the smallest set of platforms that will move the needle. Being great on two beats being mediocre on five, every time.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -2634,7 +2792,7 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Only what you actually want to. We work with whatever raw material you have, create graphics and video from scratch, and bring our own ideas based on what works in your industry. The more behind-the-scenes footage you can send, the more personal the feed feels. But nothing ever stalls waiting on you.</p>
+            <p>Only what you want to. We work with whatever raw material you have, build graphics from scratch, add custom video on Growth and Scale, and bring our own ideas based on what works in your industry. The more behind-the-scenes footage you can send, the more personal the feed feels. But nothing ever stalls waiting on you.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -2652,7 +2810,7 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Visible improvement in the feed and engagement happens inside the first month. Real business results, like new customers, bookings, and DMs that turn into revenue, usually land in month two or three of consistent posting. We are honest about timelines based on exactly where your presence is starting from. Not best-case-scenario promises.</p>
+            <p>Visible improvement in the feed and engagement happens inside the first month. Real business results, like new customers, bookings, and inbound DMs from people ready to buy, usually land in month two or three of consistent posting. Timelines depend on where your presence is starting from. The faster a baseline exists to build on, the faster results compound.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -2661,16 +2819,16 @@
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Only if you want to. Every month's content calendar goes over for your review before posting starts. Once we're in rhythm, most clients let us run day-to-day without approving each post. You stay in control of tone, brand voice, and anything sensitive. Your involvement stays light the moment the trust is built.</p>
+            <p>Only if you want to. Every month’s content calendar goes over for your review before posting starts. Once we’re in rhythm, most clients shift to a quick weekly skim instead of approving each post. You stay in control of tone, brand voice, and anything sensitive. Your involvement stays light the moment the trust is built.</p>
           </div>
         </div>
               <div class="faq-item" data-faq-conversion="true">
                 <button class="faq-question" aria-expanded="false">
-                  <span>What if I do not like the first batch of content?</span>
+                  <span>What if I don’t like the first batch of content?</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
                 <div class="faq-answer">
-                  <p>You see and approve everything before it posts. If something does not feel right, you tell us, we revise it. Nothing goes live without your sign-off, ever. If after the first month it is still not landing, you get a full refund of that month and we part ways with no hard feelings.</p>
+                  <p>You see and approve everything before it posts. If something doesn’t feel right, you tell us, we revise it. Nothing goes live without your sign-off, ever. If after the first month it’s still not landing, you get a full refund of that month and we part ways with no hard feelings.</p>
                 </div>
               </div>
               <div class="faq-item" data-faq-conversion="true">
@@ -2679,7 +2837,7 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
                 <div class="faq-answer">
-                  <p>Cheaper services post templated content that does not move your business. Doing it yourself costs you eight to twelve hours a week, every week, forever. Groovemark costs you 25 minutes a month and ships work that is custom-designed for your business by people who actually understand local marketing.</p>
+                  <p>Cheaper services post templated content that doesn’t move your business. Doing it yourself costs you eight to twelve hours a week, every week, forever. Groovemark costs you 25 minutes a month and ships work that is custom-designed for your business by people who understand local marketing.</p>
                 </div>
               </div>
               <div class="faq-item" data-faq-conversion="true">
@@ -2688,7 +2846,7 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
                 <div class="faq-answer">
-                  <p>If you serve local customers, almost certainly yes. The strategy adapts to your category. We have approaches that work for service businesses, restaurants, clinics, retail, and more. If you are in a regulated industry like medical or legal, we will tell you on the discovery call exactly how we adapt the playbook.</p>
+                  <p>If you serve local customers, almost certainly yes. The strategy adapts to your category. We have approaches that work for service businesses, restaurants, clinics, retail, and more. If you’re in a regulated industry like medical or legal, we’ll tell you on the discovery call exactly how we adapt the playbook.</p>
                 </div>
               </div>
       </div>
@@ -2702,12 +2860,12 @@
     <div class="container">
       <span class="eyebrow" style="color: var(--slate-soft);">The next step</span>
       <h2>Twenty minutes on the phone. A straight answer either way.</h2>
-      <p>On the call we look at your current presence, your competition, and your goals. You leave knowing exactly which platforms will move the needle for your business, what it would cost, and what the first month looks like. If we're not the right fit, we tell you on the call. No pitch deck, no pressure.</p>
+      <p>On the call we look at your current presence, your competition, and your goals. You leave knowing exactly which platforms will move the needle for your business, what it would cost, and what the first month looks like. If we’re not the right fit, we tell you on the call. No pitch deck, no pressure.</p>
       <ul class="cta-outcomes">
-        <li class="cta-outcome">Which platforms will actually move the needle for your business</li>
+        <li class="cta-outcome">Which platforms will move the needle for your business</li>
         <li class="cta-outcome">What it would cost monthly, and what month one looks like</li>
         <li class="cta-outcome">How long until you see the first measurable result</li>
-        <li class="cta-outcome">A clear yes or no on whether we are the right team for it</li>
+        <li class="cta-outcome">A clear yes or no on whether we’re the right team for you</li>
       </ul>
       <div class="cta-ctas">
         <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-primary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
@@ -2716,43 +2874,6 @@
     </div>
   </section>
 
-
-  <!-- ============================================
-       TRUST CLOSE
-  ============================================ -->
-  <section class="trust-close" aria-label="Why choose Groovemark">
-    <div class="container">
-      <span class="eyebrow">Why Groovemark</span>
-      <h2>Four things we promise that most agencies will not.</h2>
-      <ul class="trust-close-list">
-        <li class="trust-close-item">
-          <div>
-            <strong>Fixed pricing in writing</strong>
-            <span>Before any work begins. Every line item, every milestone, every deliverable. Locked in. No surprise invoices.</span>
-          </div>
-        </li>
-        <li class="trust-close-item">
-          <div>
-            <strong>Founder-led, every project</strong>
-            <span>You talk to the person doing the work. Not an account manager, not a junior on a 12-client team. Direct, every time.</span>
-          </div>
-        </li>
-        <li class="trust-close-item">
-          <div>
-            <strong>You own everything</strong>
-            <span>Domain, code, content, accounts, data. In your name from day one. No platform lock-in. No "managed forever" trap.</span>
-          </div>
-        </li>
-        <li class="trust-close-item">
-          <div>
-            <strong>Refund if we miss</strong>
-            <span>If after good-faith revisions you are not happy with what we shipped, you get a full refund. That promise is in writing in the proposal.</span>
-          </div>
-        </li>
-      </ul>
-      <a href="mailto:hello@groovemarkhq.com?subject=Let%27s%20talk&body=A%20quick%20note%20about%20my%20business...%0A%0A" class="btn btn-primary" aria-label="Open email to start a conversation with Groovemark">Start the conversation</a>
-    </div>
-  </section>
 
 </main>
 
@@ -2777,14 +2898,15 @@
           </svg>
           <span><span class="groove">Groove</span><span class="mark">mark</span></span>
         </a>
-        <p class="footer-tagline">Website Design. Social Media. AI Systems.</p>
+        <p class="footer-tagline">AI Systems. Website Design. Social Media.</p>
         <p class="footer-locations">Remote-first &middot; Serving Local US Businesses</p>
       </div>
       <div class="footer-services">
         <span class="label">Services</span>
-        <a href="website-design.html">Website Design</a>
-        <a href="social-media.html">Social Media</a>
+        
         <a href="ai-systems.html">AI Systems</a>
+        <a href="website-design.html">Website Design</a>
+        <a href="social-media.html" aria-current="page">Social Media</a>
       </div>
       <div class="footer-help">
         <span class="label">Help</span>
@@ -2804,7 +2926,7 @@
         <span aria-hidden="true">&middot;</span>
         <a href="/legal/terms.html">Terms</a>
       </nav>
-      <span>Marketing that moves. Service that stays.</span>
+      <span>In the groove. On the mark.</span>
     </div>
   </div>
 </footer>
@@ -2925,6 +3047,53 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     </a>
   </div>
+
+<script>
+  (function() {
+    var widget = document.querySelector('.feed-result');
+    if (!widget) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      widget.classList.add('is-visible');
+      return;
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // Slight delay so the cascade feels intentional, not abrupt
+            setTimeout(function() { widget.classList.add('is-visible'); }, 200);
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      io.observe(widget);
+    } else {
+      widget.classList.add('is-visible');
+    }
+  })();
+
+  // Sticky mobile CTA: appear after hero is scrolled past
+  (function() {
+    var sticky = document.getElementById('sticky-mobile-cta');
+    if (!sticky) return;
+    var hero = document.querySelector('.service-hero');
+    if (!hero) return;
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            sticky.classList.remove('is-visible');
+            sticky.setAttribute('aria-hidden', 'true');
+          } else {
+            sticky.classList.add('is-visible');
+            sticky.setAttribute('aria-hidden', 'false');
+          }
+        });
+      }, { threshold: 0 });
+      io.observe(hero);
+    }
+  })();
+</script>
 
 </body>
 </html>
