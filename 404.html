@@ -662,6 +662,7 @@
     margin-left: 8px;
     border-radius: var(--radius);
     transition: background-color var(--transition);
+    color: var(--navy);
   }
 
   .hamburger:hover { background: rgba(0, 0, 0, 0.04); }
@@ -739,6 +740,84 @@
   .btn:focus-visible {
     outline: 2px solid var(--slate);
     outline-offset: 3px;
+  }
+
+  .error-illustration {
+    display: block;
+    margin: 0 auto 32px;
+    width: 320px;
+    height: 160px;
+    overflow: visible;
+  }
+  @media (max-width: 559px) {
+    .error-illustration {
+      width: 280px;
+      height: 140px;
+      margin-bottom: 24px;
+    }
+  }
+  .error-illustration .tumbleweed-pos {
+    animation: tw-roll 8s linear infinite;
+  }
+  .error-illustration .tumbleweed-spin {
+    transform-origin: 0 0;
+    animation: tw-spin 8s linear infinite;
+  }
+  .error-illustration .chirp-1 {
+    opacity: 0;
+    animation: chirp-1 8s ease-in-out infinite;
+  }
+  .error-illustration .chirp-2 {
+    opacity: 0;
+    animation: chirp-2 8s ease-in-out infinite;
+  }
+  .error-illustration .chirp-3 {
+    opacity: 0;
+    animation: chirp-3 8s ease-in-out infinite;
+  }
+  .error-illustration .sun {
+    animation: sun-pulse 4s ease-in-out infinite;
+  }
+  @keyframes tw-roll {
+    0% { transform: translate(-30px, 110px); }
+    100% { transform: translate(350px, 110px); }
+  }
+  @keyframes tw-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(720deg); }
+  }
+  @keyframes chirp-1 {
+    0%, 4%, 14%, 100% { opacity: 0; }
+    6%, 12% { opacity: 0.7; }
+  }
+  @keyframes chirp-2 {
+    0%, 36%, 48%, 100% { opacity: 0; }
+    38%, 46% { opacity: 0.7; }
+  }
+  @keyframes chirp-3 {
+    0%, 73%, 86%, 100% { opacity: 0; }
+    75%, 84% { opacity: 0.7; }
+  }
+  @keyframes sun-pulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.7; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .error-illustration .tumbleweed-pos,
+    .error-illustration .tumbleweed-spin,
+    .error-illustration .chirp-1,
+    .error-illustration .chirp-2,
+    .error-illustration .chirp-3,
+    .error-illustration .sun {
+      animation: none;
+    }
+    .error-illustration .tumbleweed-pos {
+      transform: translate(140px, 110px);
+    }
+    .error-illustration .tumbleweed-spin {
+      transform: rotate(180deg);
+    }
+    .error-illustration .chirp-1 { opacity: 0.55; }
   }
 </style>
 
@@ -857,6 +936,46 @@
 
 <main id="main" class="error-main">
   <div class="error-content">
+    <svg class="error-illustration" viewBox="0 0 320 160" role="img" aria-labelledby="err-title err-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="err-title">Tumbleweed crossing an empty page</title>
+      <desc id="err-desc">A small tumbleweed slowly rolls across an empty desert horizon while distant crickets chirp.</desc>
+
+      <circle class="sun" cx="288" cy="34" r="11" fill="#B8573E" opacity="0.55" aria-hidden="true"/>
+
+      <line x1="0" y1="130" x2="320" y2="130" stroke="#252830" stroke-width="1" stroke-dasharray="2 4" opacity="0.3" aria-hidden="true"/>
+
+      <g aria-hidden="true" fill="#252830" opacity="0.45" stroke="#252830" stroke-width="0.5">
+        <path d="M44 130 L44 100 Q44 96 47 96 Q50 96 50 100 L50 130 Z"/>
+        <path d="M40 113 Q36 113 36 109 L36 105 Q36 102 38.5 102 Q41 102 41 105 L41 110 L44 110 Z"/>
+        <path d="M50 108 Q54 108 54 112 L54 117 Q54 119 52 119 Q50 119 50 117 L50 113 Z"/>
+      </g>
+      <g aria-hidden="true" fill="#252830" opacity="0.32" stroke="#252830" stroke-width="0.5" transform="translate(218 30) scale(0.72)">
+        <path d="M44 130 L44 100 Q44 96 47 96 Q50 96 50 100 L50 130 Z"/>
+        <path d="M50 108 Q54 108 54 112 L54 116 Q54 118 52 118 Q50 118 50 116 L50 113 Z"/>
+      </g>
+      <g aria-hidden="true" fill="#252830" opacity="0.22" stroke="#252830" stroke-width="0.5" transform="translate(108 60) scale(0.5)">
+        <path d="M44 130 L44 104 Q44 100 47 100 Q50 100 50 104 L50 130 Z"/>
+        <path d="M40 116 Q37 116 37 113 L37 110 Q37 108 39 108 Q41 108 41 110 L41 113 Z"/>
+      </g>
+      <ellipse aria-hidden="true" cx="170" cy="124" rx="6" ry="2" fill="#252830" opacity="0.25"/>
+
+      <g aria-hidden="true" font-family="Inter, system-ui, sans-serif" font-style="italic" font-size="10" font-weight="400" fill="#252830" opacity="0.7">
+        <text class="chirp-1" x="40" y="48">chirp</text>
+        <text class="chirp-2" x="244" y="86">chirp</text>
+        <text class="chirp-3" x="142" y="38">chirp…</text>
+      </g>
+
+      <g class="tumbleweed-pos" aria-hidden="true">
+        <g class="tumbleweed-spin" stroke="#252830" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+          <path d="M-16 -3 Q-13 -14 -3 -17 Q9 -19 16 -10 Q21 -1 17 9 Q12 18 0 18 Q-12 16 -17 6 Q-19 -2 -16 -3 Z"/>
+          <path d="M-13 -7 Q-3 -13 9 -10 Q16 -3 13 6 Q5 14 -4 12 Q-13 8 -13 -7"/>
+          <path d="M-12 4 Q-3 -1 8 -6 M-11 -10 Q-2 -8 11 -1 M-5 -16 Q-2 -7 5 11 M6 -14 Q3 -4 -8 9 M-17 1 Q-4 3 15 -1 M-9 -13 Q-5 1 -1 15 M14 -11 Q7 -3 -3 11"/>
+          <path d="M-7 -11 Q-9 -1 -3 9 M5 -13 Q9 -3 11 7 M-15 7 Q-7 9 5 13 M2 -17 Q4 -7 8 3"/>
+          <path d="M-19 -5 L-17 -3 M-21 1 L-18 0 M21 -3 L18 -2 M19 -10 L17 -8 M-3 -19 L-2 -16 M2 -21 L1 -18 M-13 18 L-12 16 M11 19 L10 16 M-19 8 L-16 7 M19 8 L17 6"/>
+        </g>
+      </g>
+    </svg>
+
     <span class="error-eyebrow">404</span>
     <h1 class="error-headline">That page <span class="accent">isn't</span> here.</h1>
     <p class="error-lead">The link you followed may be old, mistyped, or moved. Head back to the homepage, or get in touch and we will point you the right way.</p>
