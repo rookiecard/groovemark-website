@@ -3,13 +3,18 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://groovemarkhq.com/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/jonathankaufman.jpg</image:loc>
+      <image:title>Jonathan Kaufman, Founder of Groovemark</image:title>
+      <image:caption>Jonathan Kaufman, founder of Groovemark digital marketing agency for local businesses</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://groovemarkhq.com/services/ai-systems.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -20,7 +25,7 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/services/website-design.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -31,7 +36,7 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/services/social-media.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -42,13 +47,13 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/legal/privacy.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://groovemarkhq.com/legal/terms.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
