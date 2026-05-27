@@ -1,10 +1,10 @@
-# Groovemark — robots.txt
+# Groovemark - robots.txt
 # https://groovemarkhq.com
 
 User-agent: *
 Allow: /
 
-# AI / LLM crawlers — explicitly allowed for citation in answer engines
+# AI and LLM crawlers, explicitly allowed for citation in answer engines
 User-agent: GPTBot
 Allow: /
 

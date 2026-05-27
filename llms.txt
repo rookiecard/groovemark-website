@@ -4,9 +4,9 @@
 
 ## What we do
 
-- **AI Systems** — AI voice agents, chatbots, automated lead follow-up, and review systems. Picks up when you're closed. Books the appointment in two minutes. Reminds the customer the morning of, so they actually show up.
-- **Website Design** — Custom websites built to be found on Google and AI search tools, designed to turn visitors into paying customers. Mobile-friendly, SEO and AEO foundations included.
-- **Social Media** — Stays in front of customers until they're ready to call. Content creation, management, review and reputation, performance tracking.
+- **AI Systems.** AI voice agents, chatbots, automated lead follow-up, and review systems. Picks up when you're closed. Books the appointment in two minutes. Reminds the customer the morning of, so they actually show up.
+- **Website Design.** Custom websites built to be found on Google and AI search tools, designed to turn visitors into paying customers. Mobile-friendly, SEO and AEO foundations included.
+- **Social Media.** Stays in front of customers until they're ready to call. Content creation, management, review and reputation, performance tracking.
 
 ## Who we serve
 
@@ -27,11 +27,11 @@ Three phases: Connect, Build, Support. A 30-minute discovery call leads to a one
 ## Pricing
 
 Starting prices for primary services:
-- AI Systems: from $2,800
-- Website Design: from $2,800
-- Social Media: from $1,250 per month
+- AI Systems: from $1,250 setup + $530 per month ongoing
+- Website Design: from $3,500 one-time build
+- Social Media: from $800 per month + $260 setup
 
-Pricing is published and honest. No hidden fees, no required retainers.
+Pricing is published and honest. No hidden fees, no required retainers. Real numbers land on the discovery call once we know what's broken.
 
 ## Founder
 
@@ -40,7 +40,7 @@ Jonathan Kaufman, founder. Fifteen years in retail banking, most of it as Branch
 ## Contact
 
 - Email: hello@groovemarkhq.com
-- Phone: +1-203-803-0719
+- Book a call: https://groovemarkhq.com/call
 - Web: https://groovemarkhq.com
 
 ## Service area
