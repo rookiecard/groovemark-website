@@ -140,11 +140,11 @@ h1 .h1a{color:var(--on-navy)}
 .hero-foot{grid-column:1/-1}
 .hero-top{grid-template-columns:1fr}
 .hero-top>picture{display:none}
-.sheet-col{display:block;position:relative;align-self:stretch;min-height:320px;width:310px;max-height:620px}
+.sheet-col{display:block;position:relative;align-self:stretch;width:380px;min-height:566px}
 .sheet{container-type:inline-size;position:absolute;top:0;bottom:0;right:0;left:0;display:flex;flex-direction:column;background:var(--pale);border:2px solid var(--ink);border-radius:var(--r);box-shadow:10px 10px 0 var(--deep);overflow:hidden}
 .sheet-img{flex:1;min-height:0;padding-top:32px;background-color:var(--pale);background-image:linear-gradient(rgba(15,52,99,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(15,52,99,.10) 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:flex-end;justify-content:center}
 .sheet-img picture{display:block;height:100%;width:100%;position:relative}
-.sheet-img img{position:absolute;left:0;bottom:0;width:100%;height:auto;display:block}
+.sheet-img img{position:absolute;left:0;bottom:0;width:100%;height:auto;aspect-ratio:828/1058;display:block}
 .sheet figcaption{width:100%;min-width:0;border-top:2px solid var(--ink);background:var(--white);padding:12px 10px 13px;text-align:center;font-family:var(--head);display:flex;flex-direction:column;align-items:center}
 .sheet figcaption b{font-weight:700;font-size:clamp(17px,6.1cqw,20px);line-height:1.15;color:var(--ink);white-space:nowrap}
 .hero .ctas{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:600px}
@@ -554,12 +554,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
  var upd=function(){var on=past&&!fin;bar.classList.toggle('on',on);if(fab)fab.classList.toggle('on',on)};
  new IntersectionObserver(function(e){past=!e[0].isIntersecting;upd()},{threshold:0}).observe(hero);
  var endVis=new Set();var eo=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)endVis.add(x.target);else endVis.delete(x.target)});fin=endVis.size>0;upd()},{threshold:0.15});if(final)eo.observe(final);var ftr=document.querySelector('.ftr');if(ftr)eo.observe(ftr);
- /* Hero sheet: size the frame to the mascot so the side borders sit on the shoulders (desktop only). */
- var col=document.querySelector('.sheet-col'),simg=document.querySelector('.sheet-img'),hero2=document.querySelector('.hero .wrap');
- var cap=document.querySelector('.sheet figcaption');
- var mq=matchMedia('(min-width:900px)');
- var fit=function(){if(!col||!simg||!mq.matches){if(col){col.style.width='';col.style.minHeight=''}return}col.style.minHeight='';for(var i=0;i<6;i++){var h=simg.clientHeight-32;var w=Math.max(280,Math.min(460,Math.round(h*828/1058)+4));if(Math.abs(col.getBoundingClientRect().width-w)<1)break;col.style.width=w+'px'}var need=Math.round((col.getBoundingClientRect().width-4)*1058/828)+32+(cap?cap.offsetHeight:0)+4;if(col.getBoundingClientRect().height<need)col.style.minHeight=need+'px'};
- if(col){if('ResizeObserver' in window)new ResizeObserver(function(){fit()}).observe(hero2.querySelector('.hero-copy'));else{fit();addEventListener('resize',fit)}mq.addEventListener&&mq.addEventListener('change',fit)}
+
 
  /* Measurement. Every Call / Text / Book / Email link carries data-ev. Events queue in dataLayer from the first tap,
     and GA4 itself loads only after the first interaction, so PageSpeed never sees it.
