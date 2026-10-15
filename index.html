@@ -33,6 +33,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/barlow-condensed-700.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/barlow-800.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/source-sans-3-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/source-sans-3-700.woff2">
 
 <style>@font-face{font-family:"Barlow Condensed";font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-700.woff2) format("woff2"),url(fonts/barlow-condensed-700.woff) format("woff")}
 @font-face{font-family:"Barlow Condensed";font-weight:800;font-display:swap;src:url(fonts/barlow-condensed-800.woff2) format("woff2"),url(fonts/barlow-condensed-800.woff) format("woff")}
@@ -543,7 +544,6 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 (function(){
  var bar=document.getElementById('bar'),fab=document.getElementById('fab'),hero=document.querySelector('.hero .ctas');
  if(!bar||!hero)return;
- document.body.classList.add('has-bar');
  if(!('IntersectionObserver' in window)){bar.classList.add('on');if(fab)fab.classList.add('on');return}
  var past=false,fin=false,final=document.getElementById('call');
  /* Top dock (760px up) and bottom bar (phones): on from the end of the hero until the final section. */
@@ -553,8 +553,9 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
  /* Hero sheet: size the frame to the mascot so the side borders sit on the shoulders (desktop only). */
  var col=document.querySelector('.sheet-col'),simg=document.querySelector('.sheet-img'),hero2=document.querySelector('.hero .wrap');
  var cap=document.querySelector('.sheet figcaption');
- var fit=function(){if(!col||!simg||innerWidth<900){if(col){col.style.width='';col.style.minHeight=''}return}col.style.minHeight='';for(var i=0;i<6;i++){var h=simg.clientHeight-32;var w=Math.max(280,Math.min(460,Math.round(h*828/1058)+4));if(Math.abs(col.getBoundingClientRect().width-w)<1)break;col.style.width=w+'px'}var need=Math.round((col.getBoundingClientRect().width-4)*1058/828)+32+(cap?cap.offsetHeight:0)+4;if(col.getBoundingClientRect().height<need)col.style.minHeight=need+'px'};
- if(col){fit();addEventListener('resize',fit);if('ResizeObserver' in window)new ResizeObserver(fit).observe(hero2.querySelector('.hero-copy'))}
+ var mq=matchMedia('(min-width:900px)');
+ var fit=function(){if(!col||!simg||!mq.matches){if(col){col.style.width='';col.style.minHeight=''}return}col.style.minHeight='';for(var i=0;i<6;i++){var h=simg.clientHeight-32;var w=Math.max(280,Math.min(460,Math.round(h*828/1058)+4));if(Math.abs(col.getBoundingClientRect().width-w)<1)break;col.style.width=w+'px'}var need=Math.round((col.getBoundingClientRect().width-4)*1058/828)+32+(cap?cap.offsetHeight:0)+4;if(col.getBoundingClientRect().height<need)col.style.minHeight=need+'px'};
+ if(col){if('ResizeObserver' in window)new ResizeObserver(function(){fit()}).observe(hero2.querySelector('.hero-copy'));else{fit();addEventListener('resize',fit)}mq.addEventListener&&mq.addEventListener('change',fit)}
 
  /* Measurement. Every Call / Text / Book / Email link carries data-ev. Events queue in dataLayer from the first tap,
     and GA4 itself loads only after the first interaction, so PageSpeed never sees it.
