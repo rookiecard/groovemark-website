@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You’re booked | Groovemark</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0F3463">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/barlow-condensed-800.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/source-sans-3-400.woff2">
+<style>
+@font-face{font-family:"Barlow Condensed";font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-700.woff2) format("woff2"),url(fonts/barlow-condensed-700.woff) format("woff")}
+@font-face{font-family:"Barlow Condensed";font-weight:800;font-display:swap;src:url(fonts/barlow-condensed-800.woff2) format("woff2"),url(fonts/barlow-condensed-800.woff) format("woff")}
+@font-face{font-family:"Barlow";font-weight:800;font-display:swap;src:url(fonts/barlow-800.woff2) format("woff2"),url(fonts/barlow-800.woff) format("woff")}
+@font-face{font-family:"Source Sans 3";font-weight:400;font-display:swap;src:url(fonts/source-sans-3-400.woff2) format("woff2"),url(fonts/source-sans-3-400.woff) format("woff")}
+@font-face{font-family:"Source Sans 3";font-weight:700;font-display:swap;src:url(fonts/source-sans-3-700.woff2) format("woff2"),url(fonts/source-sans-3-700.woff) format("woff")}
+:root{--navy:#0F3463;--deep:#0A2547;--yellow:#FFD21F;--pale:#EDF2F8;--ink:#0B1B2B;--muted:#33475B;--on-navy:#D5E2F2;--white:#fff;
+--head:"Barlow Condensed","Arial Narrow",sans-serif;--body:"Source Sans 3","Segoe UI",Arial,sans-serif;--mark:"Barlow",Arial,sans-serif;--r:6px;
+--grid:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--pale);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.5}
+h1,h2,p,ol{margin:0}
+a:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--yellow)}
+.top{background-color:var(--navy);background-image:var(--grid);background-size:40px 40px;color:var(--white);border-bottom:4px solid var(--yellow);text-align:center;padding:clamp(26px,4vw,44px) 20px clamp(26px,3vw,40px)}
+.mark{font-family:var(--mark);font-weight:800;font-size:clamp(20px,3vw,26px);letter-spacing:.08em;text-transform:uppercase;color:var(--white);text-decoration:none;display:inline-block}
+.face{display:block;width:96px;height:96px;border-radius:50%;border:3px solid var(--yellow);background:var(--pale);margin:16px auto 0}
+h1{font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:clamp(40px,10vw,76px);line-height:.96;letter-spacing:-.005em;margin-top:14px;text-wrap:balance}
+h1 .a{display:block;color:var(--on-navy)}
+.sub{font-size:clamp(18px,2.4vw,22px);line-height:1.45;max-width:560px;margin:14px auto 0;text-wrap:balance}
+main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:clamp(24px,4vw,40px) 20px 40px;display:flex;flex-direction:column;gap:22px}
+.card{background:var(--white);border:2px solid var(--ink);border-radius:var(--r);box-shadow:8px 8px 0 var(--navy);padding:20px 20px 22px;display:flex;flex-direction:column;gap:14px}
+h2{font-family:var(--head);font-weight:700;font-size:28px;line-height:1.05;color:var(--navy)}
+ol{padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+ol li{display:flex;gap:12px;align-items:flex-start}
+ol .n{flex:none;width:34px;height:34px;border-radius:var(--r);background:var(--navy);border:2px solid var(--ink);color:var(--yellow);font-family:var(--head);font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;min-height:64px;padding:14px 22px;border-radius:var(--r);background:var(--yellow);color:var(--ink);border:2px solid var(--ink);text-decoration:none;font-family:var(--head);font-weight:700;font-size:clamp(21px,2.4vw,25px);line-height:1.1;letter-spacing:.02em}
+.btn:hover{background:#FFDB4D}
+.btn svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.why{font-size:17px;color:var(--muted);text-align:center}
+.foot{text-align:center;font-size:17px;color:var(--muted);padding:0 20px 28px}
+.foot a{color:var(--navy);font-weight:700}
+</style>
+</head>
+<body>
+<header class="top">
+ <a class="mark" href="https://groovemarkhq.com/">Groovemark</a>
+ <picture>
+  <source type="image/avif" srcset="img/mascot-round-160.avif 160w, img/mascot-round-320.avif 320w" sizes="96px">
+  <source type="image/webp" srcset="img/mascot-round-160.webp 160w, img/mascot-round-320.webp 320w" sizes="96px">
+  <img class="face" src="img/mascot-round-320.png" width="320" height="320" alt="">
+ </picture>
+ <h1><span class="a">You’re booked.</span>Check your texts.</h1>
+ <p class="sub">The confirmation is on its way to your phone and your email. I’ll text you the link to your site right before I call.</p>
+</header>
+<main>
+ <section class="card" aria-labelledby="h-next">
+  <h2 id="h-next">What happens now</h2>
+  <ol>
+   <li><span class="n">1</span><span>I build your website before we talk.</span></li>
+   <li><span class="n">2</span><span>The day before, you get a reminder by text and email. Need to move it? The link to reschedule is in there.</span></li>
+   <li><span class="n">3</span><span>At your time, I text you the link and call your cell. You open it, we go through it, you tell me what to change.</span></li>
+  </ol>
+ </section>
+ <section class="card" aria-labelledby="h-photos">
+  <h2 id="h-photos">Want it to look like your work?</h2>
+  <p>Text me three photos of jobs you’re proud of. Trucks, crews, finished work, whatever you’ve got on your phone. I’ll put them on the site before we talk.</p>
+  <a class="btn" href="sms:+14062098235?&amp;body=Hi%20Jonathan%2C%20here%20are%20some%20photos%20for%20my%20site." data-ev="text_click"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me 3 photos now</a>
+  <p class="why">Optional. No photos? I’ll build it anyway.</p>
+ </section>
+</main>
+<p class="foot">Questions before then? Text or call <a href="tel:+14062098235" data-ev="call_click">406-209-8235</a>. You get me, not an office.</p>
+<script>
+(function(){
+ var GA_ID='';
+ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+ if(GA_ID){gtag('js',new Date());gtag('config',GA_ID,{send_page_view:true});gtag('event','call_booked');var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(g)}
+ document.addEventListener('click',function(e){var a=e.target.closest('[data-ev]');if(a)gtag('event',a.getAttribute('data-ev'),{where:'booked'})});
+})();
+</script>
+</body>
+</html>
