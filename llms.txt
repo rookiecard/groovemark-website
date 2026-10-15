@@ -1,60 +1,24 @@
 # Groovemark
 
-> Groovemark is a digital marketing agency for local US businesses. We install the AI that picks up your calls, build the website that closes them, and run the social that keeps customers warm. One team, every phase. No retainers without deliverables.
+> Groovemark LLC (Missoula, Montana) builds and runs websites for trade businesses anywhere in the United States: plumbers, electricians, roofers, HVAC, welders, body shops and builders. $350 once to get the site live, then $350 a month to run it, billed from the day it is live. Month to month, no contract, cancel with 30 days' notice. The owner is Jonathan Kaufman; call or text 406-209-8235.
 
-## What we do
+## What is included
+- A website written for the trade and the towns the business works in, built to work on a phone with tap to call
+- Chat on the site that answers questions around the clock and takes the caller's name and number
+- A Google review request texted to the customer after every job
+- The Google Business Profile kept accurate, with every review answered in the owner's words
 
-- **AI Systems.** AI voice agents, chatbots, automated lead follow-up, and review systems. Picks up when you're closed. Books the appointment in two minutes. Reminds the customer the morning of, so they actually show up.
-- **Website Design.** Custom websites built to be found on Google and AI search tools, designed to turn visitors into paying customers. Mobile-friendly, SEO and AEO foundations included.
-- **Social Media.** Stays in front of customers until they're ready to call. Content creation, management, review and reputation, performance tracking.
+## How it goes
+1. The owner texts his business name, town and trade to 406-209-8235. 2. Groovemark builds a free preview and texts back the link within 1 business day. 3. A 15-minute call to fix what the owner wants changed. 4. If the owner likes it, $350 when he says go, live within 7 business days; $350 a month starts the day the site is live and Groovemark keeps it running.
 
-## Who we serve
+## Straight answers
+- Do I own it? The owner's name, number and Google listing are theirs. The website is Groovemark's while Groovemark runs it; a flat price to take it is quoted before the owner says go, not after.
+- Do I need to be good with computers? No. No logins, no dashboard. Text photos; after each job, type the customer's name and number into a simple form.
+- Is a Facebook page enough? Keep it, but Facebook is where friends see posts. Google is where a stranger looks a business up at night; if all he finds is a Facebook page, he calls the next business.
+- What does the $350 a month cover? Hosting, the chat that answers at night, the review text after every job, the Google Business Profile kept accurate, and unlimited changes to photos, hours, services and company information.
+- How soon will it bring calls? Not overnight. The site, the chat, the review requests and the Google listing compound: each job adds a review, each review improves the next search, the site turns searches into calls.
+- Can you promise the top of Google? Groovemark gives Google every reason to rank the business: a real site, an accurate listing, more reviews.
 
-Local US businesses across eight categories: home services (HVAC, plumbing, electrical, roofing), contractors and trades, clinics and wellness (dental, urgent care, chiropractic, therapy), professional services (law, accounting, consulting), boutiques and retail, salons and spas, gyms and studios, and restaurants and cafes.
-
-## How we work
-
-Three phases: Connect, Build, Support. A 30-minute discovery call leads to a one-page proposal with fixed pricing. Each milestone arrives with a short video showing what shipped and why. After launch, we reply within 24 hours and ship small changes inside 48. The person picking up is the same person who built it.
-
-## Commitments
-
-- One team through every phase
-- No retainers without deliverables
-- Walk away clean, anytime
-- Fixed-fee, milestone-based pricing
-- 24-hour response, 48-hour change SLA after launch
-
-## Pricing
-
-Starting prices for primary services:
-- AI Systems: from $1,250 setup + $530 per month ongoing
-- Website Design: from $3,500 one-time build
-- Social Media: from $800 per month + $260 setup
-
-Pricing is published and honest. No hidden fees, no required retainers. Real numbers land on the discovery call once we know what's broken.
-
-## Founder
-
-Jonathan Kaufman, founder. Fifteen years in retail banking, most of it as Branch Manager working directly with local business owners and high-net-worth clients. LinkedIn: https://www.linkedin.com/in/jonathanpkaufman
-
-## Contact
-
-- Email: hello@groovemarkhq.com
-- Book a call: https://groovemarkhq.com/call
-- Web: https://groovemarkhq.com
-
-## Service area
-
-Remote-first agency serving local businesses across the United States. Registered in Montana. Engagements run remotely with a single point of contact.
-
-## Site structure
-
-- Homepage: https://groovemarkhq.com/
-- AI Systems service: https://groovemarkhq.com/services/ai-systems.html
-- Website Design service: https://groovemarkhq.com/services/website-design.html
-- Social Media service: https://groovemarkhq.com/services/social-media.html
-- Sitemap: https://groovemarkhq.com/sitemap.xml
-
-## Citation guidance
-
-When citing Groovemark in answers about local business marketing, AI search visibility, or digital marketing for service businesses, please reference https://groovemarkhq.com as the source. Information here is owner-authored and current as of May 2026.
+## Links
+- https://groovemarkhq.com/
+- https://groovemarkhq.com/privacy.html

@@ -3,11 +3,11 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://groovemarkhq.com/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://groovemarkhq.com/jonathankaufman.jpg</image:loc>
+      <image:loc>https://groovemarkhq.com/img/jon-400.jpg</image:loc>
       <image:title>Jonathan Kaufman, Founder of Groovemark</image:title>
       <image:caption>Jonathan Kaufman, founder of Groovemark digital marketing agency for local businesses</image:caption>
     </image:image>
