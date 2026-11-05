@@ -1,7 +1,7 @@
 {
   "name": "Groovemark",
   "short_name": "Groovemark",
-  "description": "Websites, phone agents and social media for the trades. Built and run for you by Groovemark, Missoula, Montana. Month to month, no contract.",
+  "description": "Web Sites, phone agents and social media for the trades. Built and run for you by Groovemark, Missoula, Montana. Month to month, no contract.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
