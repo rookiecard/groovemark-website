@@ -1,11 +1,11 @@
 {
   "name": "Groovemark",
   "short_name": "Groovemark",
-  "description": "Marketing that earns the customers you want. AI Systems, Website Design, and Social Media for local US businesses.",
+  "description": "Websites, phone agents and social media for the trades. Built and run for you by Groovemark, Missoula, Montana. Month to month, no contract.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F6F2EC",
-  "theme_color": "#252830",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0F3463",
   "icons": [
     {
       "src": "/icon192.png",
