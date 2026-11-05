@@ -90,7 +90,9 @@ footer{color:var(--fg-2);font-size:14px;text-align:center;padding-block:10px 28p
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 .formwrap{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.formwrap iframe{width:100%;min-height:1500px;border:0;display:block}
+.formwrap{position:relative;min-height:240px}
+.formwrap::before{content:"Loading your form...";position:absolute;inset:40px 0 auto;text-align:center;color:var(--fg-2);font-weight:700}
+.formwrap iframe{position:relative;z-index:1;width:100%;min-height:700px;border:0;display:block;background:#fff}
 
 </style>
 </head>
