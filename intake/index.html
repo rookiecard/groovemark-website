@@ -75,8 +75,10 @@ input:focus,select:focus,textarea:focus,button:focus-visible,.chip:focus-within{
 .out{display:flex;flex-direction:column;gap:8px}
 .out textarea{min-height:220px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;background:var(--ink);color:var(--pale);border-color:#2A4C7A}
 .toast{font-weight:700;color:var(--yellow);min-height:1.4em}
-.contact{display:flex;gap:18px;flex-wrap:wrap;font-size:17px}
+.contact{display:flex;gap:18px;flex-wrap:wrap;font-size:17px;color:var(--on-navy)}
 .contact b{color:var(--white)}
+.send .hint{color:var(--on-navy)}
+.send .out textarea{background:var(--ink);color:var(--pale);border-color:#4F6E96}
 .prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--deep);color:var(--on-navy);font-size:15px}
 .prog .in{padding-block:8px;display:flex;justify-content:space-between;gap:12px;align-items:center}
 .prog .bar{flex:1;height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
@@ -293,7 +295,7 @@ function text(){
   s+=line('Hours',h)+line('Emergency / after hours',grp('emerg'))+'\n';
   s+='2. THE WORK\n'+line('Services',grp('svcs'))+line('More services',val('svc_more'))+line('Want more of',val('want'))+line('Free estimates',grp('est'))+line('Payment',grp('pay'))+line('Warranty',val('warranty'))+'\n';
   s+='3. WHY YOU\n'+line('Story',val('story'))+line('Credentials',grp('cred'))+line('Other credentials',val('cred_other'))+line('License no.',val('lic'))+line('Certs / awards',val('certs'))+line('FAQ',val('faq'))+'\n';
-  s+='4. PHOTOS AND LOGO\n'+line('Logo',grp('logo'))+line('Owner photo',grp('face'))+'(photos texted to 406-209-8235)\n\n';
+  s+='4. PHOTOS AND LOGO\n'+line('Logo',grp('logo'))+line('Owner photo',grp('face'))+'(photos and logo: attached through the upload box, or texted to 406-209-8235)\n\n';
   s+='5. REVIEWS AND LINKS\n'+line('Reviews to feature',val('bestrev'))+line('Facebook',val('fb'))+line('Other social',val('ig'))+line('Existing web site',val('oldsite'))+line('Look',grp('look'))+line('Tagline / existing copy',val('tagline'))+line('Must NOT be on web site',val('never'))+line('Anything else',val('notes'));
   return s;
 }
