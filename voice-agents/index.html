@@ -98,8 +98,10 @@ h3{font-family:var(--head);font-weight:700;font-size:30px;line-height:1.08;color
 .btn-call:hover{background:rgba(255,255,255,.08)}
 .est-ctas .btn-call{color:var(--navy);border-color:var(--navy)}
 .est-ctas .btn-call:hover{background:rgba(15,52,99,.06)}
-.book{display:inline-flex;align-items:center;justify-content:center;min-height:44px;color:var(--white);font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:.02em;text-decoration:underline;text-underline-offset:5px;grid-column:1/-1}
-.est-ctas .book{color:var(--navy)}
+.book{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 18px;color:var(--white);font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:.02em;text-decoration:none;border:2px dashed rgba(255,255,255,.55);border-radius:var(--r);grid-column:1/-1;transition:border-color .15s,background-color .15s}
+.book:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+.est-ctas .book{color:var(--navy);border-color:rgba(15,52,99,.5)}
+.est-ctas .book:hover{border-color:var(--navy);background:rgba(15,52,99,.05)}
 .btn .ic{font-size:26px}
 .hdr{background:var(--white);border-bottom:2px solid var(--ink)}
 .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:10px;padding-bottom:10px;min-height:84px}
@@ -119,7 +121,7 @@ h3{font-family:var(--head);font-weight:700;font-size:30px;line-height:1.08;color
 .trades span{position:relative;top:-.05em}
 @container hero (max-width:479px){.trades{gap:6px}.trades li{font-size:15px;letter-spacing:.02em;padding:3px 6px;gap:5px;min-height:34px}.trades li svg{width:19px;height:19px}}
 @container hero (max-width:399px){.trades{gap:5px}.trades li{font-size:14px;letter-spacing:0;padding:3px 5px;gap:4px}.trades li svg{width:17px;height:17px}}
-@container hero (max-width:349px){.trades{gap:4px}.trades li{font-size:13px;padding:3px 4px;gap:3px}.trades li svg{width:16px;height:16px}}
+@container hero (max-width:349px){.trades{gap:4px;grid-template-columns:repeat(2,minmax(0,1fr))}.trades li{font-size:13px;padding:3px 4px;gap:3px}.trades li svg{width:16px;height:16px}}
 @container hero (max-width:300px){.trades{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .trades svg{flex:none;width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .hero .wrap{display:grid;grid-template-columns:1fr;gap:14px;padding-top:clamp(22px,2.6vw,36px);padding-bottom:clamp(18px,2vw,28px);align-items:start}
@@ -143,9 +145,9 @@ h1 .h1a{color:var(--on-navy)}
 .micro{font-size:20px;color:var(--white);max-width:600px}
 .micro a{color:var(--white);font-weight:700;text-decoration:underline;text-underline-offset:4px;font-size:inherit;font-family:inherit;display:inline-block;padding:9px 0;margin:-9px 0}
 .hero-copy{display:flex;flex-direction:column;gap:var(--hg,18px);min-width:0}
-.hero .wrap>.hero-copy:first-child{container:hero/inline-size;min-height:712px}
+.hero .wrap>.hero-copy:first-child{container:hero/inline-size;min-height:716px}
 .pg-voice-agents{--hs:.95;--hs2:.96;--hg:16px}
-.pg-social-media{--hs:.86;--hs2:.82;--hlh:1.35;--hmw:640px;--hg:12px}
+.pg-social-media{--hs:.93;--hs2:.92;--hlh:1.4;--hg:14px}
 .hero-foot{gap:10px}
 .d-only-i{display:none}
 @media (min-width:900px){.d-only-i{display:inline}.m-only-i{display:none!important}}
@@ -166,7 +168,7 @@ h1 .h1a{color:var(--on-navy)}
 .hero .ctas .btn{font-size:22px;padding:14px 18px}
 .ctas .btn{padding:14px 20px;white-space:nowrap}
 }
-@media (min-width:760px){.hero-eyebrow{font-size:20px}h1{font-size:calc(clamp(54px,7.4vw,84px)*var(--hs,1))}.hero .wrap>.hero-copy:first-child{min-height:660px}}
+@media (min-width:760px){.hero-eyebrow{font-size:20px}h1{font-size:calc(clamp(54px,7.4vw,84px)*var(--hs,1))}.hero .wrap>.hero-copy:first-child{min-height:668px}}
 @media (max-width:479px){.hero-eyebrow{font-size:16px}.tag{font-size:clamp(12px,4vw,16px);white-space:nowrap}}
 @media (min-width:900px){h1{font-size:calc(clamp(54px,5.6vw,76px)*var(--hs,1))}}
 @media (min-width:760px) and (max-width:899px){.hero-sub{font-size:calc(21px*var(--hs2,1))}.price{font-size:26px}.micro{font-size:21px}}
@@ -212,23 +214,26 @@ h1 .h1a{color:var(--on-navy)}
 .est-ctas .btn-o{color:var(--navy);border-color:var(--navy)}
 .est-f .micro2{font-size:16px;color:var(--muted);text-align:center}
 .est-f .micro2 a{font-family:inherit;font-weight:700;font-size:inherit;color:var(--navy);text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:10px 0;margin:-10px 0}
-.steps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));grid-auto-rows:1fr}
-.step{background:var(--deep);border:2px solid var(--white);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:8px}
-.step .n{font-family:var(--head);font-weight:800;font-size:58px;line-height:.9;color:var(--yellow)}
+.steps{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));grid-auto-rows:1fr;position:relative}
+.steps::before{content:"";position:absolute;left:28px;right:28px;top:27px;height:3px;background:rgba(255,255,255,.35)}
+.step{display:flex;flex-direction:column;gap:8px;position:relative}
+.step .n{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:var(--yellow);color:var(--ink);font-family:var(--head);font-weight:800;font-size:24px;line-height:1;display:grid;place-items:center;margin-bottom:6px}
 .step h3{color:var(--white);font-size:28px}
 .step .t{font-weight:700;font-size:17px;color:var(--yellow)}
 .step p{color:var(--on-navy);font-size:18px;line-height:1.45}
 .note{font-size:18px;color:var(--on-navy);max-width:620px}
 @media (max-width:759px){
-.steps{gap:10px}
+.steps{gap:22px}
+.steps::before{display:none}
 #path{padding-top:30px;padding-bottom:30px}
 #path>.wrap{gap:18px!important}
-.step{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto auto 1fr;align-content:start;column-gap:12px;row-gap:0;padding:13px 14px 14px}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto auto 1fr;align-content:start;column-gap:14px;row-gap:0;padding:0}
+.step:not(:last-child)::before{content:"";position:absolute;left:21px;top:48px;bottom:-22px;width:3px;background:rgba(255,255,255,.35)}
 .step .step-ctas{display:none}
-.step .n{grid-row:1/span 2;align-self:center;font-size:40px}
+.step .n{grid-row:1/span 2;align-self:start;width:44px;height:44px;font-size:19px;margin-bottom:0}
 .step h3{font-size:23px;line-height:1.05}
 .step .t{font-size:16px;line-height:1.3}
-.step p,.step .step-ctas{grid-column:1/-1}
+.step p,.step .step-ctas{grid-column:2}
 .step p{font-size:16px;line-height:1.32;margin-top:6px}
 .step .step-ctas{margin-top:10px}
 .note{font-size:16px;line-height:1.4}
@@ -327,7 +332,8 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .tier-h{background:var(--navy);color:var(--white);padding:12px 18px;display:flex;flex-direction:column;gap:2px}
 .tier-h h3{color:var(--white);font-weight:800;font-size:30px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
 .tier-h span{font-size:16px;font-weight:700;color:var(--on-navy)}
-.tier.pick .tier-h{background:var(--deep)}
+.tier.pick .tier-h{background:var(--deep);position:relative}
+.tier-h span.tier-tag{position:absolute;top:12px;right:14px;background:var(--yellow);color:var(--ink);font-family:var(--head);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:999px;line-height:1}
 .tier-p{display:flex;align-items:baseline;gap:8px;padding:14px 18px 6px;border-bottom:2px dashed var(--muted);margin:0 18px 6px;padding-left:0;padding-right:0}
 .tier-p b{font-family:var(--head);font-weight:800;font-size:46px;line-height:1;color:var(--ink)}
 .tier-p span{font-size:17px;font-weight:700;color:var(--muted)}
@@ -474,7 +480,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
      <div class="row"><div class="l"><b>To cancel</b><span>30 days’ notice</span></div><div class="v s">One text</div></div>
     </div>
     <div class="est-f">
-     <p style="font-size:17px;line-height:1.4"><strong>Worth it?</strong> One missed call a month that turns into a job and it’s paid for.</p>
+     <p style="font-size:17px;line-height:1.4"><strong>Worth it?</strong> A part-timer on the phone costs more than this in a week. One missed call a month that turns into a job and it’s paid for.</p>
      <div class="ctas est-ctas">
       <a class="btn btn-text" href="sms:+14062098235?&amp;body=Hi%20Jonathan%2C%20tell%20me%20about%20the%20phone%20agent.%20My%20business%20is%20" data-ev="text_click"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg>Text Jonathan</a>
       <a class="btn btn-call" href="tel:+14062098235" data-ev="call_click"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Call Jonathan</a>
