@@ -1,6 +1,6 @@
 # Groovemark
 
-> Last updated 2026-11-05. This file and the pages linked below are the only current description of Groovemark; any earlier pages under /services/ or /legal/ are retired and redirect here.
+> Last updated 2026-11-06. This file and the pages linked below are the only current description of Groovemark; any earlier pages under /services/ or /legal/ are retired and redirect here.
 
 > Groovemark LLC (Missoula, Montana) builds and runs web sites for trade businesses anywhere in the United States: plumbers, electricians, roofers, HVAC, general contractors and construction, welders, body shops and other trades. $350 once to get the site live, then $350 a month to run it, billed from the day it is live. Free preview within 1 business day. Month to month, no contract, cancel with 30 days' notice. The owner is Jonathan; call or text 406-209-8235.
 
@@ -25,7 +25,13 @@
 - Voice Agents (https://groovemarkhq.com/voice-agents/): an AI phone agent that answers every call to the business in a natural voice, day or night, collects the caller's name, number, address and problem, texts the owner a summary, books jobs on the calendar and puts emergencies straight through. $530 one time to build, $350 a month to run, up to 500 minutes of calls a month included. Answering within 5 business days. Does not require the web site.
 - Social Media Management (https://groovemarkhq.com/social-media/): the owner texts job photos to one number when they want to; none are required. Groovemark writes the posts (from photos when sent, otherwise from the business’s Google reviews, past work and trade know-how) and the same system that runs the web site chat schedules and publishes them, answers Facebook and Instagram messages around the clock, and emails monthly stats. $350 one-time setup, then three monthly packages: Intro $350 (Facebook and Instagram, 3 posts a week, messages answered, reviews as posts), Steady $710 (Facebook, Instagram and X (Twitter), 4 posts a week, comments answered weekdays, monthly stats), Growth $1,250 (everything in Steady plus TikTok, 5 posts a week, 6 short videos, boosted posts on Facebook and Instagram with ad spend separate, monthly call). Does not require the web site.
 
+## About Groovemark (https://groovemarkhq.com/about/)
+- Groovemark LLC is a one-person digital marketing agency in Missoula, Montana, founded April 2026 by Jonathan, who ran a retail bank branch for fifteen years working with trade business owners before starting it. Mission: give trade businesses the web site, phone answering and social media the big outfits have, built and run for them so the owner never has to become a computer guy.
+- Works with trade businesses in all 50 U.S. states by text, phone and a 15-minute call; the owner never needs to be in Montana. Trades served: plumbing, electrical, roofing, HVAC, general contracting, remodeling, excavation, concrete, drain cleaning, septic, tree service, landscaping, painting, flooring, fencing, garage doors, welding and fabrication, auto body and repair, handyman, and other local service trades.
+- How it works: prices published on the site, no contract on any service, month to month, see the web site preview or hear the phone agent before paying, one person answers the number, nothing held hostage if the client leaves.
+
 ## Links
+- [About Groovemark: one guy, 15 years in banking, all 50 states](https://groovemarkhq.com/about/)
 - [Home: web sites for trade businesses, $350 to get it live, $350 a month](https://groovemarkhq.com/)
 - [Text for a free preview: 406-209-8235](sms:+14062098235)
 - [Call: 406-209-8235](tel:+14062098235)

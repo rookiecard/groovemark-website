@@ -312,9 +312,13 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .ftr .f-about{line-height:1.4}
 .ftr .f-mid{flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:18px}
 }
-@media (min-width:760px) and (max-width:1019px){.hdr .wrap{gap:8px 14px}.mark{font-size:30px}.tag{font-size:clamp(12px,1.65vw,14px);white-space:nowrap}.nav{font-size:16px;gap:0 14px;flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr-call{font-size:21px;white-space:nowrap;gap:6px}.hdr-call .ic{font-size:20px}}
+@media (min-width:760px) and (max-width:1019px){.hdr .wrap{gap:8px 14px}.mark{font-size:30px}.tag{font-size:clamp(11px,1.5vw,14px);white-space:nowrap}.nav{font-size:15px;gap:0 10px;flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr-call{font-size:21px;white-space:nowrap;gap:6px}.hdr-call .ic{font-size:20px}}
 @media (max-width:759px){.hdr .wrap{padding-top:6px;padding-bottom:4px;min-height:0}.mark{padding:6px 0}.nav a{min-height:38px}.hero .wrap{padding-top:12px}.round{width:64px}.hero-copy{gap:10px}.hero-sub{font-size:16px;line-height:1.35}.price{padding:8px 0}.hero .wrap>.hero-copy:first-child{min-height:660px}}
 @media (max-height:450px){.bar{display:none}}
+@media (min-width:1020px){.nav{flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr .wrap>div:first-child{min-width:0}.tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+@media (min-width:1020px) and (max-width:1199px){.nav{font-size:16px;gap:4px 12px}.tag{font-size:14px}}
+.sec .micro2{font-size:17px;color:var(--muted);font-weight:700}
+.sec .micro2 a{color:var(--navy);text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:8px 0}
 </style>
 
 <style>
@@ -344,6 +348,22 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .tiers-f{border:2px solid var(--ink);border-radius:var(--r);background:var(--white);max-width:760px;width:100%;margin:0 auto}
 .tiers-f .est-ctas{max-width:none}
 .trades.plat{grid-template-columns:repeat(2,minmax(0,1fr));max-width:380px}
+.rules{gap:14px}
+.rules li{align-items:flex-start}
+.rules li span{color:var(--white)}
+.rules li b{color:var(--yellow)}
+.rules .tile{background:var(--deep);border-color:var(--white)}
+@media (min-width:860px){.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px 36px}}
+.svc{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.svc a{display:flex;flex-direction:column;gap:10px;background:var(--white);border:2px solid var(--ink);border-radius:var(--r);box-shadow:8px 8px 0 var(--navy);padding:18px 18px 16px;color:var(--ink);text-decoration:none;transition:transform .12s,box-shadow .12s}
+.svc a:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--navy)}
+.svc h3{font-size:30px;letter-spacing:.04em;text-transform:uppercase;line-height:1;color:var(--navy)}
+.svc p{font-size:17px;line-height:1.4;margin:0}
+.svc .p{font-family:var(--head);font-weight:800;font-size:20px;color:var(--ink);margin-top:auto;padding-top:8px;border-top:2px dashed var(--muted)}
+.svc .go{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;color:var(--navy);text-decoration:underline;text-underline-offset:4px}
+.trades.wide{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));max-width:none}
+.trades.wide li{border-color:var(--navy);color:var(--navy);background:var(--white);white-space:normal;text-align:center;line-height:1.05;padding:6px 10px}
+.wide-h{display:flex;flex-direction:column;gap:14px}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://groovemarkhq.com/voice-agents/#service","name":"Voice Agents for trade businesses","serviceType":"AI phone answering agent, built and run for trade businesses","provider":{"@id":"https://groovemarkhq.com/#business"},"areaServed":{"@type":"Country","name":"United States"},"audience":{"@type":"BusinessAudience","name":"Owners of trade businesses: plumbers, electricians, roofers, HVAC, general contractors and other trades"},"description":"An AI phone agent that answers every call to a trade business in a natural voice, day or night, collects the caller’s name, number, address and problem, texts the owner a summary, books jobs on the calendar and puts emergencies through to the owner. $530 to build, $350 a month, month to month, no contract.","url":"https://groovemarkhq.com/voice-agents/","offers":{"@type":"Offer","url":"https://groovemarkhq.com/voice-agents/#estimate","availability":"https://schema.org/InStock","eligibleRegion":{"@type":"Country","name":"United States"},"priceSpecification":[{"@type":"UnitPriceSpecification","name":"Build it","price":"530","priceCurrency":"USD","description":"One-time. The agent set up around how the owner wants calls handled, tested, and answering within 5 business days."},{"@type":"UnitPriceSpecification","name":"Run it","price":"350","priceCurrency":"USD","billingDuration":"P1M","unitText":"month","description":"The phone line, recordings, text summaries, tuning and unlimited changes. Up to 500 minutes a month. Month to month, cancel with 30 days’ notice."}]}},{"@type":"HowTo","@id":"https://groovemarkhq.com/voice-agents/#howto","name":"How to get a Groovemark Voice Agent answering your business phone","totalTime":"P5D","step":[{"@type":"HowToStep","position":1,"name":"Text or call","text":"Text or call 406-209-8235 with the business name, town and trade."},{"@type":"HowToStep","position":2,"name":"15-minute call","text":"The owner says how calls should be handled, what to book and what counts as an emergency, and hears the agent talk."},{"@type":"HowToStep","position":3,"name":"Say go","text":"$530 one time. Groovemark builds and tests the agent; it is answering within 5 business days. Calls the owner does not answer forward to it."},{"@type":"HowToStep","position":4,"name":"It answers, you get the text","text":"$350 a month from day one. Every call arrives as a text with the name, number and problem; Groovemark tunes it and makes changes on request."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will people know it’s a computer?","acceptedAnswer":{"@type":"Answer","text":"If they ask, it tells them the truth: it is an automated assistant for the business that can take their details and get them on the schedule. Most callers do not ask. It speaks in a natural voice, not a robot menu."}},{"@type":"Question","name":"Do I lose my number?","acceptedAnswer":{"@type":"Answer","text":"No. The business number stays the owner’s. Calls the owner does not answer forward to the agent instead of voicemail, or all calls can be forwarded so the agent screens them."}},{"@type":"Question","name":"Will it quote prices?","acceptedAnswer":{"@type":"Answer","text":"Only what the owner tells it to. Most have it say the owner will call back with a price. The owner approves every answer on the setup call."}},{"@type":"Question","name":"What about a real emergency?","acceptedAnswer":{"@type":"Answer","text":"The owner defines what counts. When a caller describes one, the agent rings the owner through immediately; if unanswered it texts EMERGENCY with the details."}},{"@type":"Question","name":"What does the $350 a month cover?","acceptedAnswer":{"@type":"Answer","text":"The phone line, call recordings, the text summaries, Groovemark tuning how the agent handles calls, and unlimited changes to hours, service area and answers. Up to 500 minutes of calls a month included."}},{"@type":"Question","name":"Do I need the web site too?","acceptedAnswer":{"@type":"Answer","text":"No. The voice agent answers the existing number on its own. The web site and the voice agent are each $350 a month, month to month, no contract on either."}},{"@type":"Question","name":"What if I don’t like it?","acceptedAnswer":{"@type":"Answer","text":"Nothing to pay. The owner hears the agent on the call before spending anything. Once live, cancel with one text and 30 days’ notice."}}],"@id":"https://groovemarkhq.com/voice-agents/#faq"},{"@type":"WebPage","@id":"https://groovemarkhq.com/voice-agents/#webpage","url":"https://groovemarkhq.com/voice-agents/","name":"AI Phone Agent for Contractors & Trades, $350 a Month | Groovemark","about":{"@id":"https://groovemarkhq.com/#business"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".price"]},"inLanguage":"en-US","datePublished":"2026-11-05","dateModified":"2026-11-05","isPartOf":{"@id":"https://groovemarkhq.com/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Groovemark","item":"https://groovemarkhq.com/"},{"@type":"ListItem","position":2,"name":"Voice Agents","item":"https://groovemarkhq.com/voice-agents/"}]}}]}</script>
@@ -370,7 +390,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
    <a class="mark" href="/">Groovemark</a>
    <div class="tag">Voice Agents for the trades. Built and run for you.</div>
   </div>
-  <nav class="nav" aria-label="Services"><a href="/">Web Sites</a><a href="/voice-agents/" aria-current="page">Voice Agents</a><a href="/social-media/">Social Media</a></nav>
+  <nav class="nav" aria-label="Services"><a href="/">Web Sites</a><a href="/voice-agents/" aria-current="page">Voice Agents</a><a href="/social-media/">Social Media</a><a href="/about/">About</a></nav>
   <a class="hdr-call" href="tel:+14062098235" data-ev="call_click"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>406-209-8235</a>
  </div>
 </header>
@@ -518,6 +538,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
    <p class="eyebrow">Who you’re dealing with</p>
    <h2 id="h-about">One guy in Missoula, Montana.</h2>
    <p class="lead">I’m Jonathan. Fifteen years running a bank branch before this, across the desk from guys like you. I know you’d rather be on the job than on the phone, and I know what it costs when nobody picks up. Text me your business name, or just call. If I don’t pick up, leave a message or text me. I call everybody back.</p>
+   <p class="micro2"><a href="/about/" data-ev="about_click">More about me and why I only work with the trades.</a></p>
    <div class="sign">
     <p class="sig">Jonathan<br><span>Groovemark</span><br><span>Missoula, Montana</span></p>
     <p class="stamp"><span class="tile"><svg aria-hidden="true"><use href="#i-mtn"/></svg></span><span><span class="st">Built in Montana.</span> <span class="st">Serving all 50 states.</span></span></p>
@@ -571,7 +592,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
   <div>
    <a class="mark" href="/">Groovemark</a>
    <p class="f-about"><b>Groovemark LLC, Missoula, Montana.</b> Owned and run by Jonathan.<br>For plumbers, electricians, roofers, HVAC, contractors and other trades, anywhere in&nbsp;the&nbsp;U.S.</p>
-   <p class="f-links"><a href="/">Web Sites</a> · <a href="/voice-agents/">Voice Agents</a> · <a href="/social-media/">Social Media</a></p>
+   <p class="f-links"><a href="/">Web Sites</a> · <a href="/voice-agents/">Voice Agents</a> · <a href="/social-media/">Social Media</a> · <a href="/about/">About</a></p>
   </div>
   <div class="f-mid">
    <a href="tel:+14062098235" data-ev="call_click">406-209-8235</a>
