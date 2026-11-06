@@ -256,7 +256,7 @@ summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:1
 summary::-webkit-details-marker{display:none}
 summary::before{content:"+";content:"+" / "";flex:none;width:28px;height:28px;border:2px solid var(--ink);border-radius:var(--r);display:inline-flex;align-items:center;justify-content:center;font-size:22px;line-height:1;margin-top:1px}
 details[open] summary::before{content:"\2013";content:"\2013" / ""}
-@media (max-width:759px){summary{font-size:clamp(18px,5.3vw,22px);text-wrap:nowrap;white-space:nowrap}.book{font-size:clamp(16px,4.9vw,19px);white-space:nowrap}}
+@media (max-width:759px){summary{font-size:clamp(18px,5.3vw,22px);text-wrap:nowrap;white-space:nowrap}.book{font-size:clamp(16px,4.9vw,19px);white-space:nowrap}.hero .book{border:0;min-height:0;padding:6px 0 0;text-decoration:underline;text-underline-offset:5px;background:none}}
 details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .final{background:var(--deep);color:var(--white);border-top:6px solid var(--yellow)}
 .final .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:32px 48px}
@@ -279,7 +279,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .ftr .f-about{line-height:1.5;max-width:540px;text-wrap:balance}
 .ftr .f-about b{color:var(--ink)}
 .ftr .f-end a{margin-left:6px}
-.ftr .f-links{margin-top:6px}.ftr .f-links a{color:var(--navy);margin:0 4px}
+.ftr .f-links{margin-top:6px;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}.ftr .f-links a{color:var(--navy);margin:0 4px}.ftr .f-links span{white-space:nowrap}.ftr .f-links span+span::before{content:"·";margin:0 4px}@media (min-width:860px){.ftr .f-links{justify-content:flex-start}}@media (max-width:479px){.ftr .f-links span+span::before{display:none}}
 .more{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
 .more-c{background:var(--white);border:2px solid var(--ink);border-radius:var(--r);box-shadow:8px 8px 0 var(--navy);padding:22px;display:flex;gap:18px;align-items:flex-start}
 .more-b{display:flex;flex-direction:column;gap:10px;min-width:0;flex:1}
@@ -287,8 +287,8 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .more-b p{font-size:18px;line-height:1.45}
 .more-p{font-family:var(--head);font-weight:700;font-size:22px;color:var(--navy);border-top:2px dashed var(--muted);padding-top:10px}
 .more-p b{display:inline-block;margin-right:12px}
-.more-btn{align-self:flex-start;min-height:52px;font-size:21px;padding:10px 20px}
-@media (max-width:479px){.more-c{padding:16px}.more-b p{font-size:17px}.more-btn{align-self:stretch}}
+.more-go{align-self:flex-start;margin-top:auto;font-family:var(--head);font-weight:700;font-size:19px;letter-spacing:.03em;text-transform:uppercase;color:var(--navy);text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+@media (max-width:479px){.more-c{padding:16px}.more-b p{font-size:17px}}
 @media (max-width:979px){.more-c{flex-direction:column}}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--deep);border-top:3px solid var(--yellow);transform:translateY(110%);visibility:hidden;transition:transform .25s,visibility 0s .25s}
 .bar.on{transform:none;visibility:visible;transition:transform .25s}
@@ -314,7 +314,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .ftr .f-mid{flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:18px}
 }
 @media (min-width:760px) and (max-width:1019px){.hdr .wrap{gap:8px 14px}.mark{font-size:30px}.tag{font-size:clamp(11px,1.5vw,14px);white-space:nowrap}.nav{font-size:15px;gap:0 10px;flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr-call{font-size:21px;white-space:nowrap;gap:6px}.hdr-call .ic{font-size:20px}}
-@media (max-width:759px){.hdr .wrap{padding-top:6px;padding-bottom:4px;min-height:0}.mark{padding:6px 0}.nav a{min-height:38px}.hero .wrap{padding-top:12px}.round{width:64px}.hero-copy{gap:10px}.hero-sub{font-size:16px;line-height:1.35}.price{padding:8px 0}.hero .wrap>.hero-copy:first-child{min-height:660px}}
+@media (max-width:759px){.hdr .wrap{padding-top:6px;padding-bottom:4px;min-height:0}.mark{padding:6px 0}.nav a{min-height:38px}.hero .wrap{padding-top:12px}.round{width:64px}.hero-copy{gap:10px}.hero-sub{font-size:16px;line-height:1.35}.price{padding:8px 0}.hero .wrap>.hero-copy:first-child{min-height:635px}}
 @media (max-height:450px){.bar{display:none}}
 @media (min-width:1020px){.nav{flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr .wrap>div:first-child{min-width:0}.tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
 @media (min-width:1020px) and (max-width:1199px){.nav{font-size:16px;gap:4px 12px}.tag{font-size:14px}}
@@ -405,7 +405,6 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
   </figure>
   </div>
   <div class="hero-foot hero-copy">
-   <p class="micro"><a href="tel:+14062098235" data-ev="call_click">406-209-8235</a>. Text or call. You get me, not an office.</p>
   </div>
  </div>
 </section>
@@ -455,7 +454,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
      <div class="row"><div class="l"><b>Get it live</b><span>One time, when you say go</span></div><div class="v">$350</div></div>
      <div class="row"><div class="l"><b>Run it</b><span>Every month, from the day it’s live</span></div><div class="v">$350</div></div>
      <div class="row"><div class="l"><b>Contract</b><span>Month to month</span></div><div class="v s">None</div></div>
-     <div class="row"><div class="l"><b>To cancel</b><span>30 days’ notice</span></div><div class="v s">One text</div></div>
+     <div class="row"><div class="l"><b>To cancel</b><span>One text, 30 days’ notice</span></div><div class="v s">No fee</div></div>
     </div>
     <div class="est-f">
      <p style="font-size:17px;line-height:1.4"><strong>Worth it?</strong> Agencies quote $3,000 to $8,000 to build, then bill by the hour for changes. Here, one extra job a month and it’s paid for.</p>
@@ -496,36 +495,6 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
  </div>
 </section>
 
-<section class="sec below" id="more" aria-labelledby="h-more">
- <div class="wrap" style="display:flex;flex-direction:column;gap:28px">
-  <div class="stack">
-   <p class="eyebrow">Once you’re found</p>
-   <h2 id="h-more">Two more things I run for you.</h2>
-   <p class="lead">Same deal as the site: I build it, I run it, you stay on the job. Month to month. No contract on either.</p>
-  </div>
-  <ul class="more">
-   <li class="more-c">
-    <span class="tile"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
-    <div class="more-b">
-     <h3>Voice Agents</h3>
-     <p>You’re on a roof. Your phone rings. A real-sounding agent picks up, gets the name, number and problem, texts it to you, and books the job. The caller never hears voicemail.</p>
-     <p class="more-p"><b>$530 to build.</b> <b>$350 a month.</b></p>
-     <a class="btn btn-y more-btn" href="/voice-agents/" data-ev="voice_click">See how it answers</a>
-    </div>
-   </li>
-   <li class="more-c">
-    <span class="tile"><svg aria-hidden="true"><use href="#i-star"/></svg></span>
-    <div class="more-b">
-     <h3>Social Media Management</h3>
-     <p>Send a job photo when you feel like it, or don’t. The same system that runs your site chat keeps your Facebook, Instagram, TikTok and X (Twitter) pages posting, answers the messages, and makes your shop look busy.</p>
-     <p class="more-p"><b>$350 setup.</b> <b>Three packages from $350 a month.</b></p>
-     <a class="btn btn-y more-btn" href="/social-media/" data-ev="social_click">See the three packages</a>
-    </div>
-   </li>
-  </ul>
- </div>
-</section>
-
 <section class="sec pale below about" aria-labelledby="h-about">
  <div class="wrap">
   <picture>
@@ -559,10 +528,39 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
    <details><summary>What’s the $350 a month for?</summary><p>Keeping it working. Hosting, the chat answering at night, the review text after every job, your Google listing kept right. And unlimited changes: new photos, new hours, a new service, a new number, a new truck, a new guy on the crew. Text me and it’s done. No hourly bill, ever.</p></details>
    <details><summary>What happens on the call?</summary><p>I text you the link, you open it on your phone, and we go through your site together. You tell me what to change: photos, services, towns, wording. Fifteen minutes. Then you decide.</p></details>
    <details><summary>What if I don’t like it?</summary><p>Then you don’t pay. The preview is free, there’s nothing to cancel, and I don’t chase anybody. If you want changes, tell me and I’ll make them before you decide.</p></details>
-   <details><summary>When does the phone ring?</summary><p>Not tomorrow. A web site doesn’t make people need you. It makes sure the ones who already do find you and not the next guy. Then the pieces start feeding each other. Every job sends a review request. Every review moves you up the next time somebody searches. The site turns that search into a call, and the chat catches the ones who look at night. One job becomes a review, a review becomes two more calls. Then it keeps building.</p></details>
-   <details><summary>Phone and Facebook too?</summary><p>Yes, both, and each is its own month-to-month deal. A <a href="/voice-agents/" data-ev="voice_click">phone agent</a> that picks up when you can’t and texts you who called: $530 to build, $350 a month. Your pages on Facebook, Instagram, TikTok and X (Twitter) run for you: $350 setup, three packages from $350 a month. Start with the site, add either one whenever you want.</p></details>
+   <details><summary>When does the phone ring?</summary><p>Not tomorrow. A web site makes sure the people who already need you find you instead of the next guy. Then it compounds: every job sends a review request, every review moves you up the next search, and the site turns that search into a call.</p></details>
    <details><summary>Will I be at the top of Google?</summary><p>What I can do is give Google every reason to put you up there: a real site, a listing that’s kept right, and more reviews than the guy down the road. That’s the part you can control, and I run it for you.</p></details>
   </div>
+ </div>
+</section>
+
+<section class="sec below" id="more" aria-labelledby="h-more">
+ <div class="wrap" style="display:flex;flex-direction:column;gap:28px">
+  <div class="stack">
+   <p class="eyebrow">Once you’re found</p>
+   <h2 id="h-more">Two more things I run for you.</h2>
+   <p class="lead">Same deal as the site: I build it, I run it, you stay on the job. Month to month. No contract on either.</p>
+  </div>
+  <ul class="more">
+   <li class="more-c">
+    <span class="tile"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+    <div class="more-b">
+     <h3>Voice Agents</h3>
+     <p>You’re on a roof. Your phone rings. A real-sounding agent picks up, gets the name, number and problem, texts it to you, and books the job. The caller never hears voicemail.</p>
+     <p class="more-p"><b>$530 to build.</b> <b>$350 a month.</b></p>
+     <a class="more-go" href="/voice-agents/" data-ev="voice_click">See how it answers</a>
+    </div>
+   </li>
+   <li class="more-c">
+    <span class="tile"><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+    <div class="more-b">
+     <h3>Social Media Management</h3>
+     <p>Send a job photo when you feel like it, or don’t. The same system that runs your site chat keeps your Facebook, Instagram, TikTok and X (Twitter) pages posting, answers the messages, and makes your shop look busy.</p>
+     <p class="more-p"><b>$350 setup.</b> <b>Three packages from $350 a month.</b></p>
+     <a class="more-go" href="/social-media/" data-ev="social_click">See the three packages</a>
+    </div>
+   </li>
+  </ul>
  </div>
 </section>
 
@@ -593,7 +591,7 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
   <div>
    <a class="mark" href="https://groovemarkhq.com/">Groovemark</a>
    <p class="f-about"><b>Groovemark LLC, Missoula, Montana.</b> Owned and run by Jonathan.<br>Web Sites for plumbers, electricians, roofers, HVAC, contractors and other trades.<br>Built and run for $350 a month, anywhere in&nbsp;the&nbsp;U.S.</p>
-   <p class="f-links"><a href="/">Web Sites</a> · <a href="/voice-agents/">Voice Agents</a> · <a href="/social-media/">Social Media</a> · <a href="/about/">About</a></p>
+   <p class="f-links"><span><a href="/">Web Sites</a> · <a href="/voice-agents/">Voice Agents</a></span><span><a href="/social-media/">Social Media</a> · <a href="/about/">About</a></span></p>
   </div>
   <div class="f-mid">
    <a href="tel:+14062098235" data-ev="call_click">406-209-8235</a>
