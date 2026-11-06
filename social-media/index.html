@@ -145,7 +145,7 @@ h1 .h1a{color:var(--on-navy)}
 .micro{font-size:20px;color:var(--white);max-width:600px}
 .micro a{color:var(--white);font-weight:700;text-decoration:underline;text-underline-offset:4px;font-size:inherit;font-family:inherit;display:inline-block;padding:9px 0;margin:-9px 0}
 .hero-copy{display:flex;flex-direction:column;gap:var(--hg,18px);min-width:0}
-.hero .wrap>.hero-copy:first-child{container:hero/inline-size;min-height:716px}
+.hero .wrap>.hero-copy:first-child{container:hero/inline-size;min-height:var(--hpin,0px)}
 .pg-voice-agents{--hs:.95;--hs2:.96;--hg:16px}
 .pg-social-media{--hs:.93;--hs2:.92;--hlh:1.4;--hg:14px}
 .hero-foot{gap:10px}
@@ -315,6 +315,8 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .ftr .f-mid{flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:18px}
 }
 @media (min-width:760px) and (max-width:1019px){.hdr .wrap{gap:8px 14px}.mark{font-size:30px}.tag{font-size:clamp(12px,1.65vw,14px);white-space:nowrap}.nav{font-size:16px;gap:0 14px;flex-wrap:nowrap}.nav a{white-space:nowrap}.hdr-call{font-size:21px;white-space:nowrap;gap:6px}.hdr-call .ic{font-size:20px}}
+@media (max-width:759px){.hdr .wrap{padding-top:6px;padding-bottom:4px;min-height:0}.mark{padding:6px 0}.nav a{min-height:38px}.hero .wrap{padding-top:16px}.round{width:64px}.hero-copy{gap:10px}.hero-sub{font-size:16px;line-height:1.4}.price{padding:8px 0}.hero .wrap>.hero-copy:first-child{min-height:654px}}
+@media (max-height:450px){.bar{display:none}}
 </style>
 
 <style>
