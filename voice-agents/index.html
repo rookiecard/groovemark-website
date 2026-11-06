@@ -361,8 +361,10 @@ details p{padding:0 0 20px 40px;color:var(--muted);max-width:68ch}
 .svc p{font-size:17px;line-height:1.4;margin:0}
 .svc .p{font-family:var(--head);font-weight:800;font-size:20px;color:var(--ink);margin-top:auto;padding-top:8px;border-top:2px dashed var(--muted)}
 .svc .go{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;color:var(--navy);text-decoration:underline;text-underline-offset:4px}
-.trades.wide{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));max-width:none}
-.trades.wide li{border-color:var(--navy);color:var(--navy);background:var(--white);white-space:normal;text-align:center;line-height:1.05;padding:6px 10px}
+.trades.wide{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:none}
+@media (min-width:600px){.trades.wide{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:900px){.trades.wide{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}}
+.trades.wide li{height:56px;min-height:0;border-color:var(--navy);color:var(--navy);background:var(--white);white-space:normal;text-align:center;line-height:1.05;padding:4px 10px}
 .wide-h{display:flex;flex-direction:column;gap:14px}
 </style>
 
