@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
 
 # AI and LLM crawlers, explicitly allowed for citation in answer engines
 User-agent: GPTBot
