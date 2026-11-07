@@ -19,15 +19,25 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/voice-agents/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/img/mascot-1x1.jpg</image:loc>
+      <image:title>Groovemark Voice Agents: AI phone answering for trade businesses</image:title>
+      <image:caption>Groovemark cartoon mascot; AI phone agent built and run for plumbers, HVAC and contractors, $530 to build, $350 a month</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://groovemarkhq.com/social-media/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/img/mascot-1x1.jpg</image:loc>
+      <image:title>Groovemark Social Media Management for trade businesses</image:title>
+      <image:caption>Groovemark cartoon mascot; Facebook, Instagram, X (Twitter) and TikTok posting run for plumbers, roofers and contractors</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://groovemarkhq.com/privacy.html</loc>
@@ -40,5 +50,10 @@
     <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/img/jon-400.jpg</image:loc>
+      <image:title>Jonathan Kaufman, owner of Groovemark</image:title>
+      <image:caption>Jonathan Kaufman, owner of Groovemark LLC, Missoula, Montana</image:caption>
+    </image:image>
   </url>
 </urlset>
