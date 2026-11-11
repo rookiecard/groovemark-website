@@ -1,0 +1,85 @@
+/* Groovemark intake form v3 (11/11/2026). Paste into Form > Styles > Advanced > Custom CSS. Pairs with the gm-intake script in the HTML block. */
+@font-face{font-family:"GM Head";font-weight:700;font-display:swap;src:url(https://groovemarkhq.com/fonts/barlow-condensed-700.woff2) format("woff2")}
+#_builder-form .form-side{background:#fff;font-family:"Source Sans 3","Segoe UI",Arial,sans-serif;color:#0b1b2b}
+#_builder-form .form-side input,#_builder-form .form-side textarea,#_builder-form .form-side select,#_builder-form .form-side button,#_builder-form .form-side label,#_builder-form .form-side .short-label,#_builder-form .form-side .multiselect,#_builder-form .form-side .multiselect *,#_builder-form .form-side .gm-help,#_builder-form .form-side .gm-help *,#_builder-form .form-side input::placeholder,#_builder-form .form-side textarea::placeholder{font-family:"Source Sans 3","Segoe UI",Arial,sans-serif!important}
+
+/* spacing rhythm: 28px between questions, 8px label to box, 6px box to hint */
+#_builder-form .fields-container>.form-field-wrapper{margin-bottom:28px!important}
+#_builder-form .address-wrapper .col-12,#_builder-form .address-wrapper [style*=margin-bottom]{margin-bottom:20px!important}
+#_builder-form .form-field-wrapper:has(> .form-field-container > .form-builder--item.d-none),#_builder-form .form-field-wrapper:has(> .form-field-container > div > .d-none:only-child){display:none}
+
+/* labels */
+#_builder-form .form-builder--item label.field-label,#_builder-form .form-builder--item>label.label-alignment,#_builder-form .hl-address-autocomplete>label{font-size:18px!important;font-weight:700!important;line-height:1.3!important;color:#0b1b2b!important;margin:0 0 8px!important;display:block}
+#_builder-form .form-builder--item label.field-label span,#_builder-form .form-builder--item>label.label-alignment span{color:#0b1b2b!important}
+
+/* hints: under the box, 16px, 9.6:1 */
+#_builder-form .form-builder--item .short-label{display:block;font-size:16px!important;font-weight:400!important;line-height:1.45!important;color:#33475b!important;margin-top:6px!important;-webkit-font-smoothing:antialiased}
+
+/* boxes: 48px tall, 18px text, 2px border at 5.2:1 */
+#_builder-form .form-builder--item input.form-control,#_builder-form .form-builder--item input[type=text],#_builder-form .form-builder--item input[type=email],#_builder-form .form-builder--item input[type=tel],#_builder-form .form-builder--item input[type=number],#_builder-form .form-builder--item textarea,#_builder-form .form-builder--item .multiselect .multiselect__tags{min-height:48px!important;font-size:18px!important;line-height:1.4!important;color:#0b1b2b!important;background:#fff!important;border:2px solid #5b6f86!important;border-radius:6px!important;padding:10px 12px!important;box-shadow:none!important}
+#_builder-form .form-builder--item textarea{min-height:104px!important;resize:vertical}
+#_builder-form .form-builder--item .email-input-wrapper input,#_builder-form .hl-address-autocomplete input{padding-left:40px!important}
+#_builder-form .iti--allow-dropdown input,#_builder-form .iti--allow-dropdown input[type=tel]{padding-left:52px!important}
+#_builder-form .form-builder--item .multiselect .multiselect__tags{padding:11px 40px 9px 12px!important}
+#_builder-form .form-builder--item .multiselect__select{height:46px!important}
+#_builder-form .form-side .multiselect__single,#_builder-form .form-side .multiselect__input,#_builder-form .form-side .multiselect__placeholder{font-size:18px!important;color:#0b1b2b!important;border:0!important;box-shadow:none!important;min-height:0!important;padding:0!important}
+#_builder-form ::placeholder,#_builder-form .form-builder--item .multiselect__placeholder{color:#4a5567!important;opacity:1}
+#_builder-form .input-icon,#_builder-form .email-input-wrapper svg,#_builder-form .hl-address-autocomplete-search{color:#33475b!important}
+#_builder-form .form-builder--item input:hover,#_builder-form .form-builder--item textarea:hover,#_builder-form .form-builder--item .multiselect .multiselect__tags:hover{border-color:#0f3463!important}
+
+/* focus: ink ring plus yellow halo, same as the page */
+#_builder-form .form-side input:focus-visible,#_builder-form .form-side textarea:focus-visible,#_builder-form .form-side button:focus-visible,#_builder-form .form-side a:focus-visible,#_builder-form .form-side summary:focus-visible,#_builder-form .form-side .multiselect--active .multiselect__tags,#_builder-form .form-side .multiselect:focus-within .multiselect__tags{outline:3px solid #0b1b2b!important;outline-offset:2px!important;box-shadow:0 0 0 7px #ffd21f!important;border-color:#0b1b2b!important}
+#_builder-form .form-side input[type=checkbox]:focus-visible,#_builder-form .form-side input[type=radio]:focus-visible{outline:3px solid #0b1b2b!important;outline-offset:2px!important;box-shadow:0 0 0 6px #ffd21f!important}
+
+/* checkbox and radio rows: whole row is the target, 48px tall */
+#_builder-form .standard-checkbox-container,#_builder-form .standard-radio-container,#_builder-form .terms-and-conditions .in-r-c{display:flex!important;align-items:center;gap:12px;min-height:48px;padding:6px 12px;margin:0!important;border:1.5px solid #7a8ca1;border-radius:6px;background:#fff;cursor:pointer}
+#_builder-form .standard-checkbox-container:has(input:checked),#_builder-form .standard-radio-container:has(input:checked){border-color:#0f3463;background:#edf2f8;box-shadow:inset 0 0 0 1px #0f3463}
+#_builder-form .standard-checkbox-container label,#_builder-form .standard-radio-container label{flex:1;margin:0!important;padding:8px 0;font-size:18px!important;font-weight:400!important;line-height:1.3!important;color:#0b1b2b!important;cursor:pointer}
+#_builder-form [id$=-checkbox-container],#_builder-form [id$=-bubble-option-container]{display:grid!important;grid-template-columns:1fr;gap:8px}
+#_builder-form [id$=-checkbox-container]>div,#_builder-form [id$=-bubble-option-container]>div{width:auto!important;display:block!important;margin:0!important}
+@media (min-width:560px){#_builder-form [id$=-checkbox-container]:has(>div:nth-child(7)){grid-template-columns:1fr 1fr}}
+#_builder-form .form-side input[type=checkbox],#_builder-form .form-side input[type=radio]{appearance:none;-webkit-appearance:none;flex:none;width:24px!important;height:24px!important;margin:0!important;border:2px solid #5b6f86!important;background:#fff no-repeat center/16px 16px!important;cursor:pointer}
+#_builder-form .form-side input[type=checkbox]{border-radius:4px!important}
+#_builder-form .form-side input[type=radio]{border-radius:50%!important}
+#_builder-form .form-side input[type=checkbox]:checked{background-color:#0f3463!important;border-color:#0f3463!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important}
+#_builder-form .form-side input[type=radio]:checked{border-color:#0f3463!important;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 12px #0f3463!important}
+#_builder-form .form-side input[type=checkbox]::before,#_builder-form .form-side input[type=checkbox]::after,#_builder-form .form-side input[type=radio]::before,#_builder-form .form-side input[type=radio]::after{display:none!important}
+
+/* section headings injected by the script */
+#_builder-form .gm-sec{flex:0 0 100%;max-width:100%;padding:28px 15px 0;margin:12px 0 20px;border-top:3px solid #0f3463}
+#_builder-form .gm-sec.gm-first{border-top:0;padding-top:0;margin-top:0}
+#_builder-form .gm-sec .gm-step{margin:0 0 4px;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#33475b}
+#_builder-form .gm-sec h2{margin:0;font-family:"GM Head","Barlow Condensed","Arial Narrow",sans-serif!important;font-weight:700;font-size:30px;line-height:1.05;color:#0f3463}
+#_builder-form .gm-sec .gm-note{margin:8px 0 0;font-size:17px;line-height:1.45;color:#33475b}
+
+/* errors: 16px, 8.2:1 */
+#_builder-form .error,#_builder-form .form-builder--item .error{font-size:16px!important;font-weight:700!important;color:#9b1c1c!important;margin-top:6px!important;line-height:1.35!important}
+#_builder-form .form-builder--item:has(.error) input.form-control,#_builder-form .form-builder--item:has(.error) textarea{border-color:#9b1c1c!important}
+
+/* upload box */
+#_builder-form .file-upload .custom-file-upload{min-height:132px;border:2px dashed #5b6f86!important;border-radius:6px;background:#f7f9fc!important;color:#0b1b2b!important}
+#_builder-form .form-side .file-upload-supported-file{font-size:16px!important;color:#33475b!important}
+
+/* consent and privacy (wording unchanged) */
+#_builder-form .terms-and-conditions,#_builder-form .terms-and-conditions label,#_builder-form .terms-text-container,#_builder-form .terms-text-container p,#_builder-form .form-side p:has(>a[href*=privacy]),#_builder-form .form-side a[href*=privacy]{font-family:"Source Sans 3","Segoe UI",Arial,sans-serif!important;font-size:15px!important;font-weight:400!important;line-height:1.5!important;color:#33475b!important}
+#_builder-form .form-side a[href*=privacy]{display:inline-block;padding:12px 4px;color:#0f3463!important;font-weight:700!important;text-decoration:underline}
+
+/* send button */
+#_builder-form .form-builder--item button.btn{width:100%;min-height:58px;background:#ffd21f!important;color:#0b1b2b!important;border:2px solid #0b1b2b!important;border-radius:6px;box-shadow:5px 5px 0 #0f3463;font-weight:700!important;font-size:21px!important;letter-spacing:.04em;padding:14px 24px;text-transform:uppercase}
+#_builder-form .form-builder--item button.btn *{font-weight:700!important;color:#0b1b2b!important}
+#_builder-form .form-builder--item button.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #0f3463}
+
+/* trade dropdown list */
+#_builder-form .form-field-wrapper:has(.multiselect--active),#_builder-form .form-builder--item:has(.multiselect--active){position:relative;z-index:50}
+#_builder-form .multiselect__content-wrapper{background:#fff;z-index:50;border:2px solid #0b1b2b!important;border-top:0!important}
+#_builder-form .multiselect__option{min-height:44px;display:flex!important;align-items:center;font-size:18px;color:#0b1b2b}
+#_builder-form .multiselect__option:hover,#_builder-form .multiselect__option--highlight,#_builder-form .multiselect__option--highlight:after{background:#ffd21f!important;color:#0b1b2b!important}
+#_builder-form .multiselect__option--selected{background:#fff3c4!important;color:#0b1b2b!important;font-weight:700}
+#_builder-form .multiselect__option--selected.multiselect__option--highlight{background:#ffd21f!important}
+
+/* fallback order only when the script did not run */
+#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper{order:2}
+#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has([data-q=business_name]),#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has([data-q=email]),#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has(#ZeBQHddaECX9To4YXoZT),#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has([data-q="intake:_other_or_second_trade"]){order:0}
+#_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has([data-q^="intake:_services:_"]){order:1}
+
+@media (prefers-reduced-motion:reduce){#_builder-form *{transition:none!important;animation:none!important}}
