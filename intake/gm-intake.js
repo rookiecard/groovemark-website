@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '2';
+  var CSS_V = '3';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
@@ -15,9 +15,10 @@
   var SEC = [
     {t:'What we’re setting up', s:[Q('intake_services_wanted')]},
     {t:'Your business', s:[Q('business_name')]},
-    {t:'Your web site', n:'Logo and photos first. Everything after that is optional.', s:['.form-field-wrapper:has(.file-upload)', Q('radio_50nn4')]},
+    {t:'Your web site', n:'Logo and photos first. Everything after that is optional.', web:1, s:['.form-field-wrapper:has(.file-upload)', Q('radio_50nn4')]},
     {t:'Your voice agent', n:'How you want your phone answered.', s:[Q('single_line_87lfy'), Q('single_line_832ee'), Q('single_line_86ybk'), Q('radio_53w7x')]},
-    {t:'Your social media', n:'How you want your pages run.', s:[Q('radio_55t4a'), Q('which_social_media_package_tt1_copy')]},
+    {t:'Your social media', n:'How you want your pages run.', s:[Q('radio_55t4a'), Q('which_social_media_package_tt1_copy')],
+      noWeb:{n:'Your logo and job photos first, then how you want your pages run.', s:['.form-field-wrapper:has(.file-upload)', Q('radio_55t4a')]}},
     {t:'How I reach you', n:'Last step. Then hit Send to Jonathan.', s:[Q('first_name')]}
   ];
   var AC = {business_name:'organization', email:'email', address:'address-line1', city:'address-level2', state:'address-level1', postal_code:'postal-code', first_name:'name', phone:'tel'};
@@ -91,12 +92,16 @@
   }
   function heads(){
     var plan = [];
+    var web = !!box.querySelector('[data-q="intake_services_wanted"][value="Web Site"]:checked');
     for (var i = 0; i < SEC.length; i++) {
+      var sec = SEC[i];
+      if (sec.web && !web) continue;
+      if (sec.noWeb && !web) sec = {t: sec.t, n: sec.noWeb.n, s: sec.noWeb.s};
       var at = null;
-      for (var j = 0; j < SEC[i].s.length && !at; j++) { var c = one(SEC[i].s[j]); if (vis(c)) at = c; }
-      if (at) plan.push([SEC[i], at]);
+      for (var j = 0; j < sec.s.length && !at; j++) { var c = one(sec.s[j]); if (vis(c)) at = c; }
+      if (at) plan.push([sec, at]);
     }
-    var key = plan.map(function(p){ return p[0].t + '@' + p[1].id; }).join('|');
+    var key = plan.map(function(p){ return p[0].t + p[0].n + '@' + p[1].id; }).join('|');
     if (key === sig) return; sig = key;
     var old = box.querySelectorAll(':scope > .gm-sec');
     for (var o = 0; o < old.length; o++) old[o].remove();
