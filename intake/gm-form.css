@@ -60,6 +60,18 @@
 #_builder-form .gm-sec h2{margin:0;font-family:"GM Head","Barlow Condensed","Arial Narrow",sans-serif!important;font-weight:700;font-size:30px;line-height:1.05;color:#0f3463}
 #_builder-form .gm-sec .gm-note{margin:8px 0 0;font-size:17px;line-height:1.45;color:#33475b}
 
+/* "Not sure which one you need?" disclosure (HTML block) */
+#_builder-form .gm-help{margin:-12px 0 0;font-size:17px;color:#0b1b2b}
+#_builder-form .gm-help summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:4px 0;font-weight:700;color:#0f3463;cursor:pointer;list-style:none}
+#_builder-form .gm-help summary::-webkit-details-marker{display:none}
+#_builder-form .gm-help .gm-i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#0f3463;color:#fff;font-size:15px;font-style:normal;font-weight:700}
+#_builder-form .gm-help summary u{text-underline-offset:3px}
+#_builder-form .gm-help[open] .gm-i{background:#ffd21f;color:#0b1b2b}
+#_builder-form .gm-help .gm-pop{margin:8px 0 0;padding:16px 18px;border:2px solid #0b1b2b;border-radius:6px;background:#edf2f8;line-height:1.5}
+#_builder-form .gm-help .gm-pop p{margin:0 0 12px}
+#_builder-form .gm-help .gm-pop p:last-child{margin:0}
+#_builder-form .gm-help .gm-pop a{color:#0f3463;font-weight:700;white-space:nowrap}
+
 /* errors: 16px, 8.2:1 */
 #_builder-form .error,#_builder-form .form-builder--item .error{font-size:16px!important;font-weight:700!important;color:#9b1c1c!important;margin-top:6px!important;line-height:1.35!important}
 #_builder-form .form-builder--item:has(.error) input.form-control,#_builder-form .form-builder--item:has(.error) textarea{border-color:#9b1c1c!important}
