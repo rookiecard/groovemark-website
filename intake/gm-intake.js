@@ -37,8 +37,10 @@
       var after = trade.nextElementSibling;
       for (var i = 0; i < lists.length; i++) box.insertBefore(lists[i], after);
     }
-    var up = one('.form-field-wrapper:has(.file-upload)'), more = one(Q('radio_50nn4'));
-    if (up && more && !(up.compareDocumentPosition(more) & 4)) box.insertBefore(up, more);
+    var up = one('.form-field-wrapper:has(.file-upload)');
+    var web = !!box.querySelector('[data-q="intake_services_wanted"][value="Web Site"]:checked');
+    var to = web ? one(Q('radio_50nn4')) : one(Q('radio_55t4a'));
+    if (up && to && up.nextElementSibling !== to) box.insertBefore(up, to);
     var nae = box.querySelector('.non-address-elements');
     if (nae) {
       var city = nae.querySelector(':scope > div:has([data-q="city"])'), st = nae.querySelector(':scope > div:has([data-q="state"])');
