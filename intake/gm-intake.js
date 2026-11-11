@@ -30,6 +30,11 @@
     }
     var up = one('.form-field-wrapper:has(.file-upload)'), more = one(Q('radio_50nn4'));
     if (up && more && !(up.compareDocumentPosition(more) & 4)) box.insertBefore(up, more);
+    var nae = box.querySelector('.non-address-elements');
+    if (nae) {
+      var city = nae.querySelector(':scope > div:has([data-q="city"])'), st = nae.querySelector(':scope > div:has([data-q="state"])');
+      if (city && st && (st.compareDocumentPosition(city) & 4)) nae.insertBefore(city, st);
+    }
   }
   function a11y(){
     var f = box.querySelectorAll('input[data-q], textarea[data-q]');

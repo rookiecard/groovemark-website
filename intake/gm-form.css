@@ -16,17 +16,18 @@
 #_builder-form .form-builder--item .short-label{display:block;font-size:16px!important;font-weight:400!important;line-height:1.45!important;color:#33475b!important;margin-top:6px!important;-webkit-font-smoothing:antialiased}
 
 /* boxes: 48px tall, 18px text, 2px border at 5.2:1 */
-#_builder-form .form-builder--item input.form-control,#_builder-form .form-builder--item input[type=text],#_builder-form .form-builder--item input[type=email],#_builder-form .form-builder--item input[type=tel],#_builder-form .form-builder--item input[type=number],#_builder-form .form-builder--item textarea,#_builder-form .form-builder--item .multiselect .multiselect__tags{min-height:48px!important;font-size:18px!important;line-height:1.4!important;color:#0b1b2b!important;background:#fff!important;border:2px solid #5b6f86!important;border-radius:6px!important;padding:10px 12px!important;box-shadow:none!important}
-#_builder-form .form-builder--item textarea{min-height:104px!important;resize:vertical}
-#_builder-form .form-builder--item .email-input-wrapper input,#_builder-form .hl-address-autocomplete input{padding-left:40px!important}
-#_builder-form .iti--allow-dropdown input,#_builder-form .iti--allow-dropdown input[type=tel]{padding-left:52px!important}
-#_builder-form .form-builder--item .multiselect .multiselect__tags{padding:11px 40px 9px 12px!important}
-#_builder-form .form-builder--item .multiselect__select{height:46px!important}
-#_builder-form .form-side .multiselect__single,#_builder-form .form-side .multiselect__input,#_builder-form .form-side .multiselect__placeholder{font-size:18px!important;color:#0b1b2b!important;border:0!important;box-shadow:none!important;min-height:0!important;padding:0!important}
-#_builder-form ::placeholder,#_builder-form .form-builder--item .multiselect__placeholder{color:#4a5567!important;opacity:1}
-#_builder-form .input-icon,#_builder-form .email-input-wrapper svg,#_builder-form .hl-address-autocomplete-search{color:#33475b!important}
-#_builder-form .form-builder--item input:hover,#_builder-form .form-builder--item textarea:hover,#_builder-form .form-builder--item .multiselect .multiselect__tags:hover{border-color:#0f3463!important}
+#_builder-form#_builder-form .form-builder--item input.form-control,#_builder-form#_builder-form .form-builder--item input[type=text],#_builder-form#_builder-form .form-builder--item input[type=email],#_builder-form#_builder-form .form-builder--item input[type=tel],#_builder-form#_builder-form .form-builder--item input[type=number],#_builder-form#_builder-form .form-builder--item textarea,#_builder-form#_builder-form .form-builder--item .multiselect .multiselect__tags{min-height:48px!important;font-size:18px!important;line-height:1.4!important;color:#0b1b2b!important;background:#fff!important;border:2px solid #5b6f86!important;border-radius:6px!important;padding:10px 12px!important;box-shadow:none!important}
+#_builder-form#_builder-form .form-builder--item textarea{min-height:104px!important;resize:vertical}
+#_builder-form#_builder-form .form-builder--item .email-input-wrapper input,#_builder-form#_builder-form .hl-address-autocomplete input{padding-left:40px!important}
+#_builder-form#_builder-form .iti--allow-dropdown input,#_builder-form#_builder-form .iti--allow-dropdown input[type=tel]{padding-left:52px!important}
+#_builder-form#_builder-form .form-builder--item .multiselect .multiselect__tags{padding:11px 40px 9px 12px!important}
+#_builder-form#_builder-form .form-builder--item .multiselect__select{height:46px!important}
+#_builder-form#_builder-form .form-side .multiselect__single,#_builder-form#_builder-form .form-side .multiselect__input,#_builder-form#_builder-form .form-side .multiselect__placeholder{font-size:18px!important;color:#0b1b2b!important;border:0!important;box-shadow:none!important;min-height:0!important;padding:0!important}
+#_builder-form#_builder-form ::placeholder,#_builder-form#_builder-form .form-builder--item .multiselect__placeholder{color:#4a5567!important;opacity:1}
+#_builder-form#_builder-form .input-icon,#_builder-form#_builder-form .email-input-wrapper svg,#_builder-form#_builder-form .hl-address-autocomplete-search{color:#33475b!important}
+#_builder-form#_builder-form .form-builder--item input:hover,#_builder-form#_builder-form .form-builder--item textarea:hover,#_builder-form#_builder-form .form-builder--item .multiselect .multiselect__tags:hover{border-color:#0f3463!important}
 
+#_builder-form#_builder-form#_builder-form .form-builder--item .multiselect input.multiselect__input,#_builder-form#_builder-form#_builder-form .multiselect__input{min-height:0!important;height:auto!important;border:0!important;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important;outline:0!important}
 /* focus: ink ring plus yellow halo, same as the page */
 #_builder-form .form-side input:focus-visible,#_builder-form .form-side textarea:focus-visible,#_builder-form .form-side button:focus-visible,#_builder-form .form-side a:focus-visible,#_builder-form .form-side summary:focus-visible,#_builder-form .form-side .multiselect--active .multiselect__tags,#_builder-form .form-side .multiselect:focus-within .multiselect__tags{outline:3px solid #0b1b2b!important;outline-offset:2px!important;box-shadow:0 0 0 7px #ffd21f!important;border-color:#0b1b2b!important}
 #_builder-form .form-side input[type=checkbox]:focus-visible,#_builder-form .form-side input[type=radio]:focus-visible{outline:3px solid #0b1b2b!important;outline-offset:2px!important;box-shadow:0 0 0 6px #ffd21f!important}
@@ -45,8 +46,15 @@
 #_builder-form .form-side input[type=radio]:checked{border-color:#0f3463!important;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 12px #0f3463!important}
 #_builder-form .form-side input[type=checkbox]::before,#_builder-form .form-side input[type=checkbox]::after,#_builder-form .form-side input[type=radio]::before,#_builder-form .form-side input[type=radio]::after{display:none!important}
 
+/* address: street, then city / state / zip (script puts city first) */
+#_builder-form .non-address-elements{display:grid!important;grid-template-columns:1fr 1fr;column-gap:12px}
+#_builder-form .non-address-elements>div{width:auto!important;max-width:none!important;flex:none!important;padding:0!important;margin-bottom:20px!important}
+#_builder-form .non-address-elements>div:has([data-q=city]){grid-column:1/-1}
+@media (min-width:560px){#_builder-form .non-address-elements{grid-template-columns:2fr 1fr 1fr}#_builder-form .non-address-elements>div:has([data-q=city]){grid-column:auto}}
+#_builder-form .address-wrapper>.col-12{padding:0!important}
+
 /* section headings injected by the script */
-#_builder-form .gm-sec{flex:0 0 100%;max-width:100%;padding:28px 15px 0;margin:12px 0 20px;border-top:3px solid #0f3463}
+#_builder-form .gm-sec{flex:0 0 100%;max-width:100%;padding:24px 0 0;margin:4px 0 20px;border-top:3px solid #0f3463}
 #_builder-form .gm-sec.gm-first{border-top:0;padding-top:0;margin-top:0}
 #_builder-form .gm-sec .gm-step{margin:0 0 4px;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#33475b}
 #_builder-form .gm-sec h2{margin:0;font-family:"GM Head","Barlow Condensed","Arial Narrow",sans-serif!important;font-weight:700;font-size:30px;line-height:1.05;color:#0f3463}
@@ -83,3 +91,7 @@
 #_builder-form .fields-container:not(.gm-js)>.form-field-wrapper:has([data-q^="intake:_services:_"]){order:1}
 
 @media (prefers-reduced-motion:reduce){#_builder-form *{transition:none!important;animation:none!important}}
+
+/* "Submission in progress" resume dialog: Start over was yellow text on white (1.45:1) */
+.start-over-button{color:#0b1b2b!important;background:#fff!important;border:2px solid #0b1b2b!important;font-weight:700!important;min-height:44px;padding:0 16px!important}
+.start-over-button+button,.start-over-button~button{min-height:44px;color:#0b1b2b!important;border:2px solid #0b1b2b!important;font-weight:700!important}
