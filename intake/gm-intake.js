@@ -50,7 +50,11 @@
     var up = one('.form-field-wrapper:has(.file-upload)');
     var web = !!box.querySelector('[data-q="intake_services_wanted"][value="Web Site"]:checked');
     if (up) {
-      if (web) { if (prev && prev.nextElementSibling !== up) box.insertBefore(up, prev.nextElementSibling); }
+      if (web && prev) {
+        var nx = prev.nextElementSibling; /* the step heading may sit between them: that is the right place */
+        while (nx && nx.classList.contains('gm-sec')) nx = nx.nextElementSibling;
+        if (nx !== up) box.insertBefore(up, prev.nextElementSibling);
+      }
       else { var to = one(Q('radio_55t4a')); if (to && up.nextElementSibling !== to) box.insertBefore(up, to); }
     }
     var nae = box.querySelector('.non-address-elements');
