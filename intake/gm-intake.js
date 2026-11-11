@@ -98,14 +98,15 @@
   }
   function run(){
     if (busy) return; busy = true;
-    requestAnimationFrame(function(){
+    setTimeout(function(){
       try { reorder(); a11y(); heads(); } catch (e) {}
       busy = false;
-    });
+    }, 30);
   }
   function start(){
-    box = document.querySelector('.fields-container');
-    if (!box || !box.querySelector('[data-q="business_name"]')) return setTimeout(start, 150);
+    var all = document.querySelectorAll('.fields-container'); box = null;
+    for (var i = 0; i < all.length; i++) if (all[i].querySelector('[data-q="business_name"]') && all[i].closest('.form-side')) { box = all[i]; break; }
+    if (!box) return setTimeout(start, 150);
     box.classList.add('gm-js');
     run();
     new MutationObserver(function(m){
