@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '4';
+  var CSS_V = '5';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
