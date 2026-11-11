@@ -81,7 +81,7 @@
 
 /* errors: 16px, 8.2:1 */
 #_builder-form .error,#_builder-form .form-builder--item .error{font-size:16px!important;font-weight:700!important;color:#9b1c1c!important;margin-top:6px!important;line-height:1.35!important}
-#_builder-form .form-builder--item:has(.error) input.form-control,#_builder-form .form-builder--item:has(.error) textarea{border-color:#9b1c1c!important}
+#_builder-form#_builder-form#_builder-form .form-builder--item:has(.error) input.form-control,#_builder-form#_builder-form#_builder-form .form-builder--item:has(.error) textarea,#_builder-form#_builder-form#_builder-form .form-builder--item:has(.error) .multiselect__tags{border-color:#9b1c1c!important;border-width:2px!important}
 
 /* upload box */
 #_builder-form .file-upload .custom-file-upload{min-height:132px;border:2px dashed #5b6f86!important;border-radius:6px;background:#f7f9fc!important;color:#0b1b2b!important}
