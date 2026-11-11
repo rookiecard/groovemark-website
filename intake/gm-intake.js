@@ -75,6 +75,15 @@
       if (d.length) grp.setAttribute('aria-describedby', d.join(' ')); else grp.removeAttribute('aria-describedby');
       if (it && it.querySelector('[data-required="true"]')) grp.setAttribute('aria-required', 'true');
     }
+    var combos = box.querySelectorAll('[role="combobox"], .multiselect');
+    for (var c = 0; c < combos.length; c++) {
+      var cb = combos[c], wrap = cb.closest('.form-builder--item'), cl = wrap && wrap.querySelector('label');
+      if (!cl) continue;
+      if (!cl.id) cl.id = 'gml_' + c;
+      cb.setAttribute('aria-labelledby', cl.id);
+      var ci = cb.querySelector('input'); if (ci) ci.setAttribute('aria-labelledby', cl.id);
+      if (/\*/.test(cl.textContent)) cb.setAttribute('aria-required', 'true');
+    }
     var errs = box.querySelectorAll('.error');
     for (var k = 0; k < errs.length; k++) { var p = errs[k].parentNode; if (p && !p.getAttribute('aria-live')) p.setAttribute('aria-live', 'polite'); }
   }

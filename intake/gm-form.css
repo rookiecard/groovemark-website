@@ -38,7 +38,7 @@
 #_builder-form .standard-checkbox-container label,#_builder-form .standard-radio-container label{flex:1;margin:0!important;padding:8px 0;font-size:18px!important;font-weight:400!important;line-height:1.3!important;color:#0b1b2b!important;cursor:pointer}
 #_builder-form [id$=-checkbox-container],#_builder-form [id$=-bubble-option-container]{display:grid!important;grid-template-columns:1fr;gap:8px}
 #_builder-form [id$=-checkbox-container]>div,#_builder-form [id$=-bubble-option-container]>div{width:auto!important;display:block!important;margin:0!important}
-@media (min-width:560px){#_builder-form [id$=-checkbox-container]:has(>div:nth-child(7)){grid-template-columns:1fr 1fr}}
+@media (min-width:360px){#_builder-form [id$=-checkbox-container]:has(>div:nth-child(7)){grid-template-columns:1fr 1fr}#_builder-form [id$=-checkbox-container]:has(>div:nth-child(7)) .standard-checkbox-container{padding:4px 10px;gap:10px}#_builder-form [id$=-checkbox-container]:has(>div:nth-child(7)) label{font-size:17px!important;padding:6px 0}}
 #_builder-form .form-side input[type=checkbox],#_builder-form .form-side input[type=radio]{appearance:none;-webkit-appearance:none;flex:none;width:24px!important;height:24px!important;margin:0!important;border:2px solid #5b6f86!important;background:#fff no-repeat center/16px 16px!important;cursor:pointer}
 #_builder-form .form-side input[type=checkbox]{border-radius:4px!important}
 #_builder-form .form-side input[type=radio]{border-radius:50%!important}
@@ -92,7 +92,7 @@
 /* trade dropdown list */
 #_builder-form .form-field-wrapper:has(.multiselect--active),#_builder-form .form-builder--item:has(.multiselect--active){position:relative;z-index:50}
 #_builder-form .multiselect__content-wrapper{background:#fff;z-index:50;border:2px solid #0b1b2b!important;border-top:0!important}
-#_builder-form .multiselect__option{min-height:44px;display:flex!important;align-items:center;font-size:18px;color:#0b1b2b}
+#_builder-form#_builder-form .multiselect__option{min-height:44px;display:flex!important;align-items:center;font-size:18px!important;color:#0b1b2b!important}
 #_builder-form .multiselect__option:hover,#_builder-form .multiselect__option--highlight,#_builder-form .multiselect__option--highlight:after{background:#ffd21f!important;color:#0b1b2b!important}
 #_builder-form .multiselect__option--selected{background:#fff3c4!important;color:#0b1b2b!important;font-weight:700}
 #_builder-form .multiselect__option--selected.multiselect__option--highlight{background:#ffd21f!important}
