@@ -15,12 +15,13 @@
   var SEC = [
     {t:'What we’re setting up', s:[Q('intake_services_wanted')]},
     {t:'Your business', s:[Q('business_name')]},
-    {t:'Your web site', n:'Logo and photos first. Everything after that is optional.', web:1, s:['.form-field-wrapper:has(.file-upload)', Q('radio_50nn4')]},
+    {t:'Your web site', n:'Your logo and photos of your work. Optional, but they make the biggest difference.', web:1, s:['.form-field-wrapper:has(.file-upload)']},
     {t:'Your voice agent', n:'How you want your phone answered.', s:[Q('single_line_87lfy'), Q('single_line_832ee'), Q('single_line_86ybk'), Q('radio_53w7x')]},
     {t:'Your social media', n:'How you want your pages run.', s:[Q('radio_55t4a'), Q('which_social_media_package_tt1_copy')],
       noWeb:{n:'Your logo and job photos first, then how you want your pages run.', s:['.form-field-wrapper:has(.file-upload)', Q('radio_55t4a')]}},
     {t:'How I reach you', n:'Last step. Then hit Send to Jonathan.', s:[Q('first_name')]}
   ];
+  var MORE = ['radio_50nn4', 'intake:_emergency_or_after-hours_calls', 'intake:_services_missing_from_the_list', 'intake:_3_jobs_you_want_more_of', 'intake:_free_estimates', 'intake:_how_you_get_paid', 'intake:_guarantee_or_warranty', 'intake:_your_story', 'intake:_credentials', 'intake:_most_commonly_asked_questions', 'intake:_reviews_to_feature', 'intake:_anything_else'];
   var AC = {business_name:'organization', email:'email', address:'address-line1', city:'address-level2', state:'address-level1', postal_code:'postal-code', first_name:'name', phone:'tel'};
   var box, busy = false, sig = '';
   function vis(el){ return !!el && el.getBoundingClientRect().height > 4; }
@@ -37,10 +38,21 @@
       var after = trade.nextElementSibling;
       for (var i = 0; i < lists.length; i++) box.insertBefore(lists[i], after);
     }
+    /* "Add more details now?" sits right under Hours, and every field its Yes opens follows it directly */
+    var prev = one(Q('intake:_hours'));
+    for (var m = 0; prev && m < MORE.length; m++) {
+      var f = one(Q(MORE[m]));
+      if (!f) continue;
+      if (prev.nextElementSibling !== f) box.insertBefore(f, prev.nextElementSibling);
+      prev = f;
+    }
+    /* Photos open the web site step (after the business details), or the social step when there is no web site */
     var up = one('.form-field-wrapper:has(.file-upload)');
     var web = !!box.querySelector('[data-q="intake_services_wanted"][value="Web Site"]:checked');
-    var to = web ? one(Q('radio_50nn4')) : one(Q('radio_55t4a'));
-    if (up && to && up.nextElementSibling !== to) box.insertBefore(up, to);
+    if (up) {
+      if (web) { if (prev && prev.nextElementSibling !== up) box.insertBefore(up, prev.nextElementSibling); }
+      else { var to = one(Q('radio_55t4a')); if (to && up.nextElementSibling !== to) box.insertBefore(up, to); }
+    }
     var nae = box.querySelector('.non-address-elements');
     if (nae) {
       var city = nae.querySelector(':scope > div:has([data-q="city"])'), st = nae.querySelector(':scope > div:has([data-q="state"])');
