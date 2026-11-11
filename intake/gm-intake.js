@@ -1,8 +1,16 @@
 /* Groovemark intake form enhancer. Loaded by the HTML block in GHL form comv5R3sNv06ftsXJRRf.
    Adds step headings, puts fields in reading order, autocomplete, and screen reader wiring.
-   Edit here, push, then bump ?v= in the GHL HTML block. */
+   Styles live in gm-form.css (loaded below). Edit, push, then bump CSS_V here
+   and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
+  var CSS_V = '1';
+  if (!document.getElementById('gm-form-css')) {
+    var ln = document.createElement('link');
+    ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
+    ln.href = 'https://groovemarkhq.com/intake/gm-form.css?v=' + CSS_V;
+    (document.head || document.documentElement).appendChild(ln);
+  }
   var Q = function(q){ return '.form-field-wrapper:has([data-q="' + q + '"])'; };
   var SEC = [
     {t:'What we’re setting up', s:[Q('intake_services_wanted')]},
