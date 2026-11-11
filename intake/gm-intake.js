@@ -63,6 +63,15 @@
       if (city && st && (st.compareDocumentPosition(city) & 4)) nae.insertBefore(city, st);
     }
   }
+  /* Switching trades hides the old trade's service list. Untick what was ticked there so it is not sent with the new trade. */
+  function clearHidden(){
+    var lists = box.querySelectorAll(':scope > .form-field-wrapper:has([data-q^="intake:_services:_"])');
+    for (var i = 0; i < lists.length; i++) {
+      if (vis(lists[i])) continue;
+      var on = lists[i].querySelectorAll('input[type=checkbox]:checked');
+      for (var j = 0; j < on.length; j++) on[j].click();
+    }
+  }
   function a11y(){
     var f = box.querySelectorAll('input[data-q], textarea[data-q]');
     for (var i = 0; i < f.length; i++) {
@@ -133,7 +142,7 @@
   function run(){
     if (busy) return; busy = true;
     setTimeout(function(){
-      try { reorder(); a11y(); heads(); } catch (e) {}
+      try { reorder(); clearHidden(); a11y(); heads(); } catch (e) {}
       busy = false;
     }, 30);
   }
