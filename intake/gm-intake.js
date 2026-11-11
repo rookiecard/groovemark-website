@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '1';
+  var CSS_V = '2';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
@@ -57,6 +57,7 @@
       if (!item) continue;
       var ids = [];
       var hint = item.querySelector('.short-label');
+      if (hint && getComputedStyle(hint).display === 'none') hint = null;
       if (hint) { if (!hint.id) hint.id = 'gmh_' + (el.id || q).replace(/\W/g, '_'); ids.push(hint.id); }
       var err = item.querySelector('.error');
       if (err && err.textContent.trim()) { if (!err.id) err.id = 'gme_' + (el.id || q).replace(/\W/g, '_'); ids.unshift(err.id); el.setAttribute('aria-invalid', 'true'); }
@@ -70,6 +71,7 @@
       if (lab) { if (!lab.id) lab.id = grp.id + '-l'; grp.setAttribute('aria-labelledby', lab.id); }
       var it = grp.closest('.form-builder--item'), d = [];
       var h2 = it && it.querySelector('.short-label'), e2 = it && it.querySelector('.error');
+      if (h2 && getComputedStyle(h2).display === 'none') h2 = null;
       if (e2 && e2.textContent.trim()) { if (!e2.id) e2.id = grp.id + '-e'; d.push(e2.id); }
       if (h2) { if (!h2.id) h2.id = grp.id + '-h'; d.push(h2.id); }
       if (d.length) grp.setAttribute('aria-describedby', d.join(' ')); else grp.removeAttribute('aria-describedby');

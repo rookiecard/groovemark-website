@@ -15,6 +15,13 @@
 /* hints: under the box, 16px, 9.6:1 */
 #_builder-form .form-builder--item .short-label{display:block;font-size:16px!important;font-weight:400!important;line-height:1.45!important;color:#33475b!important;margin-top:6px!important;-webkit-font-smoothing:antialiased}
 
+/* hints that only repeat the question or its choices; hidden here, text still in GHL */
+#_builder-form .form-field-wrapper:has([data-q="intake:_show_street_address_on_web_site"]) .short-label,
+#_builder-form .form-field-wrapper:has([data-q="intake:_emergency_or_after-hours_calls"]) .short-label,
+#_builder-form .form-field-wrapper:has([data-q=radio_50nn4]) .short-label,
+#_builder-form .form-field-wrapper:has([data-q="intake:_free_estimates"]) .short-label,
+#_builder-form .form-field-wrapper:has([data-q=radio_55t4a]) .short-label{display:none!important}
+
 /* boxes: 48px tall, 18px text, 2px border at 5.2:1 */
 #_builder-form#_builder-form .form-builder--item input.form-control,#_builder-form#_builder-form .form-builder--item input[type=text],#_builder-form#_builder-form .form-builder--item input[type=email],#_builder-form#_builder-form .form-builder--item input[type=tel],#_builder-form#_builder-form .form-builder--item input[type=number],#_builder-form#_builder-form .form-builder--item textarea,#_builder-form#_builder-form .form-builder--item .multiselect .multiselect__tags{min-height:48px!important;font-size:18px!important;line-height:1.4!important;color:#0b1b2b!important;background:#fff!important;border:2px solid #5b6f86!important;border-radius:6px!important;padding:10px 12px!important;box-shadow:none!important}
 #_builder-form#_builder-form .form-builder--item textarea{min-height:104px!important;resize:vertical}
