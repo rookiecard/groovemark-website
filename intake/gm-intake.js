@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '8';
+  var CSS_V = '9';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
@@ -153,7 +153,7 @@
      If it will not go through, it offers to text (phone) or email (computer) the answers, already
      typed in, or to copy them. ---- */
   var PHONE = '+14062098235', PHONE_TXT = '406-209-8235', MAIL = 'jonathan@groovemarkhq.com';
-  var stat, topBox, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false, items = [], anchor = null;
+  var stat, topBox, altBox, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false, items = [], anchor = null;
   var ONPHONE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '') || (window.matchMedia && matchMedia('(pointer: coarse)').matches && (navigator.maxTouchPoints || 0) > 0);
   function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function up(msg){ try { if (window.parent && window.parent !== window) window.parent.postMessage(msg, '*'); } catch (e) {} }
@@ -230,10 +230,10 @@
     var text = '<a class="gm-alt-b" target="_top" href="' + esc(sms) + '">Text my answers to Jonathan</a>' +
       '<span class="gm-alt-n">For a phone. Opens your text messages with every answer above already typed in, addressed to ' + PHONE_TXT + '. Just press send.</span>';
     var email = '<a class="gm-alt-b" target="_top" href="' + esc(mail) + '">Email my answers to Jonathan</a>' +
-      '<span class="gm-alt-n">For a computer. Opens your email with every answer above already typed in, addressed to ' + MAIL + '. Just press send.</span>';
+      '<span class="gm-alt-n">' + (ONPHONE ? 'Rather email? Works from this phone too.' : 'For a computer.') + ' Opens your email with every answer above already typed in, addressed to ' + MAIL + '. Just press send.</span>';
     var copy = '<button type="button" class="gm-alt-b gm-alt-c" data-gm-copy="1">Copy my answers</button>' +
       '<span class="gm-alt-n" data-gm-copied="1">Works on anything. Copies every answer above so you can paste it into a text or email to me.</span>';
-    return '<span class="gm-alt"><b>' + lead + '</b> Your answers are still on this page. Nothing is lost. ' +
+    return '<span class="gm-alt gm-alt-own"><b>' + lead + '</b> Your answers are still on this page. Nothing is lost. ' +
       (ONPHONE ? 'You’re on a phone, so the first button is the one to use.' : 'You’re on a computer, so the first button is the one to use.') +
       (ONPHONE ? text + email : email + '<span class="gm-alt-n gm-alt-p">On a phone instead? Open this page there and you’ll get a button that texts them.</span>') + copy +
       '<span class="gm-alt-n gm-alt-p">Photos and your logo don’t ride along. Text those to ' + PHONE_TXT + '. Or just call me: <a target="_top" href="tel:' + PHONE + '">' + PHONE_TXT + '</a>.</span></span>';
@@ -279,7 +279,11 @@
     if (!w) return;
     if (!stat) stat = mk('gm-status');
     if (stat.nextElementSibling !== w) box.insertBefore(stat, w);
+    if (!altBox) altBox = mk('gm-status-alt');
+    if (w.nextElementSibling !== altBox) box.insertBefore(altBox, w.nextElementSibling);
   }
+  /* The main message sits right above the spam check and the button; the other ways to send sit below the button, so they never push the button off the screen */
+  function tell(kind, msg, fb){ say(stat, kind, msg); say(altBox, fb ? 'bad' : '', fb || ''); }
   function placeTop(first){ /* the same list, right on top of the first thing that needs fixing */
     if (!first) { if (topBox && topBox.parentNode) topBox.parentNode.removeChild(topBox); return; }
     var wrap = first.closest('.form-field-wrapper') || first;
@@ -313,22 +317,22 @@
       hadBad = true;
       var html = listHtml(bad);
       if (!anchor || !anchor.isConnected || !vis(anchor)) anchor = bad[0].el;
-      placeTop(anchor); say(topBox, 'bad', html); say(stat, 'bad', html);
+      placeTop(anchor); say(topBox, 'bad', html); tell('bad', html, '');
       if (!jumped && since > 350) { jumped = true; goTo(topBox || bad[0].el); }
       return;
     }
     if (hadBad && !h && !(b && b.disabled)) {
       hadBad = false; pressed = 0; clearInterval(timer);
-      say(stat, 'ok', '<b>All fixed.</b> Now press Send to Jonathan.');
+      tell('ok', '<b>All fixed.</b> Now press Send to Jonathan.', '');
       if (topBox && topBox.isConnected) say(topBox, 'ok', '<b>All fixed.</b> Now press Send to Jonathan. <a href="#" data-gm-send="1">Take me to the button</a>');
       return;
     }
     placeTop(null); anchor = null;
-    if (h === 2) { say(stat, 'bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.' + fallback('Box won’t take the tap?')); return; }
-    if (h === 1) { say(stat, 'wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.' + (since > 30000 ? fallback('Taking too long?') : '')); return; }
-    if (hiccup()) { say(stat, 'bad', '<b>That didn’t send.</b> The form hit a snag on its end. Press Send to Jonathan once more.' + fallback('Same thing again?')); return; }
-    if (b && b.disabled) { say(stat, 'wait', '<b>Sending…</b> Keep this page open. With photos on cell service this can take a few minutes.' + (since > 45000 ? fallback('Still not done?') : '')); return; }
-    if (since > 6000 && since < 600000) { say(stat, 'bad', '<b>That didn’t send.</b> Press Send to Jonathan once more.' + fallback('Tried twice?')); return; }
+    if (h === 2) { tell('bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.', fallback('Box won’t take the tap?')); return; }
+    if (h === 1) { tell('wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.', since > 30000 ? fallback('Taking too long?') : ''); return; }
+    if (hiccup()) { tell('bad', '<b>That didn’t send.</b> The form hit a snag on its end. Press Send to Jonathan once more.', fallback('Same thing again?')); return; }
+    if (b && b.disabled) { tell('wait', '<b>Sending…</b> Keep this page open. With photos on cell service this can take a few minutes.', since > 45000 ? fallback('Still not done?') : ''); return; }
+    if (since > 6000 && since < 600000) { tell('bad', '<b>That didn’t send.</b> Press Send to Jonathan once more.', fallback('Tried twice?')); return; }
     if (since >= 600000) { pressed = 0; clearInterval(timer); }
   }
   function safe(){ try { check(); } catch (e) {} }
