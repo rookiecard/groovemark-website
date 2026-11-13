@@ -185,7 +185,13 @@
   function human(){ /* GHL's spam check (Cloudflare) when it steps in: 0 none, 1 checking, 2 needs a tick */
     var c = document.querySelector('.recaptcha-container');
     if (!c || !vis(c)) return 0;
-    return /complete the challenge/i.test(c.textContent) ? 2 : 1;
+    return /challenge|verification failed|captcha|try again/i.test(c.textContent) ? 2 : 1;
+  }
+  function hiccup(){ /* GHL's own "something went wrong" note, wherever it prints it near the button */
+    var w = box && box.querySelector(':scope > .form-field-wrapper:has(.form-builder--btn-submit)');
+    if (!w) return false;
+    var c = w.cloneNode(true), r = c.querySelector('.recaptcha-container'); if (r) r.remove();
+    return /went wrong|verification failed|unable to|try again/i.test(c.textContent);
   }
   function answers(){
     var out = [], seen = {}, f = box ? box.querySelectorAll('input, textarea') : [];
@@ -312,6 +318,7 @@
     if (hadBad && !h && !(b && b.disabled)) { hadBad = false; pressed = 0; clearInterval(timer); say(stat, 'ok', '<b>All fixed.</b> Now press Send to Jonathan.'); return; }
     if (h === 2) { say(stat, 'bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.' + fallback('Box won’t take the tap?')); return; }
     if (h === 1) { say(stat, 'wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.' + (since > 30000 ? fallback('Taking too long?') : '')); return; }
+    if (hiccup()) { say(stat, 'bad', '<b>That didn’t send.</b> The form hit a snag on its end. Press Send to Jonathan once more.' + fallback('Same thing again?')); return; }
     if (b && b.disabled) { say(stat, 'wait', '<b>Sending…</b> Keep this page open. With photos on cell service this can take a few minutes.' + (since > 45000 ? fallback('Still not done?') : '')); return; }
     if (since > 6000 && since < 600000) { say(stat, 'bad', '<b>That didn’t send.</b> Press Send to Jonathan once more.' + fallback('Tried twice?')); return; }
     if (since >= 600000) { pressed = 0; clearInterval(timer); }
