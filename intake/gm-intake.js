@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '5';
+  var CSS_V = '6';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
@@ -146,14 +146,126 @@
       busy = false;
     }, 30);
   }
+  /* ---- Send guard (11/12/2026): pressing Send must never look like "nothing happened".
+     After a press it says, right at the button, what is going on: answers still missing (and jumps to
+     the first one), the "Verify you are human" check that GHL's spam filter sometimes shows, sending,
+     or sent. If it has not gone through in 40 seconds it offers to text the answers instead. ---- */
+  var PHONE = '+14062098235', PHONE_TXT = '406-209-8235';
+  var stat, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false;
+  function up(msg){ try { if (window.parent && window.parent !== window) window.parent.postMessage(msg, '*'); } catch (e) {} }
+  function docTop(el){ return Math.round(el.getBoundingClientRect().top + (window.pageYOffset || 0)); }
+  function goTo(el){
+    if (!el) return;
+    try { el.scrollIntoView({block: 'center'}); } catch (e) { try { el.scrollIntoView(); } catch (e2) {} }
+    up({gmIntake: 'scroll', top: docTop(el)});
+  }
+  function btn(){ return document.querySelector('.form-builder--btn-submit button, button[type="submit"]'); }
+  function formUp(){ var f = document.querySelector('[data-q="business_name"]'); return !!f && vis(f); }
+  function badItems(){
+    var out = [], e = box ? box.querySelectorAll('.error') : [];
+    for (var i = 0; i < e.length; i++) {
+      if (!e[i].textContent.trim() || !vis(e[i])) continue;
+      var it = e[i].closest('.form-builder--item') || e[i].closest('.form-field-wrapper');
+      if (it && out.indexOf(it) < 0) out.push(it);
+    }
+    return out;
+  }
+  function human(){ /* GHL's spam check (Cloudflare) when it steps in: 0 none, 1 checking, 2 needs a tick */
+    var c = document.querySelector('.recaptcha-container');
+    if (!c || !vis(c)) return 0;
+    return /complete the challenge/i.test(c.textContent) ? 2 : 1;
+  }
+  function answers(){
+    var out = [], seen = {}, f = box ? box.querySelectorAll('input, textarea') : [];
+    for (var i = 0; i < f.length; i++) {
+      var el = f[i], t = el.type;
+      if (t === 'file' || t === 'hidden' || t === 'submit' || el.name === 'Search') continue;
+      var it = el.closest('.form-builder--item'); if (!it || !vis(it)) continue;
+      if (it.querySelector('.terms-and-conditions, [data-q="terms_and_conditions"]') || el.name === 'terms_and_conditions') continue;
+      var lab = it.querySelector('label'); lab = lab ? lab.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : '';
+      var val = '';
+      if (t === 'checkbox' || t === 'radio') { if (!el.checked) continue; val = el.value; }
+      else if (el.classList.contains('multiselect__input')) { var s = it.querySelector('.multiselect__single'); val = s ? s.textContent.trim() : ''; }
+      else val = (el.value || '').trim();
+      if (!val || !lab) continue;
+      if (seen[lab] != null) out[seen[lab]] += ', ' + val; else { seen[lab] = out.length; out.push(lab + ': ' + val); }
+    }
+    return out.join('\n');
+  }
+  function say(kind, html){
+    if (!stat) return;
+    var key = kind + '|' + html;
+    if (stat.getAttribute('data-k') === key) return;
+    stat.setAttribute('data-k', key);
+    stat.className = 'gm-status' + (kind ? ' gm-' + kind : '');
+    stat.innerHTML = html;
+    stat.hidden = !html;
+  }
+  function fallback(){
+    var body = 'Groovemark setup answers\n' + answers();
+    if (body.length > 3000) body = body.slice(0, 3000);
+    var enc = encodeURIComponent(body);
+    return '<span class="gm-alt">Not going through? Your answers are safe on this page. ' +
+      '<a class="gm-alt-b" href="sms:' + PHONE + '?&body=' + enc + '">Text my answers to Jonathan</a> ' +
+      '<a class="gm-alt-b" href="mailto:jonathan@groovemarkhq.com?subject=' + encodeURIComponent('Groovemark setup answers') + '&body=' + enc + '">Email them instead</a> ' +
+      'or call <a href="tel:' + PHONE + '">' + PHONE_TXT + '</a>.</span>';
+  }
+  function place(){
+    if (!box) return;
+    var w = box.querySelector(':scope > .form-field-wrapper:has(.form-builder--btn-submit)');
+    if (!w) return;
+    if (!stat) {
+      stat = document.createElement('div');
+      stat.id = 'gm-status'; stat.className = 'gm-status'; stat.hidden = true;
+      stat.setAttribute('role', 'alert'); stat.setAttribute('aria-live', 'assertive');
+      stat.addEventListener('click', function(e){
+        var a = e.target.closest ? e.target.closest('[data-gm-go]') : null;
+        if (a) { e.preventDefault(); var b = badItems(); goTo(b[0]); var i = b[0] && b[0].querySelector('input:not([type=hidden]), textarea'); if (i) try { i.focus({preventScroll: true}); } catch (x) {} }
+      });
+    }
+    if (stat.nextElementSibling !== w) box.insertBefore(stat, w);
+  }
+  function check(){
+    if (sentDone) return;
+    var now = Date.now(), since = now - pressed;
+    if (pressed && !formUp()) { /* the form was swapped for the thank-you note: it went through */
+      sentDone = true; clearInterval(timer); up({gmIntake: 'sent'});
+      return;
+    }
+    if (!pressed) return;
+    place();
+    var bad = badItems(), h = human(), b = btn(), late = since > 40000 ? fallback() : '';
+    if (bad.length) {
+      hadBad = true;
+      var lab = bad[0].querySelector('label'); lab = lab ? lab.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : '';
+      say('bad', '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 answer is' : bad.length + ' answers are') + ' still needed' + (lab ? ', starting with <b>' + lab.replace(/</g, '&lt;') + '</b>' : '') + '. <a href="#" data-gm-go="1">Take me there</a>');
+      if (!jumped && since > 350) { jumped = true; goTo(bad[0]); }
+      return;
+    }
+    if (hadBad && !h && !(b && b.disabled)) { hadBad = false; pressed = 0; clearInterval(timer); say('ok', '<b>All set.</b> Now press Send to Jonathan.'); return; }
+    if (h === 2) { say('bad', '<b>One more step.</b> Tick the <b>Verify you are human</b> box just below this. If it doesn’t send by itself after that, press Send to Jonathan again.' + late); return; }
+    if (h === 1) { say('wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up below, tick it.' + late); return; }
+    if (b && b.disabled) { say('wait', '<b>Sending…</b> Keep this page open. Photos can take a minute.' + late); return; }
+    if (since > 2500 && since < 180000) { say(late ? 'bad' : 'wait', late ? '<b>That didn’t send.</b> Press Send to Jonathan once more.' + late : '<b>Working on it…</b>'); return; }
+    if (since >= 180000) { pressed = 0; clearInterval(timer); }
+  }
+  function safe(){ try { check(); } catch (e) {} }
+  function guard(){
+    document.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('button') : null;
+      if (!b || b !== btn()) return;
+      pressed = Date.now(); jumped = false; hadBad = false; try { place(); } catch (x) {}
+      clearInterval(timer); timer = setInterval(safe, 400);
+    }, true);
+  }
   function start(){
     var all = document.querySelectorAll('.fields-container'); box = null;
     for (var i = 0; i < all.length; i++) if (all[i].querySelector('[data-q="business_name"]') && all[i].closest('.form-side')) { box = all[i]; break; }
     if (!box) return setTimeout(start, 150);
     box.classList.add('gm-js');
-    run();
+    run(); try { place(); guard(); } catch (e) {}
     new MutationObserver(function(m){
-      for (var i = 0; i < m.length; i++) { var t = m[i].target; if (t.nodeType === 1 && t.closest && t.closest('.gm-sec')) continue; return run(); }
+      for (var i = 0; i < m.length; i++) { var t = m[i].target; if (t.nodeType === 1 && t.closest && t.closest('.gm-sec, .gm-status')) continue; return run(); }
     }).observe(box, {subtree: true, childList: true, attributes: true, attributeFilter: ['class', 'style']});
     box.addEventListener('change', run, true);
   }
