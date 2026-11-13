@@ -300,7 +300,7 @@
   /* ---- Upload watch (11/12/2026): while a photo is still uploading, GHL hides the Send button behind
      a small spinner and ignores taps on it, with no words. Say so right at the button, count the
      photos, and if one stops moving, say how to get unstuck. ---- */
-  var upSig = '', upMoved = 0, upTimer = 0, upOn = false;
+  var upSig = '', upMoved = 0, upTimer = 0, upOn = false, upState = '0/0';
   function upRows(){ return box ? box.querySelectorAll('.upload-progress.uploading') : []; }
   function upMsg(){
     var rows = upRows(), n = rows.length, all = box.querySelectorAll('.upload-card').length, sig = n + '/' + all;
@@ -320,10 +320,11 @@
       if (!pressed || !problems().length) upMsg();
       return;
     }
-    if (!upOn) return;
-    upOn = false; upSig = ''; clearInterval(upTimer); upTimer = 0;
-    if (pressed) return;
     var failed = box.querySelectorAll('.upload-progress.error').length, cards = box.querySelectorAll('.upload-card').length;
+    var state = failed + '/' + cards;
+    if (upOn) { upOn = false; upSig = ''; clearInterval(upTimer); upTimer = 0; upState = ''; }
+    if (pressed || state === upState) return; /* only speak when the photo list changes */
+    upState = state;
     if (failed) tell('bad', '<b>' + (failed === 1 ? 'A photo did not upload.' : failed + ' photos did not upload.') + '</b> Go back up to your photos and tap the trash can next to ' + (failed === 1 ? 'the one' : 'each one') + ' marked in red. Then add it again, or text it to ' + PHONE_TXT + ' instead.', '');
     else if (cards) tell('ok', '<b>Photos are in.</b> Finish the last questions, then press Send to Jonathan.', '');
     else tell('', '', '');
