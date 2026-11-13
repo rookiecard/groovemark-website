@@ -115,13 +115,26 @@
 /* "Submission in progress" resume dialog: Start over was yellow text on white (1.45:1) */
 .start-over-button{color:#0b1b2b!important;background:#fff!important;border:2px solid #0b1b2b!important;font-weight:700!important;min-height:44px;padding:0 16px!important}
 .start-over-button+button,.start-over-button~button{min-height:44px;color:#0b1b2b!important;border:2px solid #0b1b2b!important;font-weight:700!important}
-/* Send guard (11/12/2026): the message box right above the Send button, written by gm-intake.js */
-#_builder-form .gm-status{margin:6px 0 14px;padding:14px 16px;border:2px solid #0b1b2b;border-left-width:8px;border-radius:6px;background:#edf2f8;color:#0b1b2b;font-size:18px;line-height:1.45;font-family:"Source Sans 3","Segoe UI",Arial,sans-serif;text-align:left}
+/* Send guard v2 (11/12/2026): the message boxes written by gm-intake.js after Send is pressed */
+#_builder-form .gm-status{margin:6px 0 14px;padding:14px 16px;border:2px solid #0b1b2b;border-left-width:8px;border-radius:6px;background:#edf2f8;color:#0b1b2b;font-size:18px;line-height:1.45;font-family:"Source Sans 3","Segoe UI",Arial,sans-serif;text-align:left;overflow-wrap:anywhere}
 #_builder-form .gm-status[hidden]{display:none}
 #_builder-form .gm-status.gm-bad{border-color:#9b1c1c;background:#fdf2f2}
 #_builder-form .gm-status.gm-ok{border-color:#14532d;background:#f0f7f1}
+#_builder-form #gm-status-top{margin:0 0 16px}
 #_builder-form .gm-status a{color:#0f3463;font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
-#_builder-form .gm-status .gm-alt{display:block;margin-top:12px;padding-top:12px;border-top:1px solid #9aa8b8}
-#_builder-form .gm-status .gm-alt-b{display:block;margin:10px 0 0;padding:12px 14px;border:2px solid #0b1b2b;border-radius:6px;background:#ffd21f;color:#0b1b2b;text-align:center;text-decoration:none}
+#_builder-form .gm-status .gm-list{margin:10px 0;padding:0 0 0 26px;list-style:decimal}
+#_builder-form .gm-status .gm-list li{margin:0;padding:7px 0;list-style:decimal;display:list-item;font-size:18px}
+#_builder-form .gm-status .gm-list a{display:inline-block;padding:4px 0}
+#_builder-form .gm-status .gm-list span{color:#9b1c1c;font-weight:700}
+#_builder-form .gm-status .gm-alt{display:block;margin-top:14px;padding-top:12px;border-top:1px solid #9aa8b8}
+#_builder-form .gm-status .gm-alt-b{display:block;width:100%;box-sizing:border-box;min-height:52px;margin:14px 0 0;padding:14px;border:2px solid #0b1b2b;border-radius:6px;background:#ffd21f;color:#0b1b2b;font:700 18px/1.25 "Source Sans 3","Segoe UI",Arial,sans-serif;text-align:center;text-decoration:none;cursor:pointer}
+#_builder-form .gm-status .gm-alt-c{background:#fff}
+#_builder-form .gm-status .gm-alt-n{display:block;margin:6px 0 0;font-size:16px;line-height:1.4;color:#33475b}
+#_builder-form .gm-status .gm-alt-p{margin-top:14px;color:#0b1b2b}
+#_builder-form .gm-status .gm-alt-t{display:block;width:100%;box-sizing:border-box;margin:10px 0 0;padding:10px;border:2px solid #0b1b2b;border-radius:6px;font:16px/1.4 "Source Sans 3","Segoe UI",Arial,sans-serif;background:#fff;color:#0b1b2b}
+#_builder-form .gm-sent{margin:0 0 14px;padding:18px 16px;border:2px solid #14532d;border-left-width:8px;border-radius:6px;background:#f0f7f1;color:#0b1b2b;font:20px/1.4 "Source Sans 3","Segoe UI",Arial,sans-serif;text-align:left}
+/* A question that still needs fixing: red panel, so it cannot be missed while scrolling */
+#_builder-form .gm-js .form-builder--item:has(.error){background:#fdf2f2;box-shadow:0 0 0 8px #fdf2f2,0 0 0 10px #9b1c1c;border-radius:2px}
+#_builder-form .gm-js .form-field-wrapper:has(.form-builder--item .error){margin-top:14px;margin-bottom:14px}
 #_builder-form .recaptcha-container{margin:8px 0!important;padding:12px!important;border:2px solid #9b1c1c;border-radius:6px;background:#fdf2f2}
 #_builder-form .recaptcha-container p{font-size:17px!important;font-weight:700!important;color:#9b1c1c!important;line-height:1.4!important}

@@ -4,7 +4,7 @@
    and ?v= on the script tag in the GHL HTML block so browsers fetch the new copy. */
 (function(){
   if (window.gmIntake) return; window.gmIntake = 1;
-  var CSS_V = '6';
+  var CSS_V = '7';
   if (!document.getElementById('gm-form-css')) {
     var ln = document.createElement('link');
     ln.id = 'gm-form-css'; ln.rel = 'stylesheet';
@@ -146,12 +146,16 @@
       busy = false;
     }, 30);
   }
-  /* ---- Send guard (11/12/2026): pressing Send must never look like "nothing happened".
-     After a press it says, right at the button, what is going on: answers still missing (and jumps to
-     the first one), the "Verify you are human" check that GHL's spam filter sometimes shows, sending,
-     or sent. If it has not gone through in 40 seconds it offers to text the answers instead. ---- */
-  var PHONE = '+14062098235', PHONE_TXT = '406-209-8235';
-  var stat, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false;
+  /* ---- Send guard v2 (11/12/2026): pressing Send must never look like "nothing happened".
+     After a press the form says what is going on, in plain words, at the button AND at the first
+     thing that needs fixing: every missing or wrong answer by name (tap one to jump to it), the
+     "Verify you are human" check GHL's spam filter sometimes shows, sending, or sent.
+     If it will not go through, it offers to text (phone) or email (computer) the answers, already
+     typed in, or to copy them. ---- */
+  var PHONE = '+14062098235', PHONE_TXT = '406-209-8235', MAIL = 'jonathan@groovemarkhq.com';
+  var stat, topBox, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false, items = [];
+  var ONPHONE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '') || (window.matchMedia && matchMedia('(pointer: coarse)').matches && (navigator.maxTouchPoints || 0) > 0);
+  function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function up(msg){ try { if (window.parent && window.parent !== window) window.parent.postMessage(msg, '*'); } catch (e) {} }
   function docTop(el){ return Math.round(el.getBoundingClientRect().top + (window.pageYOffset || 0)); }
   function goTo(el){
@@ -161,12 +165,20 @@
   }
   function btn(){ return document.querySelector('.form-builder--btn-submit button, button[type="submit"]'); }
   function formUp(){ var f = document.querySelector('[data-q="business_name"]'); return !!f && vis(f); }
-  function badItems(){
-    var out = [], e = box ? box.querySelectorAll('.error') : [];
+  function labelOf(it){ var l = it.querySelector('label'); return l ? l.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : ''; }
+  /* Everything the form is still asking for: [{el, name, why}] */
+  function problems(){
+    var out = [], seen = [], e = box ? box.querySelectorAll('.error') : [];
     for (var i = 0; i < e.length; i++) {
-      if (!e[i].textContent.trim() || !vis(e[i])) continue;
+      var txt = e[i].textContent.replace(/\s+/g, ' ').trim();
+      if (!txt || !vis(e[i])) continue;
       var it = e[i].closest('.form-builder--item') || e[i].closest('.form-field-wrapper');
-      if (it && out.indexOf(it) < 0) out.push(it);
+      if (!it || seen.indexOf(it) >= 0) continue;
+      seen.push(it);
+      var name = labelOf(it) || 'This question';
+      var why = /required/i.test(txt) ? 'needs an answer' : txt.replace(name, '').replace(/^\s*(is|:)\s*/i, '').trim() || 'needs a look';
+      if (/invalid|valid/i.test(txt) && !/required/i.test(txt)) why = 'doesn’t look right. Check for a typo';
+      out.push({el: it, name: name, why: why});
     }
     return out;
   }
@@ -181,73 +193,128 @@
       var el = f[i], t = el.type;
       if (t === 'file' || t === 'hidden' || t === 'submit' || el.name === 'Search') continue;
       var it = el.closest('.form-builder--item'); if (!it || !vis(it)) continue;
-      if (it.querySelector('.terms-and-conditions, [data-q="terms_and_conditions"]') || el.name === 'terms_and_conditions') continue;
-      var lab = it.querySelector('label'); lab = lab ? lab.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : '';
-      var val = '';
+      if (el.name === 'terms_and_conditions' || /consent to receive/i.test(it.textContent)) continue;
+      var lab = labelOf(it), val = '';
       if (t === 'checkbox' || t === 'radio') { if (!el.checked) continue; val = el.value; }
       else if (el.classList.contains('multiselect__input')) { var s = it.querySelector('.multiselect__single'); val = s ? s.textContent.trim() : ''; }
       else val = (el.value || '').trim();
       if (!val || !lab) continue;
       if (seen[lab] != null) out[seen[lab]] += ', ' + val; else { seen[lab] = out.length; out.push(lab + ': ' + val); }
     }
-    return out.join('\n');
+    return 'Groovemark setup answers\n' + out.join('\n');
   }
-  function say(kind, html){
-    if (!stat) return;
+  function fit(body, max){ /* keep the link short enough that every mail program opens it */
+    var cut = body;
+    while (encodeURIComponent(cut).length > max && cut.length > 50) cut = cut.slice(0, cut.length - 40);
+    return cut === body ? body : cut + '\n(More on the form. Call me for the rest.)';
+  }
+  function say(el, kind, html){
+    if (!el) return;
     var key = kind + '|' + html;
-    if (stat.getAttribute('data-k') === key) return;
-    stat.setAttribute('data-k', key);
-    stat.className = 'gm-status' + (kind ? ' gm-' + kind : '');
-    stat.innerHTML = html;
-    stat.hidden = !html;
+    if (el.getAttribute('data-k') === key) return;
+    el.setAttribute('data-k', key);
+    el.className = 'gm-status' + (kind ? ' gm-' + kind : '');
+    el.innerHTML = html;
+    el.hidden = !html;
   }
-  function fallback(){
-    var body = 'Groovemark setup answers\n' + answers();
-    if (body.length > 3000) body = body.slice(0, 3000);
-    var enc = encodeURIComponent(body);
-    return '<span class="gm-alt">Not going through? Your answers are safe on this page. ' +
-      '<a class="gm-alt-b" href="sms:' + PHONE + '?&body=' + enc + '">Text my answers to Jonathan</a> ' +
-      '<a class="gm-alt-b" href="mailto:jonathan@groovemarkhq.com?subject=' + encodeURIComponent('Groovemark setup answers') + '&body=' + enc + '">Email them instead</a> ' +
-      'or call <a href="tel:' + PHONE + '">' + PHONE_TXT + '</a>.</span>';
+  function fallback(lead){
+    var all = answers();
+    var sms = 'sms:' + PHONE + '?&body=' + encodeURIComponent(all.slice(0, 6000));
+    var mail = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Groovemark setup answers') + '&body=' + encodeURIComponent(fit(all, 1700));
+    var text = '<a class="gm-alt-b" target="_top" href="' + esc(sms) + '">Text my answers to Jonathan</a>' +
+      '<span class="gm-alt-n">For a phone. Opens your text messages with every answer above already typed in, addressed to ' + PHONE_TXT + '. Just press send.</span>';
+    var email = '<a class="gm-alt-b" target="_top" href="' + esc(mail) + '">Email my answers to Jonathan</a>' +
+      '<span class="gm-alt-n">For a computer. Opens your email with every answer above already typed in, addressed to ' + MAIL + '. Just press send.</span>';
+    var copy = '<button type="button" class="gm-alt-b gm-alt-c" data-gm-copy="1">Copy my answers</button>' +
+      '<span class="gm-alt-n" data-gm-copied="1">Works on anything. Copies every answer above so you can paste it into a text or email to me.</span>';
+    return '<span class="gm-alt"><b>' + lead + '</b> Your answers are still on this page. Nothing is lost. ' +
+      (ONPHONE ? 'You’re on a phone, so the first button is the one to use.' : 'You’re on a computer, so the first button is the one to use.') +
+      (ONPHONE ? text + email : email + '<span class="gm-alt-n gm-alt-p">On a phone instead? Open this page there and you’ll get a button that texts them.</span>') + copy +
+      '<span class="gm-alt-n gm-alt-p">Photos and your logo don’t ride along. Text those to ' + PHONE_TXT + '. Or just call me: <a target="_top" href="tel:' + PHONE + '">' + PHONE_TXT + '</a>.</span></span>';
+  }
+  function onStatClick(e){
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    var go = t.closest('[data-gm-i]');
+    if (go) {
+      e.preventDefault();
+      var p = items[+go.getAttribute('data-gm-i')] || items[0]; if (!p) return;
+      goTo(p.el);
+      var i = p.el.querySelector('input:not([type=hidden]):not([type=file]), textarea');
+      if (i) try { i.focus({preventScroll: true}); } catch (x) {}
+      return;
+    }
+    var cp = t.closest('[data-gm-copy]');
+    if (cp) {
+      e.preventDefault();
+      var all = answers(), note = cp.parentNode.querySelector('[data-gm-copied]');
+      var shown = function(){ /* last resort: put the answers on the page, selected, ready to copy by hand */
+        var ta = cp.parentNode.querySelector('textarea.gm-alt-t');
+        if (!ta) { ta = document.createElement('textarea'); ta.className = 'gm-alt-t'; ta.readOnly = true; ta.rows = 8; ta.setAttribute('aria-label', 'Your answers'); cp.parentNode.insertBefore(ta, note ? note.nextSibling : null); }
+        ta.value = all; try { ta.focus(); ta.select(); } catch (x) {}
+        var ok = false; try { ok = document.execCommand('copy'); } catch (x) {}
+        if (note) note.textContent = ok ? 'Copied. Now paste it into a text to ' + PHONE_TXT + ' or an email to ' + MAIL + '.' : 'Your answers are in the box below. Press and hold to copy them, then paste into a text to ' + PHONE_TXT + ' or an email to ' + MAIL + '.';
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(all).then(function(){ if (note) note.textContent = 'Copied. Now paste it into a text to ' + PHONE_TXT + ' or an email to ' + MAIL + '.'; }, shown);
+      } else shown();
+    }
+  }
+  function mk(id){
+    var d = document.createElement('div');
+    d.id = id; d.className = 'gm-status'; d.hidden = true;
+    d.setAttribute('role', 'alert'); d.setAttribute('aria-live', 'assertive');
+    d.addEventListener('click', onStatClick);
+    return d;
   }
   function place(){
     if (!box) return;
     var w = box.querySelector(':scope > .form-field-wrapper:has(.form-builder--btn-submit)');
     if (!w) return;
-    if (!stat) {
-      stat = document.createElement('div');
-      stat.id = 'gm-status'; stat.className = 'gm-status'; stat.hidden = true;
-      stat.setAttribute('role', 'alert'); stat.setAttribute('aria-live', 'assertive');
-      stat.addEventListener('click', function(e){
-        var a = e.target.closest ? e.target.closest('[data-gm-go]') : null;
-        if (a) { e.preventDefault(); var b = badItems(); goTo(b[0]); var i = b[0] && b[0].querySelector('input:not([type=hidden]), textarea'); if (i) try { i.focus({preventScroll: true}); } catch (x) {} }
-      });
-    }
+    if (!stat) stat = mk('gm-status');
     if (stat.nextElementSibling !== w) box.insertBefore(stat, w);
+  }
+  function placeTop(first){ /* the same list, right on top of the first thing that needs fixing */
+    if (!first) { if (topBox && topBox.parentNode) topBox.parentNode.removeChild(topBox); return; }
+    var wrap = first.closest('.form-field-wrapper') || first;
+    if (!topBox) topBox = mk('gm-status-top');
+    if (topBox.parentNode !== wrap || wrap.firstChild !== topBox) wrap.insertBefore(topBox, wrap.firstChild);
+  }
+  function listHtml(bad){
+    var h = '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 thing still needs' : bad.length + ' things still need') + ' fixing. Tap one to go to it:<ol class="gm-list">';
+    for (var i = 0; i < bad.length; i++) h += '<li><a href="#" data-gm-i="' + i + '">' + esc(bad[i].name) + '</a> <span>' + esc(bad[i].why) + '</span></li>';
+    return h + '</ol>Each one is marked in red. Fix them, then press Send to Jonathan again.';
   }
   function check(){
     if (sentDone) return;
-    var now = Date.now(), since = now - pressed;
-    if (pressed && !formUp()) { /* the form was swapped for the thank-you note: it went through */
-      sentDone = true; clearInterval(timer); up({gmIntake: 'sent'});
+    var since = Date.now() - pressed;
+    if (pressed && !formUp()) {
+      if (/Got it\. I.m on it/i.test(document.body.textContent || '')) { /* the thank-you note replaced the form: it went through */
+        sentDone = true; clearInterval(timer);
+        var ok = document.createElement('div'); ok.className = 'gm-sent'; ok.setAttribute('role', 'status');
+        ok.innerHTML = '<b>Sent.</b> I’ve got your answers. You can close this page.';
+        var host = document.querySelector('#_builder-form') || document.body; host.insertBefore(ok, host.firstChild);
+        up({gmIntake: 'sent'});
+      }
       return;
     }
     if (!pressed) return;
     place();
-    var bad = badItems(), h = human(), b = btn(), late = since > 40000 ? fallback() : '';
+    var bad = problems(), h = human(), b = btn();
+    items = bad;
     if (bad.length) {
       hadBad = true;
-      var lab = bad[0].querySelector('label'); lab = lab ? lab.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : '';
-      say('bad', '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 answer is' : bad.length + ' answers are') + ' still needed.' + (lab ? ' First one: <b>' + lab.replace(/</g, '&lt;') + '</b>' : '') + ' <a href="#" data-gm-go="1">Take me there</a>');
-      if (!jumped && since > 350) { jumped = true; goTo(bad[0]); }
+      var html = listHtml(bad);
+      placeTop(bad[0].el); say(topBox, 'bad', html); say(stat, 'bad', html);
+      if (!jumped && since > 350) { jumped = true; goTo(topBox || bad[0].el); }
       return;
     }
-    if (hadBad && !h && !(b && b.disabled)) { hadBad = false; pressed = 0; clearInterval(timer); say('ok', '<b>All set.</b> Now press Send to Jonathan.'); return; }
-    if (h === 2) { say('bad', '<b>One more step.</b> Tick the <b>Verify you are human</b> box just below this. If it doesn’t send by itself after that, press Send to Jonathan again.' + late); return; }
-    if (h === 1) { say('wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up below, tick it.' + late); return; }
-    if (b && b.disabled) { say('wait', '<b>Sending…</b> Keep this page open. Photos can take a minute.' + late); return; }
-    if (since > 2500 && since < 180000) { say(late ? 'bad' : 'wait', late ? '<b>That didn’t send.</b> Press Send to Jonathan once more.' + late : '<b>Working on it…</b>'); return; }
-    if (since >= 180000) { pressed = 0; clearInterval(timer); }
+    placeTop(null);
+    if (hadBad && !h && !(b && b.disabled)) { hadBad = false; pressed = 0; clearInterval(timer); say(stat, 'ok', '<b>All fixed.</b> Now press Send to Jonathan.'); return; }
+    if (h === 2) { say(stat, 'bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.' + fallback('Box won’t take the tap?')); return; }
+    if (h === 1) { say(stat, 'wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.' + (since > 30000 ? fallback('Taking too long?') : '')); return; }
+    if (b && b.disabled) { say(stat, 'wait', '<b>Sending…</b> Keep this page open. With photos on cell service this can take a few minutes.' + (since > 45000 ? fallback('Still not done?') : '')); return; }
+    if (since > 6000 && since < 600000) { say(stat, 'bad', '<b>That didn’t send.</b> Press Send to Jonathan once more.' + fallback('Tried twice?')); return; }
+    if (since >= 600000) { pressed = 0; clearInterval(timer); }
   }
   function safe(){ try { check(); } catch (e) {} }
   function guard(){
