@@ -143,6 +143,7 @@
     if (busy) return; busy = true;
     setTimeout(function(){
       try { reorder(); clearHidden(); a11y(); heads(); } catch (e) {}
+      try { upWatch(); } catch (e) {}
       busy = false;
     }, 30);
   }
@@ -296,6 +297,37 @@
     for (var i = 0; i < bad.length; i++) h += '<li><a href="#" data-gm-i="' + i + '">' + esc(bad[i].name) + '</a> <span>' + esc(bad[i].why) + '</span></li>';
     return h + '</ol>' + (n1 ? 'It’s marked in red. Fix it, then press Send to Jonathan again.' : 'Each one is marked in red. Fix them, then press Send to Jonathan again.');
   }
+  /* ---- Upload watch (11/12/2026): while a photo is still uploading, GHL hides the Send button behind
+     a small spinner and ignores taps on it, with no words. Say so right at the button, count the
+     photos, and if one stops moving, say how to get unstuck. ---- */
+  var upSig = '', upMoved = 0, upTimer = 0, upOn = false;
+  function upRows(){ return box ? box.querySelectorAll('.upload-progress.uploading') : []; }
+  function upMsg(){
+    var rows = upRows(), n = rows.length, all = box.querySelectorAll('.upload-card').length, sig = n + '/' + all;
+    for (var i = 0; i < n; i++) sig += '|' + rows[i].textContent.replace(/\s+/g, '');
+    if (sig !== upSig) { upSig = sig; upMoved = Date.now(); }
+    var done = Math.max(0, all - n), stuck = Date.now() - upMoved > 45000;
+    var count = all > 1 ? ' ' + done + ' of ' + all + ' photos are done.' : '';
+    place();
+    if (stuck) tell('bad', '<b>A photo is stuck.</b>' + count + ' The Send to Jonathan button stays hidden until every photo finishes. Go back up to your photos and tap the trash can next to the one that is not moving. The button comes back. Then text that photo to ' + PHONE_TXT + ' instead.', fallback('Still no button?'));
+    else tell('wait', '<b>Your photos are still uploading.</b>' + count + ' The Send to Jonathan button comes back when they finish. Keep this page open. On cell service this can take a few minutes.', '');
+  }
+  function upWatch(){
+    if (!box || sentDone) return;
+    if (upRows().length) {
+      upOn = true;
+      if (!upTimer) upTimer = setInterval(function(){ try { upWatch(); } catch (e) {} }, 1000);
+      if (!pressed || !problems().length) upMsg();
+      return;
+    }
+    if (!upOn) return;
+    upOn = false; upSig = ''; clearInterval(upTimer); upTimer = 0;
+    if (pressed) return;
+    var failed = box.querySelectorAll('.upload-progress.error').length, cards = box.querySelectorAll('.upload-card').length;
+    if (failed) tell('bad', '<b>' + (failed === 1 ? 'A photo did not upload.' : failed + ' photos did not upload.') + '</b> Go back up to your photos and tap the trash can next to ' + (failed === 1 ? 'the one' : 'each one') + ' marked in red. Then add it again, or text it to ' + PHONE_TXT + ' instead.', '');
+    else if (cards) tell('ok', '<b>Photos are in.</b> Finish the last questions, then press Send to Jonathan.', '');
+    else tell('', '', '');
+  }
   function check(){
     if (sentDone) return;
     var since = Date.now() - pressed;
@@ -328,6 +360,7 @@
       return;
     }
     placeTop(null); anchor = null;
+    if (upRows().length) { upMsg(); return; }
     if (h === 2) { tell('bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.', fallback('Box won’t take the tap?')); return; }
     if (h === 1) { tell('wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.', since > 30000 ? fallback('Taking too long?') : ''); return; }
     if (hiccup()) { tell('bad', '<b>That didn’t send.</b> The form hit a snag on its end. Press Send to Jonathan once more.', fallback('Same thing again?')); return; }
@@ -339,6 +372,7 @@
   function guard(){
     document.addEventListener('click', function(e){
       var b = e.target.closest ? e.target.closest('button') : null;
+      if (!b && e.target.closest && e.target.closest('.form-builder--btn-submit') && upRows().length) { try { upMsg(); goTo(stat); } catch (x) {} return; }
       if (!b || b !== btn()) return;
       pressed = Date.now(); jumped = false; hadBad = false; anchor = null; try { place(); placeTop(null); } catch (x) {}
       clearInterval(timer); timer = setInterval(safe, 400);
