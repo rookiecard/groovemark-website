@@ -153,7 +153,7 @@
      If it will not go through, it offers to text (phone) or email (computer) the answers, already
      typed in, or to copy them. ---- */
   var PHONE = '+14062098235', PHONE_TXT = '406-209-8235', MAIL = 'jonathan@groovemarkhq.com';
-  var stat, topBox, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false, items = [];
+  var stat, topBox, pressed = 0, sentDone = false, timer = 0, jumped = false, hadBad = false, items = [], anchor = null;
   var ONPHONE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '') || (window.matchMedia && matchMedia('(pointer: coarse)').matches && (navigator.maxTouchPoints || 0) > 0);
   function esc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function up(msg){ try { if (window.parent && window.parent !== window) window.parent.postMessage(msg, '*'); } catch (e) {} }
@@ -249,6 +249,7 @@
       if (i) try { i.focus({preventScroll: true}); } catch (x) {}
       return;
     }
+    if (t.closest('[data-gm-send]')) { e.preventDefault(); goTo(btn()); return; }
     var cp = t.closest('[data-gm-copy]');
     if (cp) {
       e.preventDefault();
@@ -286,9 +287,10 @@
     if (topBox.parentNode !== wrap || wrap.firstChild !== topBox) wrap.insertBefore(topBox, wrap.firstChild);
   }
   function listHtml(bad){
-    var h = '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 thing still needs' : bad.length + ' things still need') + ' fixing. Tap one to go to it:<ol class="gm-list">';
+    var n1 = bad.length === 1;
+    var h = '<b>Not sent yet.</b> ' + (n1 ? '1 thing still needs fixing. Tap it to go to it:' : bad.length + ' things still need fixing. Tap one to go to it:') + '<ol class="gm-list">';
     for (var i = 0; i < bad.length; i++) h += '<li><a href="#" data-gm-i="' + i + '">' + esc(bad[i].name) + '</a> <span>' + esc(bad[i].why) + '</span></li>';
-    return h + '</ol>Each one is marked in red. Fix them, then press Send to Jonathan again.';
+    return h + '</ol>' + (n1 ? 'It’s marked in red. Fix it, then press Send to Jonathan again.' : 'Each one is marked in red. Fix them, then press Send to Jonathan again.');
   }
   function check(){
     if (sentDone) return;
@@ -310,12 +312,18 @@
     if (bad.length) {
       hadBad = true;
       var html = listHtml(bad);
-      placeTop(bad[0].el); say(topBox, 'bad', html); say(stat, 'bad', html);
+      if (!anchor || !anchor.isConnected || !vis(anchor)) anchor = bad[0].el;
+      placeTop(anchor); say(topBox, 'bad', html); say(stat, 'bad', html);
       if (!jumped && since > 350) { jumped = true; goTo(topBox || bad[0].el); }
       return;
     }
-    placeTop(null);
-    if (hadBad && !h && !(b && b.disabled)) { hadBad = false; pressed = 0; clearInterval(timer); say(stat, 'ok', '<b>All fixed.</b> Now press Send to Jonathan.'); return; }
+    if (hadBad && !h && !(b && b.disabled)) {
+      hadBad = false; pressed = 0; clearInterval(timer);
+      say(stat, 'ok', '<b>All fixed.</b> Now press Send to Jonathan.');
+      if (topBox && topBox.isConnected) say(topBox, 'ok', '<b>All fixed.</b> Now press Send to Jonathan. <a href="#" data-gm-send="1">Take me to the button</a>');
+      return;
+    }
+    placeTop(null); anchor = null;
     if (h === 2) { say(stat, 'bad', '<b>Not sent yet. One more step.</b> Tap the <b>Verify you are human</b> box just below this. It’s a spam check. If it doesn’t send by itself a few seconds after that, press Send to Jonathan again.' + fallback('Box won’t take the tap?')); return; }
     if (h === 1) { say(stat, 'wait', '<b>Checking you’re a real person.</b> This takes a few seconds. If a box shows up just below, tap it.' + (since > 30000 ? fallback('Taking too long?') : '')); return; }
     if (hiccup()) { say(stat, 'bad', '<b>That didn’t send.</b> The form hit a snag on its end. Press Send to Jonathan once more.' + fallback('Same thing again?')); return; }
@@ -328,7 +336,7 @@
     document.addEventListener('click', function(e){
       var b = e.target.closest ? e.target.closest('button') : null;
       if (!b || b !== btn()) return;
-      pressed = Date.now(); jumped = false; hadBad = false; try { place(); } catch (x) {}
+      pressed = Date.now(); jumped = false; hadBad = false; anchor = null; try { place(); placeTop(null); } catch (x) {}
       clearInterval(timer); timer = setInterval(safe, 400);
     }, true);
   }
