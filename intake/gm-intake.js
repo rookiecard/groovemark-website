@@ -238,7 +238,7 @@
     if (bad.length) {
       hadBad = true;
       var lab = bad[0].querySelector('label'); lab = lab ? lab.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim() : '';
-      say('bad', '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 answer is' : bad.length + ' answers are') + ' still needed' + (lab ? ', starting with <b>' + lab.replace(/</g, '&lt;') + '</b>' : '') + '. <a href="#" data-gm-go="1">Take me there</a>');
+      say('bad', '<b>Not sent yet.</b> ' + (bad.length === 1 ? '1 answer is' : bad.length + ' answers are') + ' still needed.' + (lab ? ' First one: <b>' + lab.replace(/</g, '&lt;') + '</b>' : '') + ' <a href="#" data-gm-go="1">Take me there</a>');
       if (!jumped && since > 350) { jumped = true; goTo(bad[0]); }
       return;
     }
