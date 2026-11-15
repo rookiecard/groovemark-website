@@ -379,10 +379,11 @@
       clearInterval(timer); timer = setInterval(safe, 400);
     }, true);
   }
+  var tries = 0;
   function start(){
     var all = document.querySelectorAll('.fields-container'); box = null;
     for (var i = 0; i < all.length; i++) if (all[i].querySelector('[data-q="business_name"]') && all[i].closest('.form-side')) { box = all[i]; break; }
-    if (!box) return setTimeout(start, 150);
+    if (!box) { if (++tries < 400) setTimeout(start, 150); return; } /* stop looking after about a minute */
     box.classList.add('gm-js');
     run(); try { place(); guard(); } catch (e) {}
     new MutationObserver(function(m){
