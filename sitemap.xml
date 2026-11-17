@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/voice-agents/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://groovemarkhq.com/social-media/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -55,5 +55,10 @@
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/img/mascot-16x9.jpg</image:loc>
+      <image:title>Groovemark Lead Capture for equipment dealers and big-ticket shops</image:title>
+      <image:caption>Groovemark cartoon mascot; a chat helper on the web site a dealer already has, answering buyers and texting leads to the sales desk</image:caption>
+    </image:image>
   </url>
 </urlset>
