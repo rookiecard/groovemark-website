@@ -51,6 +51,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://groovemarkhq.com/google-reviews/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://groovemarkhq.com/img/mascot-16x9.jpg</image:loc>
+      <image:title>Groovemark Google Reviews for trade businesses</image:title>
+      <image:caption>Groovemark cartoon mascot; a Google review request after every job, and every review answered</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://groovemarkhq.com/lead-capture/</loc>
     <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
